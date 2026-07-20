@@ -1,0 +1,21 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# User-specific
+.vs/
+*.user
+
+# Secrets — never commit real credentials
+appsettings.secrets.json
+appsettings.*.secrets.json
+
+# IDE
+.idea/
+.vscode/
+
+# Claude Code local state (not shareable — machine/session-specific)
+.claude/
+# shared .claude/ folder is in ../.ai
+
+.DS_Store
