@@ -1,0 +1,1 @@
+{"action": "create", "reason": "When app settings drive backend behavior, the frontend must implement a three-legged sync pattern to ensure durability, backend notification, and eventual consistency across transient network or server state changes.", "evidence": "references/evidence-9f06a5a2.md"}

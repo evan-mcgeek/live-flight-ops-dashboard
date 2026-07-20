@@ -1,0 +1,1 @@
+watchSnapshot keeps polling after a fetch error instead of ending the stream

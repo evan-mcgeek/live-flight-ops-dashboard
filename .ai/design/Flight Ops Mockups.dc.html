@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent); text-decoration: underline; }
+  .fo {
+    --canvas: #0c1017;
+    --bg:#0a0f17; --panel:#111a27; --panel2:#16202f; --raised:#1b2637;
+    --line:rgba(255,255,255,0.08); --line2:rgba(255,255,255,0.15);
+    --t1:#e8eef7; --t2:#9fb0c6; --t3:#63748d;
+    --accent:#38e1c4; --accent-ink:#04150f; --accent-dim:rgba(56,225,196,0.14);
+    --ground:#f5a623; --stale:#f5a623; --danger:#ff5470;
+    --map-land:#0e1826; --map-water:#0a2233; --map-road:rgba(255,255,255,0.05);
+    --map-green:rgba(56,225,196,0.045); --map-block:rgba(255,255,255,0.028);
+    --nav-bg:rgba(12,19,29,0.82); --chip:rgba(16,24,36,0.82);
+    --plane-stroke:rgba(4,21,15,0.55);
+    font-family: 'Barlow', system-ui, sans-serif;
+  }
+  .fo[data-theme="light"] {
+    --canvas:#dfe3ea;
+    --bg:#eef1f6; --panel:#ffffff; --panel2:#f4f6fa; --raised:#ffffff;
+    --line:rgba(15,25,45,0.09); --line2:rgba(15,25,45,0.16);
+    --t1:#0e1728; --t2:#57677f; --t3:#8a97ab;
+    --accent:#0ea28c; --accent-ink:#ffffff; --accent-dim:rgba(14,162,140,0.12);
+    --ground:#c77d0a; --stale:#c77d0a; --danger:#e02f52;
+    --map-land:#e7e3db; --map-water:#aad3df; --map-road:#ffffff;
+    --map-green:#c9e3ba; --map-block:rgba(0,0,0,0.035);
+    --nav-bg:rgba(255,255,255,0.85); --chip:rgba(255,255,255,0.9);
+    --plane-stroke:#ffffff;
+  }
+  .fo ::placeholder { color: var(--t3); }
+  .fo input { font-family: 'Barlow', system-ui, sans-serif; }
+  @keyframes fo-pulse { 0%{ transform:scale(1); opacity:0.85 } 70%{ transform:scale(2.6); opacity:0 } 100%{ opacity:0 } }
+  @keyframes fo-blink { 0%,100%{ opacity:1 } 50%{ opacity:0.35 } }
+  @keyframes fo-spin { to { transform:rotate(360deg) } }
+  @keyframes fo-indet { 0%{ left:-40%; width:40% } 50%{ width:55% } 100%{ left:100%; width:40% } }
+  @keyframes fo-shimmer { 0%{ background-position:100% 0 } 100%{ background-position:-100% 0 } }
+  @keyframes fo-sweep { to { transform:rotate(360deg) } }
+  @keyframes fo-ring { 0%{ transform:scale(0.4); opacity:0.9 } 100%{ transform:scale(2.6); opacity:0 } }
+  @keyframes fo-fly { 0%{ transform:translate(-46px,46px) rotate(45deg); opacity:0 } 30%{ opacity:1 } 100%{ transform:translate(0,0) rotate(45deg); opacity:1 } }
+  @keyframes fo-rise { 0%{ opacity:0; transform:translateY(10px) } 100%{ opacity:1; transform:translateY(0) } }
+  @keyframes fo-fill { 0%{ width:0 } 100%{ width:100% } }
+  @keyframes fo-blink2 { 0%,100%{ opacity:0.4 } 50%{ opacity:1 } }
+  .fo-spin { animation: fo-spin .9s linear infinite; transform-origin:center; }
+  .fo-sk { background:linear-gradient(90deg, var(--panel) 25%, var(--panel2) 50%, var(--panel) 75%); background-size:220% 100%; animation: fo-shimmer 1.4s linear infinite; border-radius:6px; }
+  .segbtn { cursor:pointer; user-select:none; transition: color .15s; }
+  .segbtn[data-active="false"] { color: var(--t2); background: transparent; }
+  .segbtn[data-active="true"] { color: var(--accent-ink); background: var(--accent); }
+  .navtab[data-active="true"] { color: var(--accent); }
+  .navtab[data-active="false"] { color: var(--t3); }
+</style>
+</helmet>
+<div class="fo" data-theme="{{ theme }}" style="min-height:100vh; background:var(--canvas); padding:40px 44px 64px; color:var(--t1);">
+  <div style="display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:30px; max-width:1780px;">
+    <div>
+      <div style="font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); font-weight:600;">Live Flight Ops Dashboard</div>
+      <div style="font-size:24px; font-weight:700; letter-spacing:-0.01em; margin-top:4px;">Mobile mockups — iOS &nbsp;·&nbsp; 4 screens</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:6px;">
+        <span style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--t3); padding:0 8px 0 6px; font-weight:600;">State</span>
+        <div style="display:flex; background:var(--panel2); border-radius:9px; padding:3px;">
+          <div class="segbtn" data-active="{{ isLive }}" onClick="{{ setLive }}" style="padding:7px 15px; border-radius:7px; font-size:13px; font-weight:600;">Live</div>
+          <div class="segbtn" data-active="{{ isLoading }}" onClick="{{ setLoading }}" style="padding:7px 15px; border-radius:7px; font-size:13px; font-weight:600;">Loading</div>
+          <div class="segbtn" data-active="{{ isOffline }}" onClick="{{ setOffline }}" style="padding:7px 15px; border-radius:7px; font-size:13px; font-weight:600;">Offline</div>
+          <div class="segbtn" data-active="{{ isError }}" onClick="{{ setError }}" style="padding:7px 15px; border-radius:7px; font-size:13px; font-weight:600;">Error</div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:6px;">
+        <span style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--t3); padding:0 8px 0 6px; font-weight:600;">Theme</span>
+        <div style="display:flex; background:var(--panel2); border-radius:9px; padding:3px;">
+          <div class="segbtn" data-active="{{ isDark }}" onClick="{{ setDark }}" style="padding:7px 16px; border-radius:7px; font-size:13px; font-weight:600;">Dark</div>
+          <div class="segbtn" data-active="{{ isLight }}" onClick="{{ setLight }}" style="padding:7px 16px; border-radius:7px; font-size:13px; font-weight:600;">Light</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:52px; flex-wrap:wrap; align-items:flex-start;">
+
+    <!-- ═══════════ SCREEN 00 · SPLASH ═══════════ -->
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:baseline; gap:8px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent); font-weight:600;">00</span>
+        <span style="font-size:15px; font-weight:600;">Splash</span>
+        <span style="font-size:13px; color:var(--t3);">— launch / cold-start</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ isDark }}" hint-size="402px,874px">
+        <div style="position:relative; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:var(--bg); color:var(--t1); overflow:hidden;">
+          <!-- ambient grid + glow -->
+          <div style="position:absolute; inset:0; background:radial-gradient(120% 90% at 50% 40%, var(--accent-dim), transparent 60%);"></div>
+          <div style="position:absolute; inset:0; opacity:0.5; background:repeating-linear-gradient(0deg, transparent 0 46px, var(--line) 46px 47px), repeating-linear-gradient(90deg, transparent 0 46px, var(--line) 46px 47px); mask-image:radial-gradient(circle at 50% 42%, #000 30%, transparent 72%); -webkit-mask-image:radial-gradient(circle at 50% 42%, #000 30%, transparent 72%);"></div>
+
+          <!-- radar + plane mark -->
+          <div style="position:relative; width:180px; height:180px; display:flex; align-items:center; justify-content:center;">
+            <span style="position:absolute; width:120px; height:120px; border-radius:50%; border:1.5px solid var(--accent); animation:fo-ring 2.6s ease-out infinite;"></span>
+            <span style="position:absolute; width:120px; height:120px; border-radius:50%; border:1.5px solid var(--accent); animation:fo-ring 2.6s ease-out infinite 1.3s;"></span>
+            <div style="position:absolute; width:150px; height:150px; border-radius:50%; border:1px solid var(--line2);"></div>
+            <div style="position:absolute; width:96px; height:96px; border-radius:50%; border:1px solid var(--line2);"></div>
+            <!-- sweep -->
+            <div style="position:absolute; width:150px; height:150px; border-radius:50%; overflow:hidden; animation:fo-sweep 2.4s linear infinite;">
+              <div style="position:absolute; left:50%; top:0; width:50%; height:50%; background:conic-gradient(from 0deg, var(--accent-dim), transparent 70%); transform-origin:left bottom;"></div>
+            </div>
+            <!-- plane -->
+            <svg width="52" height="52" viewBox="0 0 24 24" style="position:relative; transform:rotate(45deg); animation:fo-fly 1.1s cubic-bezier(.2,.7,.2,1) both; filter:drop-shadow(0 3px 8px rgba(0,0,0,0.4));"><path d="M12 2c-.6 0-1 .9-1 2v5.6L3 15.2v1.9l8-2.6V20l-2 1.5v1.4l3-1 3 1v-1.4L13 20v-5.5l8 2.6v-1.9L13 9.6V4c0-1.1-.4-2-1-2z" fill="var(--accent)" stroke="var(--plane-stroke)" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          </div>
+
+          <!-- wordmark -->
+          <div style="position:relative; text-align:center; margin-top:26px; animation:fo-rise .6s ease-out .35s both;">
+            <div style="font-size:12px; letter-spacing:0.34em; text-transform:uppercase; color:var(--accent); font-weight:600;">Live Flight Ops</div>
+            <div style="font-size:27px; font-weight:700; letter-spacing:-0.01em; margin-top:4px;">Dashboard</div>
+          </div>
+
+          <!-- loading bar -->
+          <div style="position:relative; width:150px; height:3px; border-radius:2px; background:var(--line2); overflow:hidden; margin-top:30px;">
+            <div style="position:absolute; inset:0; width:0; background:var(--accent); border-radius:2px; animation:fo-fill 2s ease-in-out .5s forwards;"></div>
+          </div>
+
+          <!-- footer status -->
+          <div style="position:absolute; bottom:52px; display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--t3);">
+            <span style="width:7px; height:7px; border-radius:50%; background:var(--accent); animation:fo-blink2 1.4s ease-in-out infinite;"></span>
+            Connecting to OpenSky Network…
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- ═══════════ SCREEN 1 · MAP ═══════════ -->
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:baseline; gap:8px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent); font-weight:600;">01</span>
+        <span style="font-size:15px; font-weight:600;">Map view</span>
+        <span style="font-size:13px; color:var(--t3);">— primary screen</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ isDark }}" hint-size="402px,874px">
+        <div style="position:relative; height:100%; display:flex; flex-direction:column; background:var(--bg); color:var(--t1); overflow:hidden;">
+          <!-- MAP LAYER -->
+          <div style="position:absolute; inset:0; overflow:hidden; background:var(--map-water);">
+            <img src="uploads/Screenshot 2026-07-16 at 11.59.29 PM.png" alt="OpenStreetMap tiles" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:38% 30%;" />
+          </div>
+
+          <!-- markers -->
+          <div style="position:absolute; left:22%; top:34%;">{{ airMarker }}</div>
+          <div style="position:absolute; left:66%; top:28%;">{{ airMarker }}</div>
+          <div style="position:absolute; left:78%; top:52%;">{{ airMarker }}</div>
+          <div style="position:absolute; left:34%; top:62%;">{{ airMarker }}</div>
+          <div style="position:absolute; left:56%; top:74%;">{{ airMarker }}</div>
+          <div style="position:absolute; left:15%; top:70%;">{{ groundMarker }}</div>
+          <div style="position:absolute; left:71%; top:80%;">{{ groundMarker }}</div>
+
+          <!-- cluster badge -->
+          <div style="position:absolute; left:41%; top:44%; transform:translate(-50%,-50%); width:46px; height:46px; border-radius:50%; background:var(--accent-dim); border:1.5px solid var(--accent); display:flex; align-items:center; justify-content:center; backdrop-filter:blur(2px);">
+            <span style="font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:15px; color:var(--accent);">23</span>
+          </div>
+
+          <!-- selected marker + label -->
+          <div style="position:absolute; left:52%; top:56%; transform:translate(-50%,-50%);">
+            <div style="position:absolute; left:50%; top:50%; width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; border:1.5px solid var(--accent); background:var(--accent-dim);"></div>
+            <div style="position:absolute; left:50%; top:-30px; transform:translateX(-50%); background:var(--accent); color:var(--accent-ink); font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:12px; padding:3px 8px; border-radius:6px; white-space:nowrap; box-shadow:0 3px 10px rgba(0,0,0,0.35);">BAW256</div>
+            <div style="position:relative;">{{ selMarker }}</div>
+          </div>
+
+          <!-- status chip -->
+          <sc-if value="{{ isLive }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; top:60px; left:50%; transform:translateX(-50%); z-index:16; display:flex; align-items:center; gap:9px; background:var(--chip); backdrop-filter:blur(14px); border:1px solid var(--line); border-radius:999px; padding:8px 15px; box-shadow:0 6px 20px rgba(0,0,0,0.25);">
+            <span style="position:relative; width:8px; height:8px;">
+              <span style="position:absolute; inset:0; border-radius:50%; background:var(--accent); animation:fo-pulse 2s ease-out infinite;"></span>
+              <span style="position:absolute; inset:0; border-radius:50%; background:var(--accent);"></span>
+            </span>
+            <span style="font-size:13px; font-weight:600; letter-spacing:0.02em;">Live</span>
+            <span style="width:1px; height:14px; background:var(--line2);"></span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--t2); white-space:nowrap;">128 aircraft</span>
+          </div>
+          </sc-if>
+          <sc-if value="{{ isOffline }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:60px; left:50%; transform:translateX(-50%); z-index:16; display:flex; align-items:center; gap:9px; background:var(--chip); backdrop-filter:blur(14px); border:1px solid var(--danger); border-radius:999px; padding:8px 15px; box-shadow:0 6px 20px rgba(0,0,0,0.25);">
+            <span style="width:8px; height:8px; border-radius:50%; background:var(--danger);"></span>
+            <span style="font-size:13px; font-weight:600; letter-spacing:0.02em; color:var(--danger);">No connection</span>
+          </div>
+          </sc-if>
+          <sc-if value="{{ isError }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:60px; left:50%; transform:translateX(-50%); z-index:16; display:flex; align-items:center; gap:9px; background:var(--chip); backdrop-filter:blur(14px); border:1px solid var(--danger); border-radius:999px; padding:8px 15px; box-shadow:0 6px 20px rgba(0,0,0,0.25);">
+            <span style="width:8px; height:8px; border-radius:50%; background:var(--danger);"></span>
+            <span style="font-size:13px; font-weight:600; letter-spacing:0.02em; color:var(--danger);">Error</span>
+          </div>
+          </sc-if>
+
+          <!-- loading top bar -->
+          <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:0; left:0; right:0; height:3px; z-index:19; overflow:hidden; background:var(--accent-dim);">
+            <div style="position:absolute; top:0; height:100%; background:var(--accent); animation:fo-indet 1.3s ease-in-out infinite;"></div>
+          </div>
+          </sc-if>
+
+          <!-- loading center indicator -->
+          <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; right:14px; top:108px; z-index:15; width:42px; height:42px; display:flex; align-items:center; justify-content:center; background:var(--chip); backdrop-filter:blur(14px); border:1px solid var(--line); border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.25);">
+            <svg class="fo-spin" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--line2)" stroke-width="2.6"/><path d="M21 12a9 9 0 0 0-9-9" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+          </div>
+          </sc-if>
+
+          <!-- offline overlay -->
+          <sc-if value="{{ isOffline }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; inset:0; z-index:17; background:rgba(6,10,16,0.55); backdrop-filter:blur(3px) saturate(60%); display:flex; align-items:center; justify-content:center; padding:28px;">
+            <div style="width:100%; max-width:300px; background:var(--panel); border:1px solid var(--line2); border-radius:18px; padding:24px 22px; text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.45);">
+              <div style="width:56px; height:56px; margin:0 auto 14px; border-radius:50%; background:rgba(255,84,112,0.12); display:flex; align-items:center; justify-content:center;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12.5a9 9 0 0 1 14 0M8.5 16a4.5 4.5 0 0 1 7 0M2 9a14 14 0 0 1 20 0" stroke="var(--danger)" stroke-width="1.9" stroke-linecap="round"/><path d="M4 4l16 16" stroke="var(--danger)" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="20" r="1.2" fill="var(--danger)"/></svg>
+              </div>
+              <div style="font-size:18px; font-weight:700;">No connection to server</div>
+              <div style="font-size:13.5px; color:var(--t2); line-height:1.45; margin-top:6px;">Can't reach the OpenSky feed. Check your connection — positions may be out of date.</div>
+              <div onClick="{{ setLive }}" style="cursor:pointer; margin-top:16px; display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:var(--accent-ink); background:var(--accent); padding:11px 20px; border-radius:11px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 2.3 5.6M4 20v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Retry</div>
+            </div>
+          </div>
+          </sc-if>
+
+          <!-- generic error overlay -->
+          <sc-if value="{{ isError }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; inset:0; z-index:17; background:rgba(6,10,16,0.55); backdrop-filter:blur(3px) saturate(60%); display:flex; align-items:center; justify-content:center; padding:28px;">
+            <div style="width:100%; max-width:300px; background:var(--panel); border:1px solid var(--line2); border-radius:18px; padding:24px 22px; text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.45);">
+              <div style="width:56px; height:56px; margin:0 auto 14px; border-radius:50%; background:rgba(255,84,112,0.12); display:flex; align-items:center; justify-content:center;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3 L22 20 L2 20 Z" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4" stroke="var(--danger)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="var(--danger)"/></svg>
+              </div>
+              <div style="font-size:18px; font-weight:700;">Something went wrong</div>
+              <div style="font-size:13.5px; color:var(--t2); line-height:1.45; margin-top:6px;">We hit an unexpected error loading aircraft. Please try again.</div>
+              <div onClick="{{ setLive }}" style="cursor:pointer; margin-top:16px; display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:var(--accent-ink); background:var(--accent); padding:11px 20px; border-radius:11px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 2.3 5.6M4 20v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Try again</div>
+            </div>
+          </div>
+          </sc-if>
+
+          <!-- zoom controls -->
+          <div style="position:absolute; right:14px; top:47%; display:flex; flex-direction:column; background:var(--chip); backdrop-filter:blur(14px); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.25);">
+            <div style="width:42px; height:42px; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:500; color:var(--t1); border-bottom:1px solid var(--line);">+</div>
+            <div style="width:42px; height:42px; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:500; color:var(--t1);">−</div>
+          </div>
+          <!-- recenter -->
+          <div style="position:absolute; right:14px; top:calc(47% + 96px); width:42px; height:42px; background:var(--chip); backdrop-filter:blur(14px); border:1px solid var(--line); border-radius:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,0.25);">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4" stroke="var(--accent)" stroke-width="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+
+          <!-- legend -->
+          <div style="position:absolute; left:14px; bottom:104px; display:flex; flex-direction:column; gap:8px; background:var(--chip); backdrop-filter:blur(14px); border:1px solid var(--line); border-radius:12px; padding:11px 13px; box-shadow:0 6px 18px rgba(0,0,0,0.25);">
+            <div style="display:flex; align-items:center; gap:9px;">
+              <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2c-.6 0-1 .9-1 2v5.6L3 15.2v1.9l8-2.6V20l-2 1.5v1.4l3-1 3 1v-1.4L13 20v-5.5l8 2.6v-1.9L13 9.6V4c0-1.1-.4-2-1-2z" fill="var(--accent)"/></svg>
+              <span style="font-size:12px; color:var(--t2);">Airborne</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:9px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" style="opacity:0.9;"><path d="M12 2c-.6 0-1 .9-1 2v5.6L3 15.2v1.9l8-2.6V20l-2 1.5v1.4l3-1 3 1v-1.4L13 20v-5.5l8 2.6v-1.9L13 9.6V4c0-1.1-.4-2-1-2z" fill="var(--ground)"/></svg>
+              <span style="font-size:12px; color:var(--t2);">On ground</span>
+            </div>
+          </div>
+
+          <!-- attribution -->
+          <div style="position:absolute; right:8px; bottom:98px; font-size:10px; color:var(--t3); background:var(--chip); padding:2px 6px; border-radius:5px;">© OpenStreetMap</div>
+
+          <!-- floating nav -->
+          <div style="position:absolute; left:50%; bottom:32px; transform:translateX(-50%); z-index:20; display:flex; align-items:center; gap:5px; background:var(--chip); backdrop-filter:blur(20px) saturate(160%); border:1px solid var(--line2); border-radius:999px; padding:6px; box-shadow:0 16px 36px rgba(0,0,0,0.34), 0 3px 10px rgba(0,0,0,0.2);">
+            <div style="display:flex; align-items:center; gap:8px; background:var(--accent); color:var(--accent-ink); border-radius:999px; padding:12px 18px 12px 16px; box-shadow:0 2px 8px rgba(0,0,0,0.18);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg><span style="font-size:13.5px; font-weight:600;">Map</span></div>
+            <div style="width:48px; height:48px; border-radius:999px; display:flex; align-items:center; justify-content:center; color:var(--t2);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="3" rx="1.5" fill="currentColor"/><rect x="4" y="10.5" width="16" height="3" rx="1.5" fill="currentColor"/><rect x="4" y="16" width="16" height="3" rx="1.5" fill="currentColor"/></svg></div>
+            <div style="width:48px; height:48px; border-radius:999px; display:flex; align-items:center; justify-content:center; color:var(--t2);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 8h9M17 8h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="15" cy="8" r="2.2" stroke="currentColor" stroke-width="1.8"/><path d="M4 16h3M11 16h9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="16" r="2.2" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- ═══════════ SCREEN 2 · LIST ═══════════ -->
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:baseline; gap:8px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent); font-weight:600;">02</span>
+        <span style="font-size:15px; font-weight:600;">List &amp; search</span>
+        <span style="font-size:13px; color:var(--t3);">— try typing</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ isDark }}" hint-size="402px,874px">
+        <div style="position:relative; height:100%; display:flex; flex-direction:column; background:var(--bg); color:var(--t1); overflow:hidden;">
+          <!-- header -->
+          <div style="padding:58px 20px 12px; background:var(--bg);">
+            <div style="display:flex; align-items:baseline; justify-content:space-between;">
+              <div style="font-size:30px; font-weight:700; letter-spacing:-0.02em;">Aircraft</div>
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--t2);">{{ resultCount }}</div>
+            </div>
+            <div style="font-size:13px; color:var(--t3); margin-top:2px;">Same region as map · EDDF ~120 km</div>
+            <!-- stale indicator -->
+            <sc-if value="{{ isLive }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex; align-items:center; gap:8px; margin-top:12px; background:var(--accent-dim); border:1px solid var(--stale); border-radius:8px; padding:7px 11px;">
+              <svg width="15" height="15" viewBox="0 0 24 24"><path d="M12 3 L22 20 L2 20 Z" fill="none" stroke="var(--stale)" stroke-width="2" stroke-linejoin="round"/><path d="M12 9v5" stroke="var(--stale)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.1" fill="var(--stale)"/></svg>
+              <span style="font-size:12px; color:var(--stale); font-weight:500;">Cached snapshot · live feed unavailable, 47s old</span>
+            </div>
+            </sc-if>
+            <sc-if value="{{ isOffline }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; align-items:center; gap:8px; margin-top:12px; background:rgba(255,84,112,0.12); border:1px solid var(--danger); border-radius:8px; padding:7px 11px;">
+              <span style="width:8px; height:8px; border-radius:50%; background:var(--danger); flex-shrink:0;"></span>
+              <span style="font-size:12px; color:var(--danger); font-weight:500;">Disconnected · showing last known list</span>
+            </div>
+            </sc-if>
+            <!-- search -->
+            <div style="display:flex; align-items:center; gap:9px; margin-top:12px; background:var(--panel); border:1px solid var(--line); border-radius:11px; padding:11px 13px;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="var(--t3)" stroke-width="2"/><path d="M15.5 15.5L20 20" stroke="var(--t3)" stroke-width="2" stroke-linecap="round"/></svg>
+              <input value="{{ query }}" onInput="{{ onSearch }}" placeholder="Search callsign or country" style="flex:1; border:none; outline:none; background:transparent; color:var(--t1); font-size:15px; min-width:0;" />
+              <sc-if value="{{ hasQuery }}" hint-placeholder-val="{{ false }}">
+                <div onClick="{{ clearSearch }}" style="cursor:pointer; width:18px; height:18px; border-radius:50%; background:var(--line2); display:flex; align-items:center; justify-content:center; color:var(--bg); font-size:12px; line-height:1;">✕</div>
+              </sc-if>
+            </div>
+          </div>
+
+          <!-- scroll list -->
+          <div style="flex:1; overflow:auto; padding:4px 0 96px;">
+            <sc-if value="{{ listLoading }}" hint-placeholder-val="{{ false }}">
+              <div>
+                <sc-for list="{{ skel }}" as="s" hint-placeholder-count="6">
+                  <div style="display:flex; align-items:center; gap:14px; padding:16px 20px; border-bottom:1px solid var(--line);">
+                    <div class="fo-sk" style="width:20px; height:20px; border-radius:50%;"></div>
+                    <div style="flex:1;">
+                      <div class="fo-sk" style="width:44%; height:16px;"></div>
+                      <div class="fo-sk" style="width:64%; height:11px; margin-top:8px;"></div>
+                    </div>
+                    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+                      <div class="fo-sk" style="width:56px; height:13px;"></div>
+                      <div class="fo-sk" style="width:38px; height:11px;"></div>
+                    </div>
+                    <div class="fo-sk" style="width:44px; height:20px; border-radius:999px;"></div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ listOffline }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:56px 32px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px;">
+                <div style="width:56px; height:56px; border-radius:50%; background:rgba(255,84,112,0.12); display:flex; align-items:center; justify-content:center;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12.5a9 9 0 0 1 14 0M8.5 16a4.5 4.5 0 0 1 7 0M2 9a14 14 0 0 1 20 0" stroke="var(--danger)" stroke-width="1.9" stroke-linecap="round"/><path d="M4 4l16 16" stroke="var(--danger)" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="20" r="1.2" fill="var(--danger)"/></svg>
+                </div>
+                <div style="font-size:17px; font-weight:700; color:var(--t1);">No connection to server</div>
+                <div style="font-size:14px; color:var(--t3); max-width:250px; line-height:1.45;">Can't reach the OpenSky feed. We'll reconnect automatically, or tap retry.</div>
+                <div onClick="{{ setLive }}" style="cursor:pointer; margin-top:4px; display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:var(--accent-ink); background:var(--accent); padding:10px 20px; border-radius:11px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 2.3 5.6M4 20v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Retry</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ listError }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:56px 32px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px;">
+                <div style="width:56px; height:56px; border-radius:50%; background:rgba(255,84,112,0.12); display:flex; align-items:center; justify-content:center;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3 L22 20 L2 20 Z" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4" stroke="var(--danger)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="var(--danger)"/></svg>
+                </div>
+                <div style="font-size:17px; font-weight:700; color:var(--t1);">Something went wrong</div>
+                <div style="font-size:14px; color:var(--t3); max-width:250px; line-height:1.45;">We hit an unexpected error loading aircraft. Please try again.</div>
+                <div onClick="{{ setLive }}" style="cursor:pointer; margin-top:4px; display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:var(--accent-ink); background:var(--accent); padding:10px 20px; border-radius:11px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 2.3 5.6M4 20v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Try again</div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
+              <div>
+                <sc-for list="{{ list }}" as="ac" hint-placeholder-count="6">
+                  <div style="display:flex; align-items:center; gap:14px; padding:14px 20px; border-bottom:1px solid var(--line);">
+                    <div style="width:26px; display:flex; justify-content:center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" style="transform:rotate({{ ac.hdg }}deg)"><path d="M12 2c-.6 0-1 .9-1 2v5.6L3 15.2v1.9l8-2.6V20l-2 1.5v1.4l3-1 3 1v-1.4L13 20v-5.5l8 2.6v-1.9L13 9.6V4c0-1.1-.4-2-1-2z" fill="{{ ac.markColor }}"/></svg>
+                    </div>
+                    <div style="flex:1; min-width:0;">
+                      <div style="font-family:'IBM Plex Mono',monospace; font-size:19px; font-weight:600; letter-spacing:0.01em;">{{ ac.callsign }}</div>
+                      <div style="font-size:13px; color:var(--t2); margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ ac.country }}</div>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--t1);">{{ ac.altText }}</div>
+                      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--t3); margin-top:2px;">{{ ac.velText }}</div>
+                    </div>
+                    <div style="width:52px; display:flex; justify-content:flex-end;">{{ ac.badge }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:64px 32px; text-align:center; display:flex; flex-direction:column; align-items:center; gap:14px;">
+                <svg width="54" height="54" viewBox="0 0 24 24" fill="none" style="opacity:0.5;"><circle cx="12" cy="12" r="9" stroke="var(--t3)" stroke-width="1.6"/><circle cx="12" cy="12" r="4.5" stroke="var(--t3)" stroke-width="1.6"/><path d="M4 20L20 4" stroke="var(--t3)" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <div style="font-size:17px; font-weight:600; color:var(--t1);">No aircraft in this area</div>
+                <div style="font-size:14px; color:var(--t3); max-width:230px; line-height:1.4;">Nothing matches your search. Try clearing it or zooming out on the map.</div>
+                <div onClick="{{ clearSearch }}" style="cursor:pointer; margin-top:4px; font-size:14px; font-weight:600; color:var(--accent-ink); background:var(--accent); padding:9px 18px; border-radius:10px;">Clear search</div>
+              </div>
+            </sc-if>
+          </div>
+
+          <!-- floating nav -->
+          <div style="position:absolute; left:50%; bottom:32px; transform:translateX(-50%); z-index:20; display:flex; align-items:center; gap:5px; background:var(--chip); backdrop-filter:blur(20px) saturate(160%); border:1px solid var(--line2); border-radius:999px; padding:6px; box-shadow:0 16px 36px rgba(0,0,0,0.34), 0 3px 10px rgba(0,0,0,0.2);">
+            <div style="width:48px; height:48px; border-radius:999px; display:flex; align-items:center; justify-content:center; color:var(--t2);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div>
+            <div style="display:flex; align-items:center; gap:8px; background:var(--accent); color:var(--accent-ink); border-radius:999px; padding:12px 18px 12px 16px; box-shadow:0 2px 8px rgba(0,0,0,0.18);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="3" rx="1.5" fill="currentColor"/><rect x="4" y="10.5" width="16" height="3" rx="1.5" fill="currentColor"/><rect x="4" y="16" width="16" height="3" rx="1.5" fill="currentColor"/></svg><span style="font-size:13.5px; font-weight:600;">List</span></div>
+            <div style="width:48px; height:48px; border-radius:999px; display:flex; align-items:center; justify-content:center; color:var(--t2);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 8h9M17 8h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="15" cy="8" r="2.2" stroke="currentColor" stroke-width="1.8"/><path d="M4 16h3M11 16h9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="16" r="2.2" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- ═══════════ SCREEN 3 · SETTINGS ═══════════ -->
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:baseline; gap:8px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent); font-weight:600;">03</span>
+        <span style="font-size:15px; font-weight:600;">Settings</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ isDark }}" hint-size="402px,874px">
+        <div style="position:relative; height:100%; display:flex; flex-direction:column; background:var(--bg); color:var(--t1); overflow:hidden;">
+          <div style="flex:1; overflow:auto; padding:58px 20px 96px;">
+            <div style="font-size:30px; font-weight:700; letter-spacing:-0.02em; margin-bottom:22px;">Settings</div>
+
+            <!-- Live updates card -->
+            <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--t3); font-weight:600; margin:0 4px 8px;">Live updates</div>
+            <div style="background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:16px;">
+              <div style="display:flex; background:var(--panel2); border-radius:11px; padding:4px;">
+                <div class="segbtn" data-active="{{ isStandard }}" onClick="{{ setStandard }}" style="flex:1; text-align:center; padding:11px; border-radius:8px; font-size:15px; font-weight:600;">Standard</div>
+                <div class="segbtn" data-active="{{ isRealtime }}" onClick="{{ setRealtime }}" style="flex:1; text-align:center; padding:11px; border-radius:8px; font-size:15px; font-weight:600;">Real-time</div>
+              </div>
+              <div style="display:flex; gap:8px; margin-top:14px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:1px;"><circle cx="12" cy="12" r="9" stroke="var(--t3)" stroke-width="1.8"/><path d="M12 8v5" stroke="var(--t3)" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16" r="1" fill="var(--t3)"/></svg>
+                <div style="font-size:13.5px; color:var(--t2); line-height:1.45;">{{ liveExplain }}</div>
+              </div>
+            </div>
+
+            <!-- Appearance -->
+            <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--t3); font-weight:600; margin:26px 4px 8px;">Appearance</div>
+            <div style="background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:14px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+              <span style="font-size:16px;">Theme</span>
+              <div style="display:flex; background:var(--panel2); border-radius:9px; padding:3px;">
+                <div class="segbtn" data-active="{{ isDark }}" onClick="{{ setDark }}" style="padding:8px 15px; border-radius:7px; font-size:14px; font-weight:600;">Dark</div>
+                <div class="segbtn" data-active="{{ isLight }}" onClick="{{ setLight }}" style="padding:8px 15px; border-radius:7px; font-size:14px; font-weight:600;">Light</div>
+              </div>
+            </div>
+
+            <!-- Data source footnote -->
+            <div style="font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--t3); font-weight:600; margin:26px 4px 8px;">Data source</div>
+            <div style="background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:16px; display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;"><span style="font-size:15px; color:var(--t2);">Connection</span>
+                <span style="display:inline-flex; align-items:center; gap:7px; font-family:'IBM Plex Mono',monospace; font-size:14px;">
+                  <sc-if value="{{ isLive }}" hint-placeholder-val="{{ true }}"><span style="width:8px; height:8px; border-radius:50%; background:var(--accent);"></span></sc-if>
+                  <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}"><svg class="fo-spin" width="13" height="13" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--line2)" stroke-width="3"/><path d="M21 12a9 9 0 0 0-9-9" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/></svg></sc-if>
+                  <sc-if value="{{ isOffline }}" hint-placeholder-val="{{ false }}"><span style="width:8px; height:8px; border-radius:50%; background:var(--danger);"></span></sc-if>
+                  {{ connLabel }}
+                </span>
+              </div>
+              <div style="height:1px; background:var(--line);"></div>
+              <div style="display:flex; justify-content:space-between;"><span style="font-size:15px; color:var(--t2);">Provider</span><span style="font-family:'IBM Plex Mono',monospace; font-size:14px;">OpenSky Network</span></div>
+              <div style="height:1px; background:var(--line);"></div>
+              <div style="display:flex; justify-content:space-between;"><span style="font-size:15px; color:var(--t2);">Snapshot interval</span><span style="font-family:'IBM Plex Mono',monospace; font-size:14px;">{{ intervalText }}</span></div>
+            </div>
+            <sc-if value="{{ isOffline }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ setLive }}" style="cursor:pointer; margin-top:12px; display:flex; align-items:center; justify-content:center; gap:8px; font-size:14px; font-weight:600; color:var(--accent-ink); background:var(--accent); padding:12px; border-radius:12px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 2.3 5.6M4 20v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Reconnect now</div>
+            </sc-if>
+            <div style="font-size:12px; color:var(--t3); margin:14px 4px 0; line-height:1.4;">Proof-of-concept · comparing polling vs. push transport for the same live region.</div>
+          </div>
+
+          <!-- floating nav -->
+          <div style="position:absolute; left:50%; bottom:32px; transform:translateX(-50%); z-index:20; display:flex; align-items:center; gap:5px; background:var(--chip); backdrop-filter:blur(20px) saturate(160%); border:1px solid var(--line2); border-radius:999px; padding:6px; box-shadow:0 16px 36px rgba(0,0,0,0.34), 0 3px 10px rgba(0,0,0,0.2);">
+            <div style="width:48px; height:48px; border-radius:999px; display:flex; align-items:center; justify-content:center; color:var(--t2);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg></div>
+            <div style="width:48px; height:48px; border-radius:999px; display:flex; align-items:center; justify-content:center; color:var(--t2);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="3" rx="1.5" fill="currentColor"/><rect x="4" y="10.5" width="16" height="3" rx="1.5" fill="currentColor"/><rect x="4" y="16" width="16" height="3" rx="1.5" fill="currentColor"/></svg></div>
+            <div style="display:flex; align-items:center; gap:8px; background:var(--accent); color:var(--accent-ink); border-radius:999px; padding:12px 18px 12px 16px; box-shadow:0 2px 8px rgba(0,0,0,0.18);"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 8h9M17 8h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="15" cy="8" r="2.2" stroke="currentColor" stroke-width="1.8"/><path d="M4 16h3M11 16h9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="16" r="2.2" stroke="currentColor" stroke-width="1.8"/></svg><span style="font-size:13.5px; font-weight:600;">Settings</span></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- ═══════════ SCREEN 4 · DETAIL ═══════════ -->
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:baseline; gap:8px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--accent); font-weight:600;">04</span>
+        <span style="font-size:15px; font-weight:600;">Aircraft detail</span>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ isDark }}" hint-size="402px,874px">
+        <div style="position:relative; height:100%; display:flex; flex-direction:column; background:var(--bg); color:var(--t1); overflow:hidden;">
+          <div style="flex:1; overflow:auto; padding-bottom:34px;">
+            <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; top:0; left:0; right:0; height:3px; z-index:19; overflow:hidden; background:var(--accent-dim);">
+              <div style="position:absolute; top:0; height:100%; background:var(--accent); animation:fo-indet 1.3s ease-in-out infinite;"></div>
+            </div>
+            </sc-if>
+            <sc-if value="{{ isError }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; inset:0; z-index:17; background:rgba(6,10,16,0.55); backdrop-filter:blur(3px) saturate(60%); display:flex; align-items:center; justify-content:center; padding:28px;">
+              <div style="width:100%; max-width:300px; background:var(--panel); border:1px solid var(--line2); border-radius:18px; padding:24px 22px; text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.45);">
+                <div style="width:56px; height:56px; margin:0 auto 14px; border-radius:50%; background:rgba(255,84,112,0.12); display:flex; align-items:center; justify-content:center;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3 L22 20 L2 20 Z" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4" stroke="var(--danger)" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.2" fill="var(--danger)"/></svg>
+                </div>
+                <div style="font-size:18px; font-weight:700;">Something went wrong</div>
+                <div style="font-size:13.5px; color:var(--t2); line-height:1.45; margin-top:6px;">We couldn't load this aircraft. Please try again.</div>
+                <div onClick="{{ setLive }}" style="cursor:pointer; margin-top:16px; display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:var(--accent-ink); background:var(--accent); padding:11px 20px; border-radius:11px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 2.3 5.6M4 20v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Try again</div>
+              </div>
+            </div>
+            </sc-if>
+            <sc-if value="{{ isOffline }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; inset:0; z-index:17; background:rgba(6,10,16,0.55); backdrop-filter:blur(3px) saturate(60%); display:flex; align-items:center; justify-content:center; padding:28px;">
+              <div style="width:100%; max-width:300px; background:var(--panel); border:1px solid var(--line2); border-radius:18px; padding:24px 22px; text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.45);">
+                <div style="width:56px; height:56px; margin:0 auto 14px; border-radius:50%; background:rgba(255,84,112,0.12); display:flex; align-items:center; justify-content:center;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12.5a9 9 0 0 1 14 0M8.5 16a4.5 4.5 0 0 1 7 0M2 9a14 14 0 0 1 20 0" stroke="var(--danger)" stroke-width="1.9" stroke-linecap="round"/><path d="M4 4l16 16" stroke="var(--danger)" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="20" r="1.2" fill="var(--danger)"/></svg>
+                </div>
+                <div style="font-size:18px; font-weight:700;">No connection to server</div>
+                <div style="font-size:13.5px; color:var(--t2); line-height:1.45; margin-top:6px;">Can't reach the OpenSky feed. This aircraft's details may be out of date.</div>
+                <div onClick="{{ setLive }}" style="cursor:pointer; margin-top:16px; display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:var(--accent-ink); background:var(--accent); padding:11px 20px; border-radius:11px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 2.3 5.6M4 20v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Retry</div>
+              </div>
+            </div>
+            </sc-if>
+            <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute; inset:0; z-index:16; background:var(--bg); overflow:hidden;">
+              <div class="fo-sk" style="height:230px; border-radius:0;"></div>
+              <div style="padding:18px 20px 6px;">
+                <div style="display:flex; align-items:center; gap:12px;">
+                  <div class="fo-sk" style="width:150px; height:34px;"></div>
+                  <div class="fo-sk" style="width:88px; height:26px; border-radius:999px;"></div>
+                </div>
+                <div class="fo-sk" style="width:200px; height:15px; margin-top:10px;"></div>
+                <div class="fo-sk" style="width:110px; height:12px; margin-top:9px;"></div>
+              </div>
+              <div style="padding:14px 20px 0; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                <div class="fo-sk" style="height:84px; border-radius:14px;"></div>
+                <div class="fo-sk" style="height:84px; border-radius:14px;"></div>
+                <div class="fo-sk" style="grid-column:1 / -1; height:120px; border-radius:14px;"></div>
+              </div>
+              <div style="padding:16px 20px 24px;">
+                <div class="fo-sk" style="height:236px; border-radius:14px;"></div>
+              </div>
+            </div>
+            </sc-if>
+            <!-- mini map header -->
+            <div style="position:relative; height:230px; overflow:hidden; background:var(--map-water);">
+              <img src="uploads/Screenshot 2026-07-16 at 11.59.29 PM.png" alt="OpenStreetMap tiles" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:44% 42%;" />
+              <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute; top:58px; right:16px; z-index:15; width:42px; height:42px; display:flex; align-items:center; justify-content:center; background:var(--chip); backdrop-filter:blur(14px); border:1px solid var(--line); border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.3);">
+                <svg class="fo-spin" width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="var(--line2)" stroke-width="2.6"/><path d="M21 12a9 9 0 0 0-9-9" stroke="var(--accent)" stroke-width="2.6" stroke-linecap="round"/></svg>
+              </div>
+              </sc-if>
+              <!-- back button -->
+              <div style="position:absolute; top:58px; left:16px; width:42px; height:42px; background:var(--chip); backdrop-filter:blur(14px); border:1px solid var(--line); border-radius:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(0,0,0,0.3);">
+                <svg width="12" height="20" viewBox="0 0 12 20" fill="none"><path d="M10 2L2 10l8 8" stroke="var(--t1)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <!-- centered aircraft -->
+              <div style="position:absolute; left:50%; top:52%; transform:translate(-50%,-50%);">
+                <div style="position:absolute; left:50%; top:50%; width:60px; height:60px; margin:-30px 0 0 -30px; border-radius:50%; border:1.5px solid var(--accent); background:var(--accent-dim);"></div>
+                <svg width="36" height="36" viewBox="0 0 24 24" style="transform:rotate(305deg); filter:drop-shadow(0 2px 4px rgba(0,0,0,0.4)); position:relative;"><path d="M12 2c-.6 0-1 .9-1 2v5.6L3 15.2v1.9l8-2.6V20l-2 1.5v1.4l3-1 3 1v-1.4L13 20v-5.5l8 2.6v-1.9L13 9.6V4c0-1.1-.4-2-1-2z" fill="var(--accent)" stroke="var(--plane-stroke)" stroke-width="1.1" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+
+            <!-- headline -->
+            <div style="padding:18px 20px 6px;">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:34px; font-weight:600; letter-spacing:0.01em;">BAW256</div>
+                <div style="display:flex; align-items:center; gap:6px; background:var(--accent-dim); border:1px solid var(--accent); border-radius:999px; padding:5px 11px;">
+                  <span style="width:7px; height:7px; border-radius:50%; background:var(--accent);"></span>
+                  <span style="font-size:12px; font-weight:600; color:var(--accent);">Airborne</span>
+                </div>
+              </div>
+              <div style="font-size:15px; color:var(--t2); margin-top:4px;">United Kingdom · British Airways</div>
+              <div style="display:flex; align-items:center; gap:6px; margin-top:6px; font-size:12px; color:var(--t3);">
+                <span style="width:6px; height:6px; border-radius:50%; background:var(--accent); animation:fo-blink 1.8s infinite;"></span>
+                Updated 3s ago
+              </div>
+            </div>
+
+            <!-- data grid -->
+            <div style="padding:14px 20px 0; display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+              <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px;">
+                <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--t3); font-weight:600;">Altitude</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:600; margin-top:6px;">11,582<span style="font-size:13px; color:var(--t3); font-weight:400;"> m</span></div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--t3); margin-top:2px;">FL380 · baro</div>
+              </div>
+              <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px;">
+                <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--t3); font-weight:600;">Velocity</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:600; margin-top:6px;">248<span style="font-size:13px; color:var(--t3); font-weight:400;"> m/s</span></div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--t3); margin-top:2px;">≈ 482 kt</div>
+              </div>
+
+              <!-- heading compass, spans full -->
+              <div style="grid-column:1 / -1; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; display:flex; align-items:center; gap:20px;">
+                <div style="position:relative; width:88px; height:88px; flex-shrink:0;">
+                  <div style="position:absolute; inset:0; border-radius:50%; border:1.5px solid var(--line2);"></div>
+                  <div style="position:absolute; inset:8px; border-radius:50%; border:1px solid var(--line);"></div>
+                  <span style="position:absolute; top:2px; left:50%; transform:translateX(-50%); font-size:10px; font-weight:700; color:var(--t2);">N</span>
+                  <span style="position:absolute; bottom:2px; left:50%; transform:translateX(-50%); font-size:10px; color:var(--t3);">S</span>
+                  <span style="position:absolute; left:3px; top:50%; transform:translateY(-50%); font-size:10px; color:var(--t3);">W</span>
+                  <span style="position:absolute; right:3px; top:50%; transform:translateY(-50%); font-size:10px; color:var(--t3);">E</span>
+                  <div style="position:absolute; left:50%; top:50%; width:0; height:0; transform:translate(-50%,-50%) rotate(305deg);">
+                    <svg width="20" height="42" viewBox="0 0 20 42" style="transform:translate(-50%,-50%);"><path d="M10 0 L17 24 L10 19 L3 24 Z" fill="var(--accent)"/><path d="M10 42 L15 22 L10 26 L5 22 Z" fill="var(--t3)"/></svg>
+                  </div>
+                  <div style="position:absolute; left:50%; top:50%; width:5px; height:5px; margin:-2.5px; border-radius:50%; background:var(--t1);"></div>
+                </div>
+                <div>
+                  <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--t3); font-weight:600;">Heading</div>
+                  <div style="font-family:'IBM Plex Mono',monospace; font-size:30px; font-weight:600; margin-top:4px;">305°</div>
+                  <div style="font-size:13px; color:var(--t2); margin-top:2px;">North-west · track over ground</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- record rows -->
+            <div style="padding:16px 20px 24px;">
+              <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; overflow:hidden;">
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:13px 16px; border-bottom:1px solid var(--line);"><span style="font-size:14px; color:var(--t2);">ICAO24 address</span><span style="font-family:'IBM Plex Mono',monospace; font-size:14px;">400a7c</span></div>
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:13px 16px; border-bottom:1px solid var(--line);"><span style="font-size:14px; color:var(--t2);">Origin country</span><span style="font-size:14px;">United Kingdom</span></div>
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:13px 16px; border-bottom:1px solid var(--line);"><span style="font-size:14px; color:var(--t2);">On ground</span><span style="font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--accent);">false</span></div>
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:13px 16px; border-bottom:1px solid var(--line);"><span style="font-size:14px; color:var(--t2);">Position</span><span style="font-family:'IBM Plex Mono',monospace; font-size:14px;">50.114, 8.531</span></div>
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:13px 16px;"><span style="font-size:14px; color:var(--t2);">Last update</span><span style="font-family:'IBM Plex Mono',monospace; font-size:14px;">14:32:07 UTC</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark'|'light'&quot;,&quot;section&quot;:&quot;Appearance&quot;},&quot;liveMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;standard&quot;,&quot;realtime&quot;],&quot;default&quot;:&quot;standard&quot;,&quot;tsType&quot;:&quot;'standard'|'realtime'&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+class Component extends DCLogic {
+  state = { theme: null, live: null, query: '', conn: 'live' };
+  skel = [0,1,2,3,4,5];
+
+  aircraft = [
+    { callsign:'DLH441',  country:'Germany',        hdg:289, onGround:false, alt:11278, vel:251 },
+    { callsign:'BAW256',  country:'United Kingdom', hdg:305, onGround:false, alt:11582, vel:248 },
+    { callsign:'UAL921',  country:'United States',  hdg:272, onGround:false, alt:10668, vel:243 },
+    { callsign:'AFR1198', country:'France',         hdg:118, onGround:false, alt:9753,  vel:236 },
+    { callsign:'THY6EX',  country:'Turkey',         hdg:132, onGround:false, alt:11887, vel:255 },
+    { callsign:'SWR83G',  country:'Switzerland',    hdg:156, onGround:false, alt:10972, vel:240 },
+    { callsign:'RYR7QH',  country:'Ireland',        hdg:94,  onGround:false, alt:8534,  vel:221 },
+    { callsign:'KLM1704', country:'Netherlands',    hdg:210, onGround:true,  alt:0,     vel:0 },
+    { callsign:'EZY42UK', country:'United Kingdom', hdg:200, onGround:true,  alt:0,     vel:6 },
+  ];
+
+  fmt(n) { return n.toLocaleString('en-US'); }
+
+  badgeEl(onGround) {
+    const air = !onGround;
+    return React.createElement('div', {
+      style: {
+        display:'inline-flex', alignItems:'center', gap:5,
+        border:'1px solid ' + (air ? 'var(--accent)' : 'var(--ground)'),
+        color: air ? 'var(--accent)' : 'var(--ground)',
+        borderRadius:999, padding:'3px 8px', fontSize:11, fontWeight:600,
+        whiteSpace:'nowrap',
+      }
+    },
+      React.createElement('span', { style:{ width:6, height:6, borderRadius:'50%', background: air ? 'var(--accent)' : 'var(--ground)' } }),
+      air ? 'AIR' : 'GND'
+    );
+  }
+
+  planePath = 'M12 2c-.6 0-1 .9-1 2v5.6L3 15.2v1.9l8-2.6V20l-2 1.5v1.4l3-1 3 1v-1.4L13 20v-5.5l8 2.6v-1.9L13 9.6V4c0-1.1-.4-2-1-2z';
+
+  marker(kind) {
+    const ground = kind === 'ground';
+    const sel = kind === 'sel';
+    const hdg = ground ? 210 : (sel ? 305 : 289);
+    const color = ground ? 'var(--ground)' : 'var(--accent)';
+    const size = sel ? 28 : (ground ? 19 : 22);
+    return React.createElement('svg', {
+      width: size, height: size, viewBox:'0 0 24 24',
+      style: { transform: 'rotate(' + hdg + 'deg)', filter:'drop-shadow(0 1px 2px rgba(0,0,0,0.45))', opacity: ground ? 0.9 : 1 }
+    }, React.createElement('path', { d: this.planePath, fill: color, stroke:'var(--plane-stroke)', strokeWidth:1.1, strokeLinejoin:'round' }));
+  }
+
+  renderVals() {
+    const theme = this.state.theme ?? (this.props.theme ?? 'dark');
+    const live = this.state.live ?? (this.props.liveMode ?? 'standard');
+    const conn = this.state.conn ?? 'live';
+    const isLive = conn === 'live', isLoading = conn === 'loading', isOffline = conn === 'offline', isError = conn === 'error';
+    const q = this.state.query.trim().toLowerCase();
+
+    const list = this.aircraft
+      .filter(a => !q || a.callsign.toLowerCase().includes(q) || a.country.toLowerCase().includes(q))
+      .map(a => ({
+        ...a,
+        markColor: a.onGround ? 'var(--ground)' : 'var(--accent)',
+        altText: a.onGround ? 'ground' : this.fmt(a.alt) + ' m',
+        velText: a.onGround ? '—' : a.vel + ' m/s',
+        badge: this.badgeEl(a.onGround),
+      }));
+
+    return {
+      theme,
+      isDark: theme === 'dark',
+      isLight: theme === 'light',
+      setDark: () => this.setState({ theme: 'dark' }),
+      setLight: () => this.setState({ theme: 'light' }),
+
+      isLive, isLoading, isOffline, isError,
+      setLive: () => this.setState({ conn: 'live' }),
+      setLoading: () => this.setState({ conn: 'loading' }),
+      setOffline: () => this.setState({ conn: 'offline' }),
+      setError: () => this.setState({ conn: 'error' }),
+      connLabel: isLive ? 'Connected' : (isLoading ? 'Connecting…' : (isOffline ? 'Disconnected' : 'Error')),
+      skel: this.skel,
+
+      isStandard: live === 'standard',
+      isRealtime: live === 'realtime',
+      setStandard: () => this.setState({ live: 'standard' }),
+      setRealtime: () => this.setState({ live: 'realtime' }),
+      liveExplain: live === 'standard'
+        ? 'Standard polls a fresh snapshot every few seconds — lighter on battery and network.'
+        : 'Real-time keeps a push connection open, streaming position updates the moment they arrive.',
+      intervalText: live === 'standard' ? '5 s poll' : 'push · live',
+
+      query: this.state.query,
+      hasQuery: this.state.query.length > 0,
+      onSearch: (e) => this.setState({ query: e.target.value }),
+      clearSearch: () => this.setState({ query: '' }),
+      list,
+      hasResults: isLive && list.length > 0,
+      noResults: isLive && list.length === 0,
+      listLoading: isLoading,
+      listOffline: isOffline,
+      listError: isError,
+      resultCount: isLive ? (list.length + ' aircraft') : (isLoading ? 'Updating…' : (isOffline ? 'Offline' : 'Error')),
+
+      airMarker: this.marker('air'),
+      groundMarker: this.marker('ground'),
+      selMarker: this.marker('sel'),
+    };
+  }
+}
+</script>
+</body>
+</html>

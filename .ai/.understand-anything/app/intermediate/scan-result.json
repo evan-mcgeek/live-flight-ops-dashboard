@@ -1,0 +1,644 @@
+{
+  "name": "flight_ops_app",
+  "description": "Live Flight Ops Dashboard — mobile frontend built with Flutter, providing a map and list view of live aircraft positions.",
+  "languages": [
+    "dart",
+    "iml",
+    "markdown",
+    "unknown",
+    "yaml"
+  ],
+  "frameworks": [
+    "Flutter",
+    "flutter_bloc",
+    "go_router",
+    "flutter_map",
+    "get_it",
+    "injectable",
+    "dio",
+    "signalr_netcore"
+  ],
+  "files": [
+    {
+      "path": ".DS_Store",
+      "language": "unknown",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".metadata",
+      "language": "unknown",
+      "sizeLines": 45,
+      "fileCategory": "code"
+    },
+    {
+      "path": "analysis_options.yaml",
+      "language": "yaml",
+      "sizeLines": 5,
+      "fileCategory": "config"
+    },
+    {
+      "path": "flight_ops_app.iml",
+      "language": "iml",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/core/config/api_config.dart",
+      "language": "dart",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/core/di/injection.config.dart",
+      "language": "dart",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/core/di/injection.dart",
+      "language": "dart",
+      "sizeLines": 9,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/core/di/register_module.dart",
+      "language": "dart",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/core/router/app_router.dart",
+      "language": "dart",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/core/theme/app_colors.dart",
+      "language": "dart",
+      "sizeLines": 139,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/core/theme/app_strings.dart",
+      "language": "dart",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/core/theme/app_text_styles.dart",
+      "language": "dart",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/core/theme/app_theme.dart",
+      "language": "dart",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/data/remote/aircraft_remote_data_source.dart",
+      "language": "dart",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/data/remote/dto/aircraft_dto.dart",
+      "language": "dart",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/data/remote/dto/aircraft_dto.g.dart",
+      "language": "dart",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/data/remote/dto/aircraft_snapshot_dto.dart",
+      "language": "dart",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/data/remote/dto/aircraft_snapshot_dto.g.dart",
+      "language": "dart",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/data/repositories/aircraft_repository_impl.dart",
+      "language": "dart",
+      "sizeLines": 93,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/data/settings/settings_repository_impl.dart",
+      "language": "dart",
+      "sizeLines": 89,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/data/signalr/aircraft_signalr_data_source.dart",
+      "language": "dart",
+      "sizeLines": 99,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/domain/entities/aircraft_snapshot.dart",
+      "language": "dart",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/domain/entities/aircraft.dart",
+      "language": "dart",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/domain/entities/bounding_box.dart",
+      "language": "dart",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/domain/failures/failure.dart",
+      "language": "dart",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/domain/failures/repository_exception.dart",
+      "language": "dart",
+      "sizeLines": 11,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/domain/repositories/aircraft_repository.dart",
+      "language": "dart",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/domain/repositories/settings_repository.dart",
+      "language": "dart",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/domain/settings/live_update_mode.dart",
+      "language": "dart",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/main.dart",
+      "language": "dart",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/active_region/bloc/active_region_bloc.dart",
+      "language": "dart",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/active_region/bloc/active_region_event.dart",
+      "language": "dart",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/active_region/bloc/active_region_state.dart",
+      "language": "dart",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/detail/aircraft_detail_page.dart",
+      "language": "dart",
+      "sizeLines": 182,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/detail/bloc/aircraft_detail_bloc.dart",
+      "language": "dart",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/detail/bloc/aircraft_detail_event.dart",
+      "language": "dart",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/detail/bloc/aircraft_detail_state.dart",
+      "language": "dart",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/detail/widgets/data_card.dart",
+      "language": "dart",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/detail/widgets/freshness_indicator.dart",
+      "language": "dart",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/detail/widgets/record_row.dart",
+      "language": "dart",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/list/aircraft_list_page.dart",
+      "language": "dart",
+      "sizeLines": 176,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/list/bloc/aircraft_list_bloc.dart",
+      "language": "dart",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/list/bloc/aircraft_list_event.dart",
+      "language": "dart",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/list/bloc/aircraft_list_state.dart",
+      "language": "dart",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/list/widgets/aircraft_list_skeleton.dart",
+      "language": "dart",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/list/widgets/stale_data_banner.dart",
+      "language": "dart",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/map/bloc/map_bloc.dart",
+      "language": "dart",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/map/bloc/map_event.dart",
+      "language": "dart",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/map/bloc/map_state.dart",
+      "language": "dart",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/map/map_page.dart",
+      "language": "dart",
+      "sizeLines": 539,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/map/widgets/aircraft_marker.dart",
+      "language": "dart",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/map/widgets/map_state_overlay.dart",
+      "language": "dart",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/settings/bloc/settings_bloc.dart",
+      "language": "dart",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/settings/bloc/settings_event.dart",
+      "language": "dart",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/settings/bloc/settings_state.dart",
+      "language": "dart",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/settings/settings_page.dart",
+      "language": "dart",
+      "sizeLines": 139,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/settings/widgets/connection_indicator.dart",
+      "language": "dart",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/settings/widgets/live_updates_block.dart",
+      "language": "dart",
+      "sizeLines": 152,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/shared/connectivity_state_card.dart",
+      "language": "dart",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/shared/live_status_chip.dart",
+      "language": "dart",
+      "sizeLines": 102,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/shared/shimmer_box.dart",
+      "language": "dart",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/shell/app_shell.dart",
+      "language": "dart",
+      "sizeLines": 124,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/splash/splash_page.dart",
+      "language": "dart",
+      "sizeLines": 85,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/splash/widgets/fill_bar.dart",
+      "language": "dart",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/splash/widgets/footer_status.dart",
+      "language": "dart",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/splash/widgets/radar.dart",
+      "language": "dart",
+      "sizeLines": 110,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lib/presentation/splash/widgets/wordmark.dart",
+      "language": "dart",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pubspec.yaml",
+      "language": "yaml",
+      "sizeLines": 41,
+      "fileCategory": "config"
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "sizeLines": 16,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "test/app_bootstrap_test.dart",
+      "language": "dart",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/core/di/injection_test.dart",
+      "language": "dart",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/core/theme/app_theme_test.dart",
+      "language": "dart",
+      "sizeLines": 29,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/data/remote/aircraft_remote_data_source_test.dart",
+      "language": "dart",
+      "sizeLines": 194,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/data/remote/dio_adapter.dart",
+      "language": "dart",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/data/remote/dto/aircraft_dto_test.dart",
+      "language": "dart",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/data/remote/dto/aircraft_snapshot_dto_test.dart",
+      "language": "dart",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/data/repositories/aircraft_repository_impl_test.dart",
+      "language": "dart",
+      "sizeLines": 188,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/data/settings/settings_repository_impl_test.dart",
+      "language": "dart",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/data/signalr/aircraft_signalr_data_source_test.dart",
+      "language": "dart",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/domain/entities/aircraft_snapshot_test.dart",
+      "language": "dart",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/domain/entities/aircraft_test.dart",
+      "language": "dart",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/domain/entities/bounding_box_test.dart",
+      "language": "dart",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/domain/failures/failure_test.dart",
+      "language": "dart",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/presentation/active_region/active_region_bloc_test.dart",
+      "language": "dart",
+      "sizeLines": 158,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/presentation/detail/aircraft_detail_bloc_test.dart",
+      "language": "dart",
+      "sizeLines": 67,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/presentation/list/aircraft_list_bloc_test.dart",
+      "language": "dart",
+      "sizeLines": 139,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/presentation/map/map_bloc_test.dart",
+      "language": "dart",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/presentation/settings/settings_bloc_test.dart",
+      "language": "dart",
+      "sizeLines": 142,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 88,
+  "filteredByIgnore": 224,
+  "estimatedComplexity": "moderate",
+  "importMap": {
+    ".DS_Store": [],
+    ".metadata": [],
+    "analysis_options.yaml": [],
+    "flight_ops_app.iml": [],
+    "lib/core/config/api_config.dart": [],
+    "lib/core/di/injection.config.dart": [],
+    "lib/core/di/injection.dart": [],
+    "lib/core/di/register_module.dart": [],
+    "lib/core/router/app_router.dart": [],
+    "lib/core/theme/app_colors.dart": [],
+    "lib/core/theme/app_strings.dart": [],
+    "lib/core/theme/app_text_styles.dart": [],
+    "lib/core/theme/app_theme.dart": [],
+    "lib/data/remote/aircraft_remote_data_source.dart": [],
+    "lib/data/remote/dto/aircraft_dto.dart": [],
+    "lib/data/remote/dto/aircraft_dto.g.dart": [],
+    "lib/data/remote/dto/aircraft_snapshot_dto.dart": [],
+    "lib/data/remote/dto/aircraft_snapshot_dto.g.dart": [],
+    "lib/data/repositories/aircraft_repository_impl.dart": [],
+    "lib/data/settings/settings_repository_impl.dart": [],
+    "lib/data/signalr/aircraft_signalr_data_source.dart": [],
+    "lib/domain/entities/aircraft_snapshot.dart": [],
+    "lib/domain/entities/aircraft.dart": [],
+    "lib/domain/entities/bounding_box.dart": [],
+    "lib/domain/failures/failure.dart": [],
+    "lib/domain/failures/repository_exception.dart": [],
+    "lib/domain/repositories/aircraft_repository.dart": [],
+    "lib/domain/repositories/settings_repository.dart": [],
+    "lib/domain/settings/live_update_mode.dart": [],
+    "lib/main.dart": [],
+    "lib/presentation/active_region/bloc/active_region_bloc.dart": [],
+    "lib/presentation/active_region/bloc/active_region_event.dart": [],
+    "lib/presentation/active_region/bloc/active_region_state.dart": [],
+    "lib/presentation/detail/aircraft_detail_page.dart": [],
+    "lib/presentation/detail/bloc/aircraft_detail_bloc.dart": [],
+    "lib/presentation/detail/bloc/aircraft_detail_event.dart": [],
+    "lib/presentation/detail/bloc/aircraft_detail_state.dart": [],
+    "lib/presentation/detail/widgets/data_card.dart": [],
+    "lib/presentation/detail/widgets/freshness_indicator.dart": [],
+    "lib/presentation/detail/widgets/record_row.dart": [],
+    "lib/presentation/list/aircraft_list_page.dart": [],
+    "lib/presentation/list/bloc/aircraft_list_bloc.dart": [],
+    "lib/presentation/list/bloc/aircraft_list_event.dart": [],
+    "lib/presentation/list/bloc/aircraft_list_state.dart": [],
+    "lib/presentation/list/widgets/aircraft_list_skeleton.dart": [],
+    "lib/presentation/list/widgets/stale_data_banner.dart": [],
+    "lib/presentation/map/bloc/map_bloc.dart": [],
+    "lib/presentation/map/bloc/map_event.dart": [],
+    "lib/presentation/map/bloc/map_state.dart": [],
+    "lib/presentation/map/map_page.dart": [],
+    "lib/presentation/map/widgets/aircraft_marker.dart": [],
+    "lib/presentation/map/widgets/map_state_overlay.dart": [],
+    "lib/presentation/settings/bloc/settings_bloc.dart": [],
+    "lib/presentation/settings/bloc/settings_event.dart": [],
+    "lib/presentation/settings/bloc/settings_state.dart": [],
+    "lib/presentation/settings/settings_page.dart": [],
+    "lib/presentation/settings/widgets/connection_indicator.dart": [],
+    "lib/presentation/settings/widgets/live_updates_block.dart": [],
+    "lib/presentation/shared/connectivity_state_card.dart": [],
+    "lib/presentation/shared/live_status_chip.dart": [],
+    "lib/presentation/shared/shimmer_box.dart": [],
+    "lib/presentation/shell/app_shell.dart": [],
+    "lib/presentation/splash/splash_page.dart": [],
+    "lib/presentation/splash/widgets/fill_bar.dart": [],
+    "lib/presentation/splash/widgets/footer_status.dart": [],
+    "lib/presentation/splash/widgets/radar.dart": [],
+    "lib/presentation/splash/widgets/wordmark.dart": [],
+    "pubspec.yaml": [],
+    "README.md": [],
+    "test/app_bootstrap_test.dart": [],
+    "test/core/di/injection_test.dart": [],
+    "test/core/theme/app_theme_test.dart": [],
+    "test/data/remote/aircraft_remote_data_source_test.dart": [],
+    "test/data/remote/dio_adapter.dart": [],
+    "test/data/remote/dto/aircraft_dto_test.dart": [],
+    "test/data/remote/dto/aircraft_snapshot_dto_test.dart": [],
+    "test/data/repositories/aircraft_repository_impl_test.dart": [],
+    "test/data/settings/settings_repository_impl_test.dart": [],
+    "test/data/signalr/aircraft_signalr_data_source_test.dart": [],
+    "test/domain/entities/aircraft_snapshot_test.dart": [],
+    "test/domain/entities/aircraft_test.dart": [],
+    "test/domain/entities/bounding_box_test.dart": [],
+    "test/domain/failures/failure_test.dart": [],
+    "test/presentation/active_region/active_region_bloc_test.dart": [],
+    "test/presentation/detail/aircraft_detail_bloc_test.dart": [],
+    "test/presentation/list/aircraft_list_bloc_test.dart": [],
+    "test/presentation/map/map_bloc_test.dart": [],
+    "test/presentation/settings/settings_bloc_test.dart": []
+  }
+}

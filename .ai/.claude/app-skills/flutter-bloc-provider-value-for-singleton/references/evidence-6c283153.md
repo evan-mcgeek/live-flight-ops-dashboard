@@ -1,0 +1,1 @@
+Reviewer confirmed `BlocProvider.value` (not `.create`) is correctly used since SettingsBloc is @singleton-scoped and shared app-wide — using `create:` here would have closed the shared Bloc on pop — not present.

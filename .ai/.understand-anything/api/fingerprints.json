@@ -1,0 +1,2418 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "no-git-repo",
+  "generatedAt": "2026-07-20T20:33:32.005Z",
+  "files": {
+    "docs/postman/flight-ops-api.postman_collection.json": {
+      "filePath": "docs/postman/flight-ops-api.postman_collection.json",
+      "contentHash": "6303debb27eb31a983aded93a75bd25cd6ca665eb0295c64b858d9712049995f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 184,
+      "hasStructuralAnalysis": true
+    },
+    "FlightOps.sln": {
+      "filePath": "FlightOps.sln",
+      "contentHash": "7cbec85ede4833c1baa545cd83a00e223ffefe03848a54cd462c189506348b34",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 51,
+      "hasStructuralAnalysis": false
+    },
+    "src/FlightOps.Api/appsettings.Development.json": {
+      "filePath": "src/FlightOps.Api/appsettings.Development.json",
+      "contentHash": "73f95f9e0ceb205fc1c4dc50c07697fcfa29d7087868c2aef1d504cb38c771ec",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/appsettings.json": {
+      "filePath": "src/FlightOps.Api/appsettings.json",
+      "contentHash": "19d45fc4fb69b1386ff9fbb1fbfc32c9a48b6fcbbb96086f3c8c2388aba965ef",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/appsettings.secrets.json": {
+      "filePath": "src/FlightOps.Api/appsettings.secrets.json",
+      "contentHash": "f45ca9d3c9dbc8a8407f1abb4cc8bf7bc92f3c83e797b1ad53337244cc051c58",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/Controllers/AircraftController.cs": {
+      "filePath": "src/FlightOps.Api/Controllers/AircraftController.cs",
+      "contentHash": "72678b662327c34bc30a37d81b6159984263f32664475d7b1c1ced322762faac",
+      "functions": [
+        {
+          "name": "GetAircraft",
+          "params": [
+            "request",
+            "cancellationToken"
+          ],
+          "returnType": "Task<IActionResult>",
+          "exported": true,
+          "lineCount": 22
+        },
+        {
+          "name": "SetLiveInterval",
+          "params": [],
+          "returnType": "IActionResult",
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "TryReadValidLiveInterval",
+          "params": [
+            "seconds"
+          ],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 7
+        },
+        {
+          "name": "GetAircraftDetail",
+          "params": [
+            "icao24",
+            "cancellationToken"
+          ],
+          "returnType": "Task<IActionResult>",
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftController",
+          "methods": [
+            "GetAircraft",
+            "SetLiveInterval",
+            "TryReadValidLiveInterval",
+            "GetAircraftDetail"
+          ],
+          "properties": [
+            "AllowedLiveIntervalSeconds",
+            "LiveIntervalHeaderName"
+          ],
+          "exported": true,
+          "lineCount": 69
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Text.RegularExpressions",
+          "specifiers": [
+            "RegularExpressions"
+          ]
+        },
+        {
+          "source": "FlightOps.Api.Requests",
+          "specifiers": [
+            "Requests"
+          ]
+        },
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Snapshots",
+          "specifiers": [
+            "Snapshots"
+          ]
+        },
+        {
+          "source": "FluentValidation",
+          "specifiers": [
+            "FluentValidation"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.Mvc",
+          "specifiers": [
+            "Mvc"
+          ]
+        }
+      ],
+      "exports": [
+        "GetAircraft",
+        "SetLiveInterval",
+        "GetAircraftDetail",
+        "AircraftController"
+      ],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/FlightOps.Api.csproj": {
+      "filePath": "src/FlightOps.Api/FlightOps.Api.csproj",
+      "contentHash": "f7a27bb54a64043353e8203209f215ee325e028ff97c7e857aa9e5f1b34435a8",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": false
+    },
+    "src/FlightOps.Api/Hubs/ActiveBoundingBoxRegistry.cs": {
+      "filePath": "src/FlightOps.Api/Hubs/ActiveBoundingBoxRegistry.cs",
+      "contentHash": "f2aa020d9b8631aef9a14a57612ddcb3d7e7c1af0a9d443561f0fdae3ce77063",
+      "functions": [
+        {
+          "name": "Register",
+          "params": [
+            "connectionId",
+            "groupName",
+            "bbox"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "Unregister",
+          "params": [
+            "connectionId"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "MarkBroadcast",
+          "params": [
+            "groupName"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "IsDue",
+          "params": [
+            "groupName",
+            "interval"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "IActiveBoundingBoxRegistry",
+          "methods": [
+            "Register",
+            "Unregister",
+            "MarkBroadcast",
+            "IsDue"
+          ],
+          "properties": [
+            "ActiveGroups"
+          ],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "ActiveBoundingBoxRegistry",
+          "methods": [
+            "Register",
+            "Unregister",
+            "MarkBroadcast",
+            "IsDue"
+          ],
+          "properties": [
+            "_groups",
+            "_connectionGroups",
+            "_groupSubscriberCounts",
+            "_lastBroadcastUtc",
+            "ActiveGroups"
+          ],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Collections.Concurrent",
+          "specifiers": [
+            "Concurrent"
+          ]
+        },
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        }
+      ],
+      "exports": [
+        "IActiveBoundingBoxRegistry",
+        "Register",
+        "Unregister",
+        "MarkBroadcast",
+        "IsDue",
+        "ActiveGroups",
+        "ActiveBoundingBoxRegistry"
+      ],
+      "totalLines": 61,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/Hubs/AircraftBroadcastService.cs": {
+      "filePath": "src/FlightOps.Api/Hubs/AircraftBroadcastService.cs",
+      "contentHash": "98427b3c2ea0832b97a8b7136c588fe2c0a9b5b5b3c9ebef86b5c8e1cc43805f",
+      "functions": [
+        {
+          "name": "ExecuteAsync",
+          "params": [
+            "stoppingToken"
+          ],
+          "returnType": "Task",
+          "exported": false,
+          "lineCount": 23
+        },
+        {
+          "name": "BroadcastOnceAsync",
+          "params": [
+            "cancellationToken"
+          ],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "BroadcastToGroupAsync",
+          "params": [
+            "groupName",
+            "bbox",
+            "cancellationToken"
+          ],
+          "returnType": "Task",
+          "exported": false,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftBroadcastService",
+          "methods": [
+            "ExecuteAsync",
+            "BroadcastOnceAsync",
+            "BroadcastToGroupAsync"
+          ],
+          "properties": [
+            "Tick"
+          ],
+          "exported": true,
+          "lineCount": 47
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Snapshots",
+          "specifiers": [
+            "Snapshots"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.SignalR",
+          "specifiers": [
+            "SignalR"
+          ]
+        }
+      ],
+      "exports": [
+        "BroadcastOnceAsync",
+        "AircraftBroadcastService"
+      ],
+      "totalLines": 55,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/Hubs/AircraftHub.cs": {
+      "filePath": "src/FlightOps.Api/Hubs/AircraftHub.cs",
+      "contentHash": "31a910347aeff5ea93bcec788132baa3750864c7e6ec7587ae7f4f15320750a9",
+      "functions": [
+        {
+          "name": "Subscribe",
+          "params": [
+            "laMin",
+            "loMin",
+            "laMax",
+            "loMax"
+          ],
+          "returnType": "Task<AircraftSnapshot>",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "OnDisconnectedAsync",
+          "params": [
+            "exception"
+          ],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "GroupName",
+          "params": [
+            "laMin",
+            "loMin",
+            "laMax",
+            "loMax"
+          ],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftHub",
+          "methods": [
+            "Subscribe",
+            "OnDisconnectedAsync",
+            "GroupName"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 24
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Snapshots",
+          "specifiers": [
+            "Snapshots"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.SignalR",
+          "specifiers": [
+            "SignalR"
+          ]
+        }
+      ],
+      "exports": [
+        "Subscribe",
+        "OnDisconnectedAsync",
+        "GroupName",
+        "AircraftHub"
+      ],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/Hubs/BroadcastSettings.cs": {
+      "filePath": "src/FlightOps.Api/Hubs/BroadcastSettings.cs",
+      "contentHash": "55178688134a09a1a169ef38a7c85c2cf1aa7c53f29844a3b4952cdeee68930e",
+      "functions": [],
+      "classes": [
+        {
+          "name": "BroadcastSettings",
+          "methods": [],
+          "properties": [
+            "ConfigurationSectionName",
+            "Interval"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ConfigurationSectionName",
+        "Interval",
+        "BroadcastSettings"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/Middlewares/OpenSkyExceptionHandler.cs": {
+      "filePath": "src/FlightOps.Api/Middlewares/OpenSkyExceptionHandler.cs",
+      "contentHash": "1846f3176171807774395b474b4095da436b8556e152f05374009c101b214aae",
+      "functions": [
+        {
+          "name": "TryHandleAsync",
+          "params": [
+            "httpContext",
+            "exception",
+            "cancellationToken"
+          ],
+          "returnType": "ValueTask<bool>",
+          "exported": true,
+          "lineCount": 18
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpenSkyExceptionHandler",
+          "methods": [
+            "TryHandleAsync"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 21
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.Diagnostics",
+          "specifiers": [
+            "Diagnostics"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.Mvc",
+          "specifiers": [
+            "Mvc"
+          ]
+        }
+      ],
+      "exports": [
+        "TryHandleAsync",
+        "OpenSkyExceptionHandler"
+      ],
+      "totalLines": 28,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/Program.cs": {
+      "filePath": "src/FlightOps.Api/Program.cs",
+      "contentHash": "22efe34766ca4a1f696af1c4eee20ac4df50f3ba4bc968ca759d05900234d1a5",
+      "functions": [],
+      "classes": [
+        {
+          "name": "Program",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Api.Hubs",
+          "specifiers": [
+            "Hubs"
+          ]
+        },
+        {
+          "source": "FlightOps.Api.Middlewares",
+          "specifiers": [
+            "Middlewares"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Snapshots",
+          "specifiers": [
+            "Snapshots"
+          ]
+        },
+        {
+          "source": "FluentValidation",
+          "specifiers": [
+            "FluentValidation"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.Options",
+          "specifiers": [
+            "Options"
+          ]
+        }
+      ],
+      "exports": [
+        "Program"
+      ],
+      "totalLines": 75,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/Properties/launchSettings.json": {
+      "filePath": "src/FlightOps.Api/Properties/launchSettings.json",
+      "contentHash": "c790a99de0701b738b2e0b26e8b33f2b9a0314396318b01883abc15d1e392e42",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/Requests/BoundingBoxRequest.cs": {
+      "filePath": "src/FlightOps.Api/Requests/BoundingBoxRequest.cs",
+      "contentHash": "f6d360e96b06c8cefa2e762fa85e9f9752458feb326f422fcc71d808917db284",
+      "functions": [],
+      "classes": [
+        {
+          "name": "BoundingBoxRequest",
+          "methods": [],
+          "properties": [
+            "LaMin",
+            "LoMin",
+            "LaMax",
+            "LoMax"
+          ],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "LaMin",
+        "LoMin",
+        "LaMax",
+        "LoMax",
+        "BoundingBoxRequest"
+      ],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Api/Requests/BoundingBoxRequestValidator.cs": {
+      "filePath": "src/FlightOps.Api/Requests/BoundingBoxRequestValidator.cs",
+      "contentHash": "c26d3731f60ea4dfb216b300058848db68ad8a28d19eae8d8d631d543d882471",
+      "functions": [
+        {
+          "name": "BoundingBoxRequestValidator",
+          "params": [],
+          "exported": true,
+          "lineCount": 15
+        }
+      ],
+      "classes": [
+        {
+          "name": "BoundingBoxRequestValidator",
+          "methods": [
+            "BoundingBoxRequestValidator"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 18
+        }
+      ],
+      "imports": [
+        {
+          "source": "FluentValidation",
+          "specifiers": [
+            "FluentValidation"
+          ]
+        }
+      ],
+      "exports": [
+        "BoundingBoxRequestValidator",
+        "BoundingBoxRequestValidator"
+      ],
+      "totalLines": 23,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Domain/Aircraft.cs": {
+      "filePath": "src/FlightOps.Domain/Aircraft.cs",
+      "contentHash": "01a60b04d46cdd3faf00bd227b40e8975c4aa22fa7598a2e1c28778a4d3188f3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Domain/BoundingBox.cs": {
+      "filePath": "src/FlightOps.Domain/BoundingBox.cs",
+      "contentHash": "a0c5200b2928678d70cc0de2f59c85c2e2c191c6d528b26edb3c37b3e6f5a11a",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Domain/FlightOps.Domain.csproj": {
+      "filePath": "src/FlightOps.Domain/FlightOps.Domain.csproj",
+      "contentHash": "e151f959964eb450a5b86b72765e3f9c505645fa9516eae485743d2b43911c8e",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 10,
+      "hasStructuralAnalysis": false
+    },
+    "src/FlightOps.Infrastructure/Configuration/LiveIntervalSettings.cs": {
+      "filePath": "src/FlightOps.Infrastructure/Configuration/LiveIntervalSettings.cs",
+      "contentHash": "92eb1c6f5b81b32ec29f34251edd6b18394d56ee92b9a69b32c672f85caa410a",
+      "functions": [
+        {
+          "name": "LiveIntervalSettings",
+          "params": [
+            "initial"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "Set",
+          "params": [
+            "interval"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "ILiveIntervalSettings",
+          "methods": [
+            "Set"
+          ],
+          "properties": [
+            "Interval"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "LiveIntervalSettings",
+          "methods": [
+            "LiveIntervalSettings",
+            "Set"
+          ],
+          "properties": [
+            "_gate",
+            "_interval",
+            "Interval"
+          ],
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ILiveIntervalSettings",
+        "LiveIntervalSettings",
+        "Interval",
+        "Set",
+        "LiveIntervalSettings"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/Configuration/OpenSkySettings.cs": {
+      "filePath": "src/FlightOps.Infrastructure/Configuration/OpenSkySettings.cs",
+      "contentHash": "4be098827bd8100790ec52eff96003c094f1151893cee2328c54829f5fec6ace",
+      "functions": [],
+      "classes": [
+        {
+          "name": "OpenSkySettings",
+          "methods": [],
+          "properties": [
+            "ConfigurationSectionName",
+            "TokenUrl",
+            "ApiBaseUrl",
+            "ClientId",
+            "ClientSecret"
+          ],
+          "exported": true,
+          "lineCount": 12
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ConfigurationSectionName",
+        "TokenUrl",
+        "ApiBaseUrl",
+        "ClientId",
+        "ClientSecret",
+        "OpenSkySettings"
+      ],
+      "totalLines": 15,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/Configuration/TokenSettings.cs": {
+      "filePath": "src/FlightOps.Infrastructure/Configuration/TokenSettings.cs",
+      "contentHash": "184f269dc65a9dfd57d5909d809963162c7b589ae29247346d7fb4544170f970",
+      "functions": [],
+      "classes": [
+        {
+          "name": "TokenSettings",
+          "methods": [],
+          "properties": [
+            "ConfigurationSectionName",
+            "RefreshMargin"
+          ],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "ConfigurationSectionName",
+        "RefreshMargin",
+        "TokenSettings"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/FlightOps.Infrastructure.csproj": {
+      "filePath": "src/FlightOps.Infrastructure/FlightOps.Infrastructure.csproj",
+      "contentHash": "d97044f6e7914fba3722151a04ea28ea33077c58a4696b194cb4951cbd919f67",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 20,
+      "hasStructuralAnalysis": false
+    },
+    "src/FlightOps.Infrastructure/OpenSky/IOpenSkyClient.cs": {
+      "filePath": "src/FlightOps.Infrastructure/OpenSky/IOpenSkyClient.cs",
+      "contentHash": "9a7b048d294fd8c7266d0b9db86c4b3488e32984b6fe58e3da2214a53605a8a6",
+      "functions": [],
+      "classes": [
+        {
+          "name": "IOpenSkyClient",
+          "methods": [
+            "GetStatesAsync",
+            "GetStateByIcao24Async"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        }
+      ],
+      "exports": [
+        "IOpenSkyClient"
+      ],
+      "totalLines": 11,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/OpenSky/IOpenSkyTokenClient.cs": {
+      "filePath": "src/FlightOps.Infrastructure/OpenSky/IOpenSkyTokenClient.cs",
+      "contentHash": "c6d8f514d3b28404077b296a5df28fed4d36800df85cfae6338e89002561aca4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "IOpenSkyTokenClient",
+          "methods": [
+            "FetchTokenAsync"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "IOpenSkyTokenClient"
+      ],
+      "totalLines": 7,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyClient.cs": {
+      "filePath": "src/FlightOps.Infrastructure/OpenSky/OpenSkyClient.cs",
+      "contentHash": "99065689f368312587a0e9f39a7dda17c29d337e453ee1fa82afc693587c8ad0",
+      "functions": [
+        {
+          "name": "GetStatesAsync",
+          "params": [
+            "bbox",
+            "cancellationToken"
+          ],
+          "returnType": "Task<IReadOnlyList<Aircraft>>",
+          "exported": true,
+          "lineCount": 20
+        },
+        {
+          "name": "GetStateByIcao24Async",
+          "params": [
+            "icao24",
+            "cancellationToken"
+          ],
+          "returnType": "Task<Aircraft?>",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "SendAsync",
+          "params": [
+            "url",
+            "cancellationToken"
+          ],
+          "returnType": "Task<HttpResponseMessage>",
+          "exported": false,
+          "lineCount": 17
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpenSkyClient",
+          "methods": [
+            "GetStatesAsync",
+            "GetStateByIcao24Async",
+            "SendAsync"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 58
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Net",
+          "specifiers": [
+            "Net"
+          ]
+        },
+        {
+          "source": "System.Text.Json",
+          "specifiers": [
+            "Json"
+          ]
+        },
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.Logging",
+          "specifiers": [
+            "Logging"
+          ]
+        }
+      ],
+      "exports": [
+        "GetStatesAsync",
+        "GetStateByIcao24Async",
+        "OpenSkyClient"
+      ],
+      "totalLines": 66,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyRateLimitedException.cs": {
+      "filePath": "src/FlightOps.Infrastructure/OpenSky/OpenSkyRateLimitedException.cs",
+      "contentHash": "fa21cea3e4408e9f6a560d772ddaf58bba7e4d404290f6349ca3ed90fa69acc4",
+      "functions": [],
+      "classes": [
+        {
+          "name": "OpenSkyRateLimitedException",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "OpenSkyRateLimitedException"
+      ],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyStateMapper.cs": {
+      "filePath": "src/FlightOps.Infrastructure/OpenSky/OpenSkyStateMapper.cs",
+      "contentHash": "5e248d179fa69e0f4d97eced9c5aef71e67b0234410d5d5ef905363536cab3fa",
+      "functions": [
+        {
+          "name": "Map",
+          "params": [
+            "stateVector"
+          ],
+          "returnType": "Aircraft",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "GetNullableDouble",
+          "params": [
+            "element"
+          ],
+          "returnType": "double?",
+          "exported": false,
+          "lineCount": 2
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpenSkyStateMapper",
+          "methods": [
+            "Map",
+            "GetNullableDouble"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Text.Json",
+          "specifiers": [
+            "Json"
+          ]
+        },
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        }
+      ],
+      "exports": [
+        "Map",
+        "OpenSkyStateMapper"
+      ],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyToken.cs": {
+      "filePath": "src/FlightOps.Infrastructure/OpenSky/OpenSkyToken.cs",
+      "contentHash": "dc923a84b42cacfd36499b88ce974110915f79f0dc93a83d04df756c30167dec",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 4,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyTokenClient.cs": {
+      "filePath": "src/FlightOps.Infrastructure/OpenSky/OpenSkyTokenClient.cs",
+      "contentHash": "2bc8d00b75667601987bc2f3acf3916f7cf4683a6a5babeeaf51194e12edd132",
+      "functions": [
+        {
+          "name": "FetchTokenAsync",
+          "params": [
+            "cancellationToken"
+          ],
+          "returnType": "Task<OpenSkyToken>",
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpenSkyTokenClient",
+          "methods": [
+            "FetchTokenAsync"
+          ],
+          "properties": [
+            "_settings"
+          ],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Net.Http.Json",
+          "specifiers": [
+            "Json"
+          ]
+        },
+        {
+          "source": "System.Text.Json.Serialization",
+          "specifiers": [
+            "Serialization"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.Options",
+          "specifiers": [
+            "Options"
+          ]
+        }
+      ],
+      "exports": [
+        "FetchTokenAsync",
+        "OpenSkyTokenClient"
+      ],
+      "totalLines": 37,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyTokenProvider.cs": {
+      "filePath": "src/FlightOps.Infrastructure/OpenSky/OpenSkyTokenProvider.cs",
+      "contentHash": "26c51cb000562d6d8b60bac92b6bd898c2ff9a5cf8469ca643ac8f09fa2578a2",
+      "functions": [
+        {
+          "name": "SendAsync",
+          "params": [
+            "request",
+            "cancellationToken"
+          ],
+          "returnType": "Task<HttpResponseMessage>",
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "GetValidTokenAsync",
+          "params": [
+            "cancellationToken"
+          ],
+          "returnType": "Task<OpenSkyToken>",
+          "exported": false,
+          "lineCount": 25
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpenSkyTokenProvider",
+          "methods": [
+            "SendAsync",
+            "GetValidTokenAsync"
+          ],
+          "properties": [
+            "_lock",
+            "_cachedToken"
+          ],
+          "exported": true,
+          "lineCount": 38
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Net.Http.Headers",
+          "specifiers": [
+            "Headers"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.Options",
+          "specifiers": [
+            "Options"
+          ]
+        }
+      ],
+      "exports": [
+        "OpenSkyTokenProvider"
+      ],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/Snapshots/AircraftSnapshot.cs": {
+      "filePath": "src/FlightOps.Infrastructure/Snapshots/AircraftSnapshot.cs",
+      "contentHash": "1e42260823398bc82d0e11290f24af24325fc48ae3c1fd08dafe1fc111ec8151",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        }
+      ],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/Snapshots/DirectSnapshotProvider.cs": {
+      "filePath": "src/FlightOps.Infrastructure/Snapshots/DirectSnapshotProvider.cs",
+      "contentHash": "f5a763d169d946632dc142579e7dda5c19665441300e4b64332a896b5d34a560",
+      "functions": [
+        {
+          "name": "GetSnapshotAsync",
+          "params": [
+            "bbox",
+            "cancellationToken"
+          ],
+          "returnType": "Task<AircraftSnapshot>",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "DirectSnapshotProvider",
+          "methods": [
+            "GetSnapshotAsync"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        }
+      ],
+      "exports": [
+        "GetSnapshotAsync",
+        "DirectSnapshotProvider"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "src/FlightOps.Infrastructure/Snapshots/IAircraftSnapshotProvider.cs": {
+      "filePath": "src/FlightOps.Infrastructure/Snapshots/IAircraftSnapshotProvider.cs",
+      "contentHash": "c4bc2ba5c90feff8c5c07e8f47abc7fcf19ba9a18e4b74902374643b4dbdd2d5",
+      "functions": [],
+      "classes": [
+        {
+          "name": "IAircraftSnapshotProvider",
+          "methods": [
+            "GetSnapshotAsync"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        }
+      ],
+      "exports": [
+        "IAircraftSnapshotProvider"
+      ],
+      "totalLines": 9,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/Controllers/AircraftControllerTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Controllers/AircraftControllerTests.cs",
+      "contentHash": "9ebe1a40243a2ba202c7d46781e48291a9cb2644af4cb740b430b74034dec341",
+      "functions": [
+        {
+          "name": "SetUp",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 28
+        },
+        {
+          "name": "TearDown",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "GetAircraft_returns_snapshot_for_valid_bbox",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 14
+        },
+        {
+          "name": "GetAircraft_returns_400_for_invalid_bbox",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "GetAircraftDetail_returns_404_when_not_found",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "GetAircraftDetail_returns_the_aircraft_when_found",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "GetAircraftDetail_returns_400_for_invalid_icao24_format",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "SetLiveInterval_returns_200_and_sets_interval_for_valid_header",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 15
+        },
+        {
+          "name": "SetLiveInterval_returns_400_for_disallowed_value",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "SetLiveInterval_returns_400_when_header_missing",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "GetAircraft_with_valid_live_interval_header_still_returns_snapshot_and_sets_interval",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 19
+        },
+        {
+          "name": "GetAircraft_with_invalid_live_interval_header_still_returns_snapshot_and_does_not_set_interval",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftControllerTests",
+          "methods": [
+            "SetUp",
+            "TearDown",
+            "GetAircraft_returns_snapshot_for_valid_bbox",
+            "GetAircraft_returns_400_for_invalid_bbox",
+            "GetAircraftDetail_returns_404_when_not_found",
+            "GetAircraftDetail_returns_the_aircraft_when_found",
+            "GetAircraftDetail_returns_400_for_invalid_icao24_format",
+            "SetLiveInterval_returns_200_and_sets_interval_for_valid_header",
+            "SetLiveInterval_returns_400_for_disallowed_value",
+            "SetLiveInterval_returns_400_when_header_missing",
+            "GetAircraft_with_valid_live_interval_header_still_returns_snapshot_and_sets_interval",
+            "GetAircraft_with_invalid_live_interval_header_still_returns_snapshot_and_does_not_set_interval"
+          ],
+          "properties": [
+            "JsonOptions",
+            "_snapshotProvider",
+            "_openSkyClient",
+            "_liveIntervalSettings",
+            "_factory",
+            "_client"
+          ],
+          "exported": true,
+          "lineCount": 183
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Net",
+          "specifiers": [
+            "Net"
+          ]
+        },
+        {
+          "source": "System.Net.Http.Json",
+          "specifiers": [
+            "Json"
+          ]
+        },
+        {
+          "source": "System.Text.Json",
+          "specifiers": [
+            "Json"
+          ]
+        },
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Snapshots",
+          "specifiers": [
+            "Snapshots"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.Hosting",
+          "specifiers": [
+            "Hosting"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.Mvc.Testing",
+          "specifiers": [
+            "Testing"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.DependencyInjection",
+          "specifiers": [
+            "DependencyInjection"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.DependencyInjection.Extensions",
+          "specifiers": [
+            "Extensions"
+          ]
+        },
+        {
+          "source": "NSubstitute",
+          "specifiers": [
+            "NSubstitute"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "SetUp",
+        "TearDown",
+        "GetAircraft_returns_snapshot_for_valid_bbox",
+        "GetAircraft_returns_400_for_invalid_bbox",
+        "GetAircraftDetail_returns_404_when_not_found",
+        "GetAircraftDetail_returns_the_aircraft_when_found",
+        "GetAircraftDetail_returns_400_for_invalid_icao24_format",
+        "SetLiveInterval_returns_200_and_sets_interval_for_valid_header",
+        "SetLiveInterval_returns_400_for_disallowed_value",
+        "SetLiveInterval_returns_400_when_header_missing",
+        "GetAircraft_with_valid_live_interval_header_still_returns_snapshot_and_sets_interval",
+        "GetAircraft_with_invalid_live_interval_header_still_returns_snapshot_and_does_not_set_interval",
+        "AircraftControllerTests"
+      ],
+      "totalLines": 200,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/Domain/BoundingBoxTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Domain/BoundingBoxTests.cs",
+      "contentHash": "ca99a1002b1d4d05ed24404a185c8ec2cc77185468e6634faa1747da5d250a53",
+      "functions": [
+        {
+          "name": "RoundToGrid_rounds_min_down_and_max_up_to_grid_boundaries",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "CacheKey_formats_all_four_values_to_two_decimal_places",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "BoundingBoxTests",
+          "methods": [
+            "RoundToGrid_rounds_min_down_and_max_up_to_grid_boundaries",
+            "CacheKey_formats_all_four_values_to_two_decimal_places"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 21
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "RoundToGrid_rounds_min_down_and_max_up_to_grid_boundaries",
+        "CacheKey_formats_all_four_values_to_two_decimal_places",
+        "BoundingBoxTests"
+      ],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/ExceptionHandlingTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/ExceptionHandlingTests.cs",
+      "contentHash": "7f1e2e930f4e9caf43c4f2af067b0b632168c922e7ec1c2ceb38ff1fa16bfa81",
+      "functions": [
+        {
+          "name": "Returns_503_when_rate_limited_snapshot_provider_throws",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 22
+        }
+      ],
+      "classes": [
+        {
+          "name": "ExceptionHandlingTests",
+          "methods": [
+            "Returns_503_when_rate_limited_snapshot_provider_throws"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 26
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Net",
+          "specifiers": [
+            "Net"
+          ]
+        },
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Snapshots",
+          "specifiers": [
+            "Snapshots"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.Hosting",
+          "specifiers": [
+            "Hosting"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.Mvc.Testing",
+          "specifiers": [
+            "Testing"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.DependencyInjection",
+          "specifiers": [
+            "DependencyInjection"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.DependencyInjection.Extensions",
+          "specifiers": [
+            "Extensions"
+          ]
+        },
+        {
+          "source": "NSubstitute",
+          "specifiers": [
+            "NSubstitute"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "Returns_503_when_rate_limited_snapshot_provider_throws",
+        "ExceptionHandlingTests"
+      ],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/FlightOps.Api.Tests.csproj": {
+      "filePath": "test/FlightOps.Api.Tests/FlightOps.Api.Tests.csproj",
+      "contentHash": "2d43c5069113e309d8a94044ffc9d19b7a164f6138df165645d19773b8926610",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": false
+    },
+    "test/FlightOps.Api.Tests/Hubs/ActiveBoundingBoxRegistryTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Hubs/ActiveBoundingBoxRegistryTests.cs",
+      "contentHash": "74658023325ed58fd907bc4a753715d8e13694e3bac6cfc16bd9b6457c616d69",
+      "functions": [
+        {
+          "name": "Register_adds_group_to_active_groups",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "Register_overwrites_an_existing_group_with_the_same_name_for_the_same_connection",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "Unregister_removes_group_when_its_last_connection_leaves",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "Unregister_keeps_group_active_while_other_connections_remain",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "Register_moves_a_connection_from_its_previous_group_to_a_new_one",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "Register_resets_the_group_clock_so_it_is_not_immediately_due",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "IsDue_is_true_once_the_interval_has_elapsed_since_the_last_broadcast",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "MarkBroadcast_resets_the_group_clock",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "IsDue_is_true_for_a_group_with_no_recorded_broadcast",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        }
+      ],
+      "classes": [
+        {
+          "name": "ActiveBoundingBoxRegistryTests",
+          "methods": [
+            "Register_adds_group_to_active_groups",
+            "Register_overwrites_an_existing_group_with_the_same_name_for_the_same_connection",
+            "Unregister_removes_group_when_its_last_connection_leaves",
+            "Unregister_keeps_group_active_while_other_connections_remain",
+            "Register_moves_a_connection_from_its_previous_group_to_a_new_one",
+            "Register_resets_the_group_clock_so_it_is_not_immediately_due",
+            "IsDue_is_true_once_the_interval_has_elapsed_since_the_last_broadcast",
+            "MarkBroadcast_resets_the_group_clock",
+            "IsDue_is_true_for_a_group_with_no_recorded_broadcast"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 100
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Api.Hubs",
+          "specifiers": [
+            "Hubs"
+          ]
+        },
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "Register_adds_group_to_active_groups",
+        "Register_overwrites_an_existing_group_with_the_same_name_for_the_same_connection",
+        "Unregister_removes_group_when_its_last_connection_leaves",
+        "Unregister_keeps_group_active_while_other_connections_remain",
+        "Register_moves_a_connection_from_its_previous_group_to_a_new_one",
+        "Register_resets_the_group_clock_so_it_is_not_immediately_due",
+        "IsDue_is_true_once_the_interval_has_elapsed_since_the_last_broadcast",
+        "MarkBroadcast_resets_the_group_clock",
+        "IsDue_is_true_for_a_group_with_no_recorded_broadcast",
+        "ActiveBoundingBoxRegistryTests"
+      ],
+      "totalLines": 107,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/Hubs/AircraftBroadcastServiceTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Hubs/AircraftBroadcastServiceTests.cs",
+      "contentHash": "15903a50cf82317913091ca14fec56eb81a8cd03a662b9105f053be958ee47b0",
+      "functions": [
+        {
+          "name": "BroadcastOnceAsync_sends_snapshot_to_each_registered_group",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 27
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftBroadcastServiceTests",
+          "methods": [
+            "BroadcastOnceAsync_sends_snapshot_to_each_registered_group"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 31
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Api.Hubs",
+          "specifiers": [
+            "Hubs"
+          ]
+        },
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Snapshots",
+          "specifiers": [
+            "Snapshots"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.SignalR",
+          "specifiers": [
+            "SignalR"
+          ]
+        },
+        {
+          "source": "NSubstitute",
+          "specifiers": [
+            "NSubstitute"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "BroadcastOnceAsync_sends_snapshot_to_each_registered_group",
+        "AircraftBroadcastServiceTests"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/Hubs/AircraftHubTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Hubs/AircraftHubTests.cs",
+      "contentHash": "2c744c1ef0bb37c5665d0616232bb6d246bb101f3b47c049441e973743fb4722",
+      "functions": [
+        {
+          "name": "GroupName_formats_bbox_to_two_decimal_places",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "Subscribe_registers_and_groups_by_the_exact_bbox_without_rounding",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 21
+        },
+        {
+          "name": "OnDisconnectedAsync_unregisters_the_connection",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftHubTests",
+          "methods": [
+            "GroupName_formats_bbox_to_two_decimal_places",
+            "Subscribe_registers_and_groups_by_the_exact_bbox_without_rounding",
+            "OnDisconnectedAsync_unregisters_the_connection"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 48
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Api.Hubs",
+          "specifiers": [
+            "Hubs"
+          ]
+        },
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Snapshots",
+          "specifiers": [
+            "Snapshots"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.SignalR",
+          "specifiers": [
+            "SignalR"
+          ]
+        },
+        {
+          "source": "NSubstitute",
+          "specifiers": [
+            "NSubstitute"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "GroupName_formats_bbox_to_two_decimal_places",
+        "Subscribe_registers_and_groups_by_the_exact_bbox_without_rounding",
+        "OnDisconnectedAsync_unregisters_the_connection",
+        "AircraftHubTests"
+      ],
+      "totalLines": 58,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/Infrastructure/DirectSnapshotProviderTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Infrastructure/DirectSnapshotProviderTests.cs",
+      "contentHash": "0eac40002e509f91e142a84b71b3cb4d8d2e2ae6973240542a9b5d983b1bdfd8",
+      "functions": [
+        {
+          "name": "GetSnapshotAsync_calls_the_client_on_every_invocation",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 20
+        }
+      ],
+      "classes": [
+        {
+          "name": "DirectSnapshotProviderTests",
+          "methods": [
+            "GetSnapshotAsync_calls_the_client_on_every_invocation"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 24
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Snapshots",
+          "specifiers": [
+            "Snapshots"
+          ]
+        },
+        {
+          "source": "NSubstitute",
+          "specifiers": [
+            "NSubstitute"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "GetSnapshotAsync_calls_the_client_on_every_invocation",
+        "DirectSnapshotProviderTests"
+      ],
+      "totalLines": 33,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/Infrastructure/OpenSkyClientTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Infrastructure/OpenSkyClientTests.cs",
+      "contentHash": "85d646a8544bc244b2ae16f343d5b4bed2a238bbb0594793cf4ac36f9e2a6672",
+      "functions": [
+        {
+          "name": "GetStatesAsync_maps_all_states_in_the_response",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 25
+        },
+        {
+          "name": "GetStatesAsync_throws_OpenSkyRateLimitedException_on_429",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "GetStateByIcao24Async_url_encodes_the_icao24_value",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpenSkyClientTests",
+          "methods": [
+            "GetStatesAsync_maps_all_states_in_the_response",
+            "GetStatesAsync_throws_OpenSkyRateLimitedException_on_429",
+            "GetStateByIcao24Async_url_encodes_the_icao24_value"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 72
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Net",
+          "specifiers": [
+            "Net"
+          ]
+        },
+        {
+          "source": "System.Text",
+          "specifiers": [
+            "Text"
+          ]
+        },
+        {
+          "source": "FlightOps.Domain",
+          "specifiers": [
+            "Domain"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.Logging.Abstractions",
+          "specifiers": [
+            "Abstractions"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "GetStatesAsync_maps_all_states_in_the_response",
+        "GetStatesAsync_throws_OpenSkyRateLimitedException_on_429",
+        "GetStateByIcao24Async_url_encodes_the_icao24_value",
+        "OpenSkyClientTests"
+      ],
+      "totalLines": 82,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/Infrastructure/OpenSkyStateMapperTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Infrastructure/OpenSkyStateMapperTests.cs",
+      "contentHash": "62f80fe6b20bc34bf44ad94e2ff051659ebee9712b708f5d6c6f21f1862e2cc9",
+      "functions": [
+        {
+          "name": "Maps_a_fully_populated_state_vector",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 24
+        },
+        {
+          "name": "Maps_null_altitude_and_on_ground_true",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 17
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpenSkyStateMapperTests",
+          "methods": [
+            "Maps_a_fully_populated_state_vector",
+            "Maps_null_altitude_and_on_ground_true"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 46
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Text.Json",
+          "specifiers": [
+            "Json"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "Maps_a_fully_populated_state_vector",
+        "Maps_null_altitude_and_on_ground_true",
+        "OpenSkyStateMapperTests"
+      ],
+      "totalLines": 53,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/Infrastructure/OpenSkyTokenClientTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Infrastructure/OpenSkyTokenClientTests.cs",
+      "contentHash": "32be4d39963a3f795e7882e24f4e8c46faaf63b1f32beaed38ce6e1345c45bfd",
+      "functions": [
+        {
+          "name": "Parses_access_token_and_expiry_from_response",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 25
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpenSkyTokenClientTests",
+          "methods": [
+            "Parses_access_token_and_expiry_from_response"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 35
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Net",
+          "specifiers": [
+            "Net"
+          ]
+        },
+        {
+          "source": "System.Text",
+          "specifiers": [
+            "Text"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.Options",
+          "specifiers": [
+            "Options"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "Parses_access_token_and_expiry_from_response",
+        "OpenSkyTokenClientTests"
+      ],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/Infrastructure/OpenSkyTokenProviderTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Infrastructure/OpenSkyTokenProviderTests.cs",
+      "contentHash": "fc2ef0cc848421ee423b76c7557be93e5175b2eb6fae40081a6ef68a40c83409",
+      "functions": [
+        {
+          "name": "SetUp",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "TearDown",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "Attaches_bearer_token_from_token_client_on_first_request",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "Reuses_cached_token_when_not_near_expiry",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "Refreshes_token_when_near_expiry",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "classes": [
+        {
+          "name": "OpenSkyTokenProviderTests",
+          "methods": [
+            "SetUp",
+            "TearDown",
+            "Attaches_bearer_token_from_token_client_on_first_request",
+            "Reuses_cached_token_when_not_near_expiry",
+            "Refreshes_token_when_near_expiry"
+          ],
+          "properties": [
+            "_tokenClient",
+            "_innerHandler",
+            "_httpClient"
+          ],
+          "exported": true,
+          "lineCount": 73
+        }
+      ],
+      "imports": [
+        {
+          "source": "System.Net",
+          "specifiers": [
+            "Net"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.Configuration",
+          "specifiers": [
+            "Configuration"
+          ]
+        },
+        {
+          "source": "FlightOps.Infrastructure.OpenSky",
+          "specifiers": [
+            "OpenSky"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.Options",
+          "specifiers": [
+            "Options"
+          ]
+        },
+        {
+          "source": "NSubstitute",
+          "specifiers": [
+            "NSubstitute"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "SetUp",
+        "TearDown",
+        "Attaches_bearer_token_from_token_client_on_first_request",
+        "Reuses_cached_token_when_not_near_expiry",
+        "Refreshes_token_when_near_expiry",
+        "OpenSkyTokenProviderTests"
+      ],
+      "totalLines": 83,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/ProgramSmokeTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/ProgramSmokeTests.cs",
+      "contentHash": "beff2dbd6bed0b6aa2d482cefcf90b399eba24a8cc719231a60aa89631e98e7d",
+      "functions": [
+        {
+          "name": "Resolves_direct_snapshot_provider",
+          "params": [],
+          "returnType": "Task",
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "classes": [
+        {
+          "name": "ProgramSmokeTests",
+          "methods": [
+            "Resolves_direct_snapshot_provider"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 14
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Infrastructure.Snapshots",
+          "specifiers": [
+            "Snapshots"
+          ]
+        },
+        {
+          "source": "Microsoft.AspNetCore.Mvc.Testing",
+          "specifiers": [
+            "Testing"
+          ]
+        },
+        {
+          "source": "Microsoft.Extensions.DependencyInjection",
+          "specifiers": [
+            "DependencyInjection"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "Resolves_direct_snapshot_provider",
+        "ProgramSmokeTests"
+      ],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "test/FlightOps.Api.Tests/Requests/BoundingBoxRequestValidatorTests.cs": {
+      "filePath": "test/FlightOps.Api.Tests/Requests/BoundingBoxRequestValidatorTests.cs",
+      "contentHash": "1445b7596930047385fd4386a559771340ba16742dd3a814c3986879257bd289",
+      "functions": [
+        {
+          "name": "Valid_bounding_box_passes",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "LaMin_greater_than_or_equal_to_LaMax_fails",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "Latitude_out_of_range_fails",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "classes": [
+        {
+          "name": "BoundingBoxRequestValidatorTests",
+          "methods": [
+            "Valid_bounding_box_passes",
+            "LaMin_greater_than_or_equal_to_LaMax_fails",
+            "Latitude_out_of_range_fails"
+          ],
+          "properties": [
+            "_validator"
+          ],
+          "exported": true,
+          "lineCount": 35
+        }
+      ],
+      "imports": [
+        {
+          "source": "FlightOps.Api.Requests",
+          "specifiers": [
+            "Requests"
+          ]
+        },
+        {
+          "source": "NUnit.Framework",
+          "specifiers": [
+            "Framework"
+          ]
+        }
+      ],
+      "exports": [
+        "Valid_bounding_box_passes",
+        "LaMin_greater_than_or_equal_to_LaMax_fails",
+        "Latitude_out_of_range_fails",
+        "BoundingBoxRequestValidatorTests"
+      ],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

@@ -1,0 +1,361 @@
+{
+  "name": "FlightOps",
+  "description": "A lightweight POC .NET 8 backend that fetches live aircraft state from the OpenSky Network REST API for a caller-supplied bounding box and serves it via REST endpoints and a SignalR push hub for a companion mobile app.",
+  "languages": [
+    "csharp",
+    "csproj",
+    "json",
+    "sln"
+  ],
+  "frameworks": [
+    "ASP.NET Core",
+    "SignalR",
+    "FluentValidation",
+    "Swashbuckle",
+    "NUnit",
+    "NSubstitute"
+  ],
+  "files": [
+    {
+      "path": "docs/postman/flight-ops-api.postman_collection.json",
+      "language": "json",
+      "sizeLines": 183,
+      "fileCategory": "config"
+    },
+    {
+      "path": "FlightOps.sln",
+      "language": "sln",
+      "sizeLines": 50,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/FlightOps.Api/appsettings.Development.json",
+      "language": "json",
+      "sizeLines": 8,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/FlightOps.Api/appsettings.json",
+      "language": "json",
+      "sizeLines": 19,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/FlightOps.Api/appsettings.secrets.json",
+      "language": "json",
+      "sizeLines": 6,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/FlightOps.Api/Controllers/AircraftController.cs",
+      "language": "csharp",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Api/FlightOps.Api.csproj",
+      "language": "csproj",
+      "sizeLines": 19,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/FlightOps.Api/Hubs/ActiveBoundingBoxRegistry.cs",
+      "language": "csharp",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Api/Hubs/AircraftBroadcastService.cs",
+      "language": "csharp",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Api/Hubs/AircraftHub.cs",
+      "language": "csharp",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Api/Hubs/BroadcastSettings.cs",
+      "language": "csharp",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Api/Middlewares/OpenSkyExceptionHandler.cs",
+      "language": "csharp",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Api/Program.cs",
+      "language": "csharp",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Api/Properties/launchSettings.json",
+      "language": "json",
+      "sizeLines": 30,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/FlightOps.Api/Requests/BoundingBoxRequest.cs",
+      "language": "csharp",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Api/Requests/BoundingBoxRequestValidator.cs",
+      "language": "csharp",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Domain/Aircraft.cs",
+      "language": "csharp",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Domain/BoundingBox.cs",
+      "language": "csharp",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Domain/FlightOps.Domain.csproj",
+      "language": "csproj",
+      "sizeLines": 9,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/Configuration/LiveIntervalSettings.cs",
+      "language": "csharp",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/Configuration/OpenSkySettings.cs",
+      "language": "csharp",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/Configuration/TokenSettings.cs",
+      "language": "csharp",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/FlightOps.Infrastructure.csproj",
+      "language": "csproj",
+      "sizeLines": 19,
+      "fileCategory": "config"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/OpenSky/IOpenSkyClient.cs",
+      "language": "csharp",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/OpenSky/IOpenSkyTokenClient.cs",
+      "language": "csharp",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/OpenSky/OpenSkyClient.cs",
+      "language": "csharp",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/OpenSky/OpenSkyRateLimitedException.cs",
+      "language": "csharp",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/OpenSky/OpenSkyStateMapper.cs",
+      "language": "csharp",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/OpenSky/OpenSkyToken.cs",
+      "language": "csharp",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/OpenSky/OpenSkyTokenClient.cs",
+      "language": "csharp",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/OpenSky/OpenSkyTokenProvider.cs",
+      "language": "csharp",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/Snapshots/AircraftSnapshot.cs",
+      "language": "csharp",
+      "sizeLines": 5,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/Snapshots/DirectSnapshotProvider.cs",
+      "language": "csharp",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "src/FlightOps.Infrastructure/Snapshots/IAircraftSnapshotProvider.cs",
+      "language": "csharp",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Controllers/AircraftControllerTests.cs",
+      "language": "csharp",
+      "sizeLines": 199,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Domain/BoundingBoxTests.cs",
+      "language": "csharp",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/ExceptionHandlingTests.cs",
+      "language": "csharp",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/FlightOps.Api.Tests.csproj",
+      "language": "csproj",
+      "sizeLines": 30,
+      "fileCategory": "config"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Hubs/ActiveBoundingBoxRegistryTests.cs",
+      "language": "csharp",
+      "sizeLines": 106,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Hubs/AircraftBroadcastServiceTests.cs",
+      "language": "csharp",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Hubs/AircraftHubTests.cs",
+      "language": "csharp",
+      "sizeLines": 57,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Infrastructure/DirectSnapshotProviderTests.cs",
+      "language": "csharp",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Infrastructure/OpenSkyClientTests.cs",
+      "language": "csharp",
+      "sizeLines": 81,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Infrastructure/OpenSkyStateMapperTests.cs",
+      "language": "csharp",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Infrastructure/OpenSkyTokenClientTests.cs",
+      "language": "csharp",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Infrastructure/OpenSkyTokenProviderTests.cs",
+      "language": "csharp",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/ProgramSmokeTests.cs",
+      "language": "csharp",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "test/FlightOps.Api.Tests/Requests/BoundingBoxRequestValidatorTests.cs",
+      "language": "csharp",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 48,
+  "filteredByIgnore": 468,
+  "estimatedComplexity": "moderate",
+  "importMap": {
+    "docs/postman/flight-ops-api.postman_collection.json": [],
+    "FlightOps.sln": [],
+    "src/FlightOps.Api/appsettings.Development.json": [],
+    "src/FlightOps.Api/appsettings.json": [],
+    "src/FlightOps.Api/appsettings.secrets.json": [],
+    "src/FlightOps.Api/Controllers/AircraftController.cs": [],
+    "src/FlightOps.Api/FlightOps.Api.csproj": [],
+    "src/FlightOps.Api/Hubs/ActiveBoundingBoxRegistry.cs": [],
+    "src/FlightOps.Api/Hubs/AircraftBroadcastService.cs": [],
+    "src/FlightOps.Api/Hubs/AircraftHub.cs": [],
+    "src/FlightOps.Api/Hubs/BroadcastSettings.cs": [],
+    "src/FlightOps.Api/Middlewares/OpenSkyExceptionHandler.cs": [],
+    "src/FlightOps.Api/Program.cs": [],
+    "src/FlightOps.Api/Properties/launchSettings.json": [],
+    "src/FlightOps.Api/Requests/BoundingBoxRequest.cs": [],
+    "src/FlightOps.Api/Requests/BoundingBoxRequestValidator.cs": [],
+    "src/FlightOps.Domain/Aircraft.cs": [],
+    "src/FlightOps.Domain/BoundingBox.cs": [],
+    "src/FlightOps.Domain/FlightOps.Domain.csproj": [],
+    "src/FlightOps.Infrastructure/Configuration/LiveIntervalSettings.cs": [],
+    "src/FlightOps.Infrastructure/Configuration/OpenSkySettings.cs": [],
+    "src/FlightOps.Infrastructure/Configuration/TokenSettings.cs": [],
+    "src/FlightOps.Infrastructure/FlightOps.Infrastructure.csproj": [],
+    "src/FlightOps.Infrastructure/OpenSky/IOpenSkyClient.cs": [],
+    "src/FlightOps.Infrastructure/OpenSky/IOpenSkyTokenClient.cs": [],
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyClient.cs": [],
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyRateLimitedException.cs": [],
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyStateMapper.cs": [],
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyToken.cs": [],
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyTokenClient.cs": [],
+    "src/FlightOps.Infrastructure/OpenSky/OpenSkyTokenProvider.cs": [],
+    "src/FlightOps.Infrastructure/Snapshots/AircraftSnapshot.cs": [],
+    "src/FlightOps.Infrastructure/Snapshots/DirectSnapshotProvider.cs": [],
+    "src/FlightOps.Infrastructure/Snapshots/IAircraftSnapshotProvider.cs": [],
+    "test/FlightOps.Api.Tests/Controllers/AircraftControllerTests.cs": [],
+    "test/FlightOps.Api.Tests/Domain/BoundingBoxTests.cs": [],
+    "test/FlightOps.Api.Tests/ExceptionHandlingTests.cs": [],
+    "test/FlightOps.Api.Tests/FlightOps.Api.Tests.csproj": [],
+    "test/FlightOps.Api.Tests/Hubs/ActiveBoundingBoxRegistryTests.cs": [],
+    "test/FlightOps.Api.Tests/Hubs/AircraftBroadcastServiceTests.cs": [],
+    "test/FlightOps.Api.Tests/Hubs/AircraftHubTests.cs": [],
+    "test/FlightOps.Api.Tests/Infrastructure/DirectSnapshotProviderTests.cs": [],
+    "test/FlightOps.Api.Tests/Infrastructure/OpenSkyClientTests.cs": [],
+    "test/FlightOps.Api.Tests/Infrastructure/OpenSkyStateMapperTests.cs": [],
+    "test/FlightOps.Api.Tests/Infrastructure/OpenSkyTokenClientTests.cs": [],
+    "test/FlightOps.Api.Tests/Infrastructure/OpenSkyTokenProviderTests.cs": [],
+    "test/FlightOps.Api.Tests/ProgramSmokeTests.cs": [],
+    "test/FlightOps.Api.Tests/Requests/BoundingBoxRequestValidatorTests.cs": []
+  }
+}

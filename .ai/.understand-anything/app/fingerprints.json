@@ -1,0 +1,5336 @@
+{
+  "version": "1.0.0",
+  "gitCommitHash": "no-git-repo",
+  "generatedAt": "2026-07-20T20:33:31.521Z",
+  "files": {
+    ".DS_Store": {
+      "filePath": ".DS_Store",
+      "contentHash": "a0ee2871def86ecdf3e25dcd6d1c716186627e98e6c20813f5b1b115d1e0e49d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 5,
+      "hasStructuralAnalysis": false
+    },
+    ".metadata": {
+      "filePath": ".metadata",
+      "contentHash": "77c75240bbcce1d3f2b983773c7e18f983f2bc4511476f5bf397074e3012959f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 46,
+      "hasStructuralAnalysis": false
+    },
+    "analysis_options.yaml": {
+      "filePath": "analysis_options.yaml",
+      "contentHash": "3f457f88f1b21e29a484519e12d86312a2afa966764d1eb541a8a89bff7f12c9",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 6,
+      "hasStructuralAnalysis": true
+    },
+    "flight_ops_app.iml": {
+      "filePath": "flight_ops_app.iml",
+      "contentHash": "b5592c60baeaf4bb65b77c491bc6421397f2183bdadd787d9fea635520733f03",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 54,
+      "hasStructuralAnalysis": false
+    },
+    "lib/core/config/api_config.dart": {
+      "filePath": "lib/core/config/api_config.dart",
+      "contentHash": "e171cd821715a7959ac841e4a3abc49bac8f3d3c72b4bd4fecb784d249bc1ab1",
+      "functions": [
+        {
+          "name": "hubUrl",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "aircraftDetailPath",
+          "params": [
+            "icao24"
+          ],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "ApiConfig",
+          "methods": [
+            "hubUrl",
+            "aircraftDetailPath"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 18
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "hubUrl",
+        "aircraftDetailPath",
+        "ApiConfig"
+      ],
+      "totalLines": 22,
+      "hasStructuralAnalysis": true
+    },
+    "lib/core/di/injection.config.dart": {
+      "filePath": "lib/core/di/injection.config.dart",
+      "contentHash": "6e2f05841ea6d83117e26e5540b058df9f21c5aefd9c28e35f3ac12c14a3df61",
+      "functions": [
+        {
+          "name": "init",
+          "params": [
+            "environment",
+            "environmentFilter"
+          ],
+          "returnType": "Future<_i174.GetIt>",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "GetItInjectableX",
+          "methods": [
+            "init"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 55
+        },
+        {
+          "name": "_$RegisterModule",
+          "methods": [],
+          "properties": [],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:dio/dio.dart",
+          "specifiers": [
+            "_i361"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/core/di/register_module.dart",
+          "specifiers": [
+            "_i529"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/data/remote/aircraft_remote_data_source.dart",
+          "specifiers": [
+            "_i964"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/data/repositories/aircraft_repository_impl.dart",
+          "specifiers": [
+            "_i523"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/data/settings/settings_repository_impl.dart",
+          "specifiers": [
+            "_i761"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/data/signalr/aircraft_signalr_data_source.dart",
+          "specifiers": [
+            "_i1001"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/domain/repositories/aircraft_repository.dart",
+          "specifiers": [
+            "_i631"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/domain/repositories/settings_repository.dart",
+          "specifiers": [
+            "_i568"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/presentation/active_region/bloc/active_region_bloc.dart",
+          "specifiers": [
+            "_i844"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/presentation/detail/bloc/aircraft_detail_bloc.dart",
+          "specifiers": [
+            "_i892"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/presentation/list/bloc/aircraft_list_bloc.dart",
+          "specifiers": [
+            "_i25"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/presentation/map/bloc/map_bloc.dart",
+          "specifiers": [
+            "_i290"
+          ]
+        },
+        {
+          "source": "package:flight_ops_app/presentation/settings/bloc/settings_bloc.dart",
+          "specifiers": [
+            "_i775"
+          ]
+        },
+        {
+          "source": "package:get_it/get_it.dart",
+          "specifiers": [
+            "_i174"
+          ]
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": [
+            "_i526"
+          ]
+        },
+        {
+          "source": "package:shared_preferences/shared_preferences.dart",
+          "specifiers": [
+            "_i460"
+          ]
+        }
+      ],
+      "exports": [
+        "init",
+        "GetItInjectableX"
+      ],
+      "totalLines": 96,
+      "hasStructuralAnalysis": true
+    },
+    "lib/core/di/injection.dart": {
+      "filePath": "lib/core/di/injection.dart",
+      "contentHash": "8ad4d440faa8d491e0f32587ddb528dda8027cab49a683d9082dd48c30121938",
+      "functions": [
+        {
+          "name": "configureDependencies",
+          "params": [],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:get_it/get_it.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "injection.config.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "configureDependencies"
+      ],
+      "totalLines": 10,
+      "hasStructuralAnalysis": true
+    },
+    "lib/core/di/register_module.dart": {
+      "filePath": "lib/core/di/register_module.dart",
+      "contentHash": "a2a47b5b1db9d7bd114207d8d60ecd47f98407b02a9a665b8dc0bc5a3f7d7e2e",
+      "functions": [
+        {
+          "name": "dio",
+          "params": [],
+          "returnType": "Dio",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "hubUrl",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "prefs",
+          "params": [],
+          "returnType": "Future<SharedPreferences>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "RegisterModule",
+          "methods": [
+            "dio",
+            "hubUrl",
+            "prefs"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 10
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:dio/dio.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:shared_preferences/shared_preferences.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../config/api_config.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "dio",
+        "hubUrl",
+        "prefs",
+        "RegisterModule"
+      ],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "lib/core/router/app_router.dart": {
+      "filePath": "lib/core/router/app_router.dart",
+      "contentHash": "ad624ee0b22c8bd1a455c55d1feadd62533d7f8df9519ab4530e961147123b2e",
+      "functions": [
+        {
+          "name": "buildAppRouter",
+          "params": [],
+          "returnType": "GoRouter",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:go_router/go_router.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../presentation/detail/aircraft_detail_page.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../presentation/list/aircraft_list_page.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../presentation/map/map_page.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../presentation/settings/settings_page.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../presentation/shell/app_shell.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "buildAppRouter"
+      ],
+      "totalLines": 49,
+      "hasStructuralAnalysis": true
+    },
+    "lib/core/theme/app_colors.dart": {
+      "filePath": "lib/core/theme/app_colors.dart",
+      "contentHash": "d992650ad25a6f441760145acf72c6e40f0d075755018aff4a596047baabb7c2",
+      "functions": [
+        {
+          "name": "copyWith",
+          "params": [
+            "canvas",
+            "background",
+            "panel",
+            "panel2",
+            "line",
+            "line2",
+            "textPrimary",
+            "textSecondary",
+            "textTertiary",
+            "accent",
+            "accentInk",
+            "accentDim",
+            "ground",
+            "stale",
+            "danger",
+            "scrim"
+          ],
+          "returnType": "AppColors",
+          "exported": true,
+          "lineCount": 18
+        },
+        {
+          "name": "lerp",
+          "params": [
+            "other",
+            "t"
+          ],
+          "returnType": "AppColors",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AppColors",
+          "methods": [
+            "copyWith",
+            "lerp"
+          ],
+          "properties": [
+            "canvas",
+            "background",
+            "panel",
+            "panel2",
+            "line",
+            "line2",
+            "textPrimary",
+            "textSecondary",
+            "textTertiary",
+            "accent",
+            "accentInk",
+            "accentDim",
+            "ground",
+            "stale",
+            "danger",
+            "scrim"
+          ],
+          "exported": true,
+          "lineCount": 137
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "copyWith",
+        "lerp",
+        "AppColors"
+      ],
+      "totalLines": 140,
+      "hasStructuralAnalysis": true
+    },
+    "lib/core/theme/app_strings.dart": {
+      "filePath": "lib/core/theme/app_strings.dart",
+      "contentHash": "dfde36996e1f240e4ee94e6c19a08a1ae4045ecd08a0f5197f5eada17b96a463",
+      "functions": [],
+      "classes": [
+        {
+          "name": "AppStrings",
+          "methods": [],
+          "properties": [],
+          "exported": true,
+          "lineCount": 69
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "AppStrings"
+      ],
+      "totalLines": 74,
+      "hasStructuralAnalysis": true
+    },
+    "lib/core/theme/app_text_styles.dart": {
+      "filePath": "lib/core/theme/app_text_styles.dart",
+      "contentHash": "69490912c0170f8409806d1a2e9c5912657a13d4f66029c079210a79282901f7",
+      "functions": [
+        {
+          "name": "sectionLabel",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "body",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "caption",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "microLabel",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "fieldLabel",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "badge",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "chipLabel",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "navLabel",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "staleBanner",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "eyebrow",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "wordmark",
+          "params": [
+            "color"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "cardTitle",
+          "params": [
+            "color",
+            "bordered"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "cardSubtitle",
+          "params": [
+            "color",
+            "bordered"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AppTextStyles",
+          "methods": [
+            "sectionLabel",
+            "body",
+            "caption",
+            "microLabel",
+            "fieldLabel",
+            "badge",
+            "chipLabel",
+            "navLabel",
+            "staleBanner",
+            "eyebrow",
+            "wordmark",
+            "cardTitle",
+            "cardSubtitle"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 53
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "sectionLabel",
+        "body",
+        "caption",
+        "microLabel",
+        "fieldLabel",
+        "badge",
+        "chipLabel",
+        "navLabel",
+        "staleBanner",
+        "eyebrow",
+        "wordmark",
+        "cardTitle",
+        "cardSubtitle",
+        "AppTextStyles"
+      ],
+      "totalLines": 59,
+      "hasStructuralAnalysis": true
+    },
+    "lib/core/theme/app_theme.dart": {
+      "filePath": "lib/core/theme/app_theme.dart",
+      "contentHash": "8d4e5625e8c87bafc8c0f68707c8c92806e91cd27657849a32778a90ac0fd4aa",
+      "functions": [
+        {
+          "name": "darkTheme",
+          "params": [],
+          "returnType": "ThemeData",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "lightTheme",
+          "params": [],
+          "returnType": "ThemeData",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_themeFor",
+          "params": [
+            "colors",
+            "brightness"
+          ],
+          "returnType": "ThemeData",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "monospace",
+          "params": [
+            "color",
+            "fontSize",
+            "fontWeight"
+          ],
+          "returnType": "TextStyle",
+          "exported": true,
+          "lineCount": 5
+        }
+      ],
+      "classes": [
+        {
+          "name": "AppTheme",
+          "methods": [
+            "darkTheme",
+            "lightTheme",
+            "_themeFor",
+            "monospace"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:google_fonts/google_fonts.dart",
+          "specifiers": []
+        },
+        {
+          "source": "app_colors.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "darkTheme",
+        "lightTheme",
+        "monospace",
+        "AppTheme"
+      ],
+      "totalLines": 47,
+      "hasStructuralAnalysis": true
+    },
+    "lib/data/remote/aircraft_remote_data_source.dart": {
+      "filePath": "lib/data/remote/aircraft_remote_data_source.dart",
+      "contentHash": "c4a28c5d2c5f916e646101e446c28221b60a1c6edc826557a0258a2c1ecd4d9a",
+      "functions": [
+        {
+          "name": "AircraftRemoteDataSource",
+          "params": [
+            "_dio"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "fetchSnapshot",
+          "params": [
+            "bbox",
+            "liveIntervalSeconds"
+          ],
+          "returnType": "Future<AircraftSnapshot>",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "updateLiveInterval",
+          "params": [
+            "seconds"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "fetchDetail",
+          "params": [
+            "icao24"
+          ],
+          "returnType": "Future<Aircraft?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_mapDioException",
+          "params": [
+            "e"
+          ],
+          "returnType": "Failure",
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftRemoteDataSource",
+          "methods": [
+            "AircraftRemoteDataSource",
+            "fetchSnapshot",
+            "updateLiveInterval",
+            "fetchDetail",
+            "_mapDioException"
+          ],
+          "properties": [
+            "_dio"
+          ],
+          "exported": true,
+          "lineCount": 70
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:dio/dio.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/config/api_config.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/failures/repository_exception.dart",
+          "specifiers": []
+        },
+        {
+          "source": "dto/aircraft_dto.dart",
+          "specifiers": []
+        },
+        {
+          "source": "dto/aircraft_snapshot_dto.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "AircraftRemoteDataSource",
+        "fetchSnapshot",
+        "updateLiveInterval",
+        "fetchDetail",
+        "AircraftRemoteDataSource"
+      ],
+      "totalLines": 84,
+      "hasStructuralAnalysis": true
+    },
+    "lib/data/remote/dto/aircraft_dto.dart": {
+      "filePath": "lib/data/remote/dto/aircraft_dto.dart",
+      "contentHash": "1729e342ef4effdddfc624eb53bc7a25a83b5300c5772730ba95f9c4a213baba",
+      "functions": [
+        {
+          "name": "AircraftDto",
+          "params": [
+            "icao24",
+            "callsign",
+            "originCountry",
+            "longitude",
+            "latitude",
+            "altitude",
+            "velocity",
+            "heading",
+            "onGround",
+            "lastUpdate"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "AircraftDto.fromJson",
+          "params": [
+            "json"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "toDomain",
+          "params": [],
+          "returnType": "Aircraft",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftDto",
+          "methods": [
+            "AircraftDto",
+            "AircraftDto.fromJson",
+            "toDomain"
+          ],
+          "properties": [
+            "icao24",
+            "callsign",
+            "originCountry",
+            "longitude",
+            "latitude",
+            "altitude",
+            "velocity",
+            "heading",
+            "onGround",
+            "lastUpdate"
+          ],
+          "exported": true,
+          "lineCount": 43
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:json_annotation/json_annotation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/entities/aircraft.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "AircraftDto",
+        "AircraftDto.fromJson",
+        "toDomain",
+        "AircraftDto"
+      ],
+      "totalLines": 51,
+      "hasStructuralAnalysis": true
+    },
+    "lib/data/remote/dto/aircraft_dto.g.dart": {
+      "filePath": "lib/data/remote/dto/aircraft_dto.g.dart",
+      "contentHash": "327259392ef251446fbe60e3b5fc48d85c14b69c495d783f9bb91c04c175866d",
+      "functions": [
+        {
+          "name": "_$AircraftDtoFromJson",
+          "params": [
+            "json"
+          ],
+          "returnType": "AircraftDto",
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "lib/data/remote/dto/aircraft_snapshot_dto.dart": {
+      "filePath": "lib/data/remote/dto/aircraft_snapshot_dto.dart",
+      "contentHash": "da6643ac48430ac9b1f8ab6ce13fc69ff69ea16da425246cf5feed95eca69e38",
+      "functions": [
+        {
+          "name": "AircraftSnapshotDto",
+          "params": [
+            "aircraft",
+            "stale"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "AircraftSnapshotDto.fromJson",
+          "params": [
+            "json"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "toDomain",
+          "params": [],
+          "returnType": "AircraftSnapshot",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftSnapshotDto",
+          "methods": [
+            "AircraftSnapshotDto",
+            "AircraftSnapshotDto.fromJson",
+            "toDomain"
+          ],
+          "properties": [
+            "aircraft",
+            "stale"
+          ],
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:json_annotation/json_annotation.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "aircraft_dto.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "AircraftSnapshotDto",
+        "AircraftSnapshotDto.fromJson",
+        "toDomain",
+        "AircraftSnapshotDto"
+      ],
+      "totalLines": 25,
+      "hasStructuralAnalysis": true
+    },
+    "lib/data/remote/dto/aircraft_snapshot_dto.g.dart": {
+      "filePath": "lib/data/remote/dto/aircraft_snapshot_dto.g.dart",
+      "contentHash": "15740bede59317fc76ec845bde3011cfd335f55758b9a6e65b1be4651f753950",
+      "functions": [
+        {
+          "name": "_$AircraftSnapshotDtoFromJson",
+          "params": [
+            "json"
+          ],
+          "returnType": "AircraftSnapshotDto",
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "lib/data/repositories/aircraft_repository_impl.dart": {
+      "filePath": "lib/data/repositories/aircraft_repository_impl.dart",
+      "contentHash": "7962ec58b78f0af65573c17fc5a3c79c2ce5b44e85594c3e926d1dea79a4c962",
+      "functions": [
+        {
+          "name": "AircraftRepositoryImpl",
+          "params": [
+            "remote",
+            "signalR",
+            "settings"
+          ],
+          "exported": true,
+          "lineCount": 7
+        },
+        {
+          "name": "watchSnapshot",
+          "params": [
+            "bbox"
+          ],
+          "returnType": "Stream<AircraftSnapshot>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_pollSnapshot",
+          "params": [
+            "bbox",
+            "isCancelled",
+            "onError"
+          ],
+          "returnType": "Stream<AircraftSnapshot>",
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "getDetail",
+          "params": [
+            "icao24"
+          ],
+          "returnType": "Future<Aircraft?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "updateLiveInterval",
+          "params": [
+            "seconds"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftRepositoryImpl",
+          "methods": [
+            "AircraftRepositoryImpl",
+            "watchSnapshot",
+            "_pollSnapshot",
+            "getDetail",
+            "updateLiveInterval"
+          ],
+          "properties": [
+            "_remote",
+            "_signalR",
+            "_settings"
+          ],
+          "exported": true,
+          "lineCount": 79
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/repositories/aircraft_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/repositories/settings_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/settings/live_update_mode.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../remote/aircraft_remote_data_source.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../signalr/aircraft_signalr_data_source.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "AircraftRepositoryImpl",
+        "watchSnapshot",
+        "getDetail",
+        "updateLiveInterval",
+        "AircraftRepositoryImpl"
+      ],
+      "totalLines": 94,
+      "hasStructuralAnalysis": true
+    },
+    "lib/data/settings/settings_repository_impl.dart": {
+      "filePath": "lib/data/settings/settings_repository_impl.dart",
+      "contentHash": "39c5a89ced91b6b3c9936a28941d07219150b1c70285a1426ef8bbd2d2aa9a53",
+      "functions": [
+        {
+          "name": "SettingsRepositoryImpl",
+          "params": [
+            "_prefs"
+          ],
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "_readLiveUpdateMode",
+          "params": [
+            "prefs"
+          ],
+          "returnType": "LiveUpdateMode",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_readThemeMode",
+          "params": [
+            "prefs"
+          ],
+          "returnType": "ThemeMode",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "currentLiveUpdateMode",
+          "params": [],
+          "returnType": "LiveUpdateMode",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "watchLiveUpdateMode",
+          "params": [],
+          "returnType": "Stream<LiveUpdateMode>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setLiveUpdateMode",
+          "params": [
+            "mode"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentThemeMode",
+          "params": [],
+          "returnType": "ThemeMode",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "watchThemeMode",
+          "params": [],
+          "returnType": "Stream<ThemeMode>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setThemeMode",
+          "params": [
+            "mode"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentLiveInterval",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setLiveInterval",
+          "params": [
+            "seconds"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "SettingsRepositoryImpl",
+          "methods": [
+            "SettingsRepositoryImpl",
+            "_readLiveUpdateMode",
+            "_readThemeMode",
+            "currentLiveUpdateMode",
+            "watchLiveUpdateMode",
+            "setLiveUpdateMode",
+            "currentThemeMode",
+            "watchThemeMode",
+            "setThemeMode",
+            "currentLiveInterval",
+            "setLiveInterval"
+          ],
+          "properties": [
+            "_prefs",
+            "_liveUpdateMode",
+            "_themeMode",
+            "_liveInterval",
+            "_liveUpdateModeChanges",
+            "_themeModeChanges"
+          ],
+          "exported": true,
+          "lineCount": 79
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:shared_preferences/shared_preferences.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/repositories/settings_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/settings/live_update_mode.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "SettingsRepositoryImpl",
+        "currentLiveUpdateMode",
+        "watchLiveUpdateMode",
+        "setLiveUpdateMode",
+        "currentThemeMode",
+        "watchThemeMode",
+        "setThemeMode",
+        "currentLiveInterval",
+        "setLiveInterval",
+        "SettingsRepositoryImpl"
+      ],
+      "totalLines": 90,
+      "hasStructuralAnalysis": true
+    },
+    "lib/data/signalr/aircraft_signalr_data_source.dart": {
+      "filePath": "lib/data/signalr/aircraft_signalr_data_source.dart",
+      "contentHash": "d12cebecaf5714ea48cef0822b5b9f5cb0faff1e991bcf095f0dd82618a5c6e3",
+      "functions": [
+        {
+          "name": "parseAircraftUpdateArguments",
+          "params": [
+            "arguments"
+          ],
+          "returnType": "AircraftSnapshot",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "AircraftSignalRDataSource",
+          "params": [
+            "_hubUrl"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_ensureConnected",
+          "params": [],
+          "returnType": "Future<HubConnection>",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_connect",
+          "params": [],
+          "returnType": "Future<HubConnection>",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "watchSnapshot",
+          "params": [
+            "bbox",
+            "onError"
+          ],
+          "returnType": "Stream<AircraftSnapshot>",
+          "exported": true,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftSignalRDataSource",
+          "methods": [
+            "AircraftSignalRDataSource",
+            "_ensureConnected",
+            "_connect",
+            "watchSnapshot"
+          ],
+          "properties": [
+            "_hubUrl",
+            "_connecting",
+            "_updates",
+            "_lastBbox"
+          ],
+          "exported": true,
+          "lineCount": 78
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:signalr_netcore/signalr_client.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/config/api_config.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../remote/dto/aircraft_snapshot_dto.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "parseAircraftUpdateArguments",
+        "AircraftSignalRDataSource",
+        "watchSnapshot",
+        "AircraftSignalRDataSource"
+      ],
+      "totalLines": 100,
+      "hasStructuralAnalysis": true
+    },
+    "lib/domain/entities/aircraft_snapshot.dart": {
+      "filePath": "lib/domain/entities/aircraft_snapshot.dart",
+      "contentHash": "ba4fc4650e093837b4d912794f72ed7c4fa1824ec73f3efdedbd51d241a9d3c4",
+      "functions": [
+        {
+          "name": "props",
+          "params": [],
+          "returnType": "List<Object?>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftSnapshot",
+          "methods": [
+            "props"
+          ],
+          "properties": [
+            "aircraft",
+            "stale"
+          ],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "aircraft.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "props",
+        "AircraftSnapshot"
+      ],
+      "totalLines": 14,
+      "hasStructuralAnalysis": true
+    },
+    "lib/domain/entities/aircraft.dart": {
+      "filePath": "lib/domain/entities/aircraft.dart",
+      "contentHash": "fc6cb67fa96c76e97675240a51eb2871211d1eb4fcd935566c009ad26c47edfe",
+      "functions": [
+        {
+          "name": "props",
+          "params": [],
+          "returnType": "List<Object?>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "Aircraft",
+          "methods": [
+            "props"
+          ],
+          "properties": [
+            "icao24",
+            "callsign",
+            "originCountry",
+            "longitude",
+            "latitude",
+            "altitude",
+            "velocity",
+            "heading",
+            "onGround",
+            "lastUpdate"
+          ],
+          "exported": true,
+          "lineCount": 39
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "props",
+        "Aircraft"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "lib/domain/entities/bounding_box.dart": {
+      "filePath": "lib/domain/entities/bounding_box.dart",
+      "contentHash": "9d122f92edc3a97ce9b2744479c77864c6c9e99fb49b9872141da1341b9d7d46",
+      "functions": [
+        {
+          "name": "props",
+          "params": [],
+          "returnType": "List<Object?>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "BoundingBox",
+          "methods": [
+            "props"
+          ],
+          "properties": [
+            "laMin",
+            "loMin",
+            "laMax",
+            "loMax"
+          ],
+          "exported": true,
+          "lineCount": 16
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "props",
+        "BoundingBox"
+      ],
+      "totalLines": 19,
+      "hasStructuralAnalysis": true
+    },
+    "lib/domain/failures/failure.dart": {
+      "filePath": "lib/domain/failures/failure.dart",
+      "contentHash": "8bb6134563647ec0172f861d4167dc82da6197eb0848e80e72c01f5cce213cb5",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "lib/domain/failures/repository_exception.dart": {
+      "filePath": "lib/domain/failures/repository_exception.dart",
+      "contentHash": "3f22ae3e9fbf0a8773be19443dde737997b604bff0a9a5972f3235be0cc3c8aa",
+      "functions": [
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "String",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "RepositoryException",
+          "methods": [
+            "toString"
+          ],
+          "properties": [
+            "failure"
+          ],
+          "exported": true,
+          "lineCount": 9
+        }
+      ],
+      "imports": [
+        {
+          "source": "failure.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "toString",
+        "RepositoryException"
+      ],
+      "totalLines": 12,
+      "hasStructuralAnalysis": true
+    },
+    "lib/domain/repositories/aircraft_repository.dart": {
+      "filePath": "lib/domain/repositories/aircraft_repository.dart",
+      "contentHash": "6dab127d41f5938f722188850ef30e24860d09c8ced198f10bc9a59523fb076d",
+      "functions": [
+        {
+          "name": "watchSnapshot",
+          "params": [
+            "bbox"
+          ],
+          "returnType": "Stream<AircraftSnapshot>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "getDetail",
+          "params": [
+            "icao24"
+          ],
+          "returnType": "Future<Aircraft?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "updateLiveInterval",
+          "params": [
+            "seconds"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftRepository",
+          "methods": [
+            "watchSnapshot",
+            "getDetail",
+            "updateLiveInterval"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "../entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../entities/bounding_box.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "watchSnapshot",
+        "getDetail",
+        "updateLiveInterval",
+        "AircraftRepository"
+      ],
+      "totalLines": 16,
+      "hasStructuralAnalysis": true
+    },
+    "lib/domain/repositories/settings_repository.dart": {
+      "filePath": "lib/domain/repositories/settings_repository.dart",
+      "contentHash": "759b3831f3929952290ed01373e6c674edb1cffdb90f3aa696241ff9d131ec00",
+      "functions": [
+        {
+          "name": "currentLiveUpdateMode",
+          "params": [],
+          "returnType": "LiveUpdateMode",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "watchLiveUpdateMode",
+          "params": [],
+          "returnType": "Stream<LiveUpdateMode>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setLiveUpdateMode",
+          "params": [
+            "mode"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentThemeMode",
+          "params": [],
+          "returnType": "ThemeMode",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "watchThemeMode",
+          "params": [],
+          "returnType": "Stream<ThemeMode>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setThemeMode",
+          "params": [
+            "mode"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentLiveInterval",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setLiveInterval",
+          "params": [
+            "seconds"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "SettingsRepository",
+          "methods": [
+            "currentLiveUpdateMode",
+            "watchLiveUpdateMode",
+            "setLiveUpdateMode",
+            "currentThemeMode",
+            "watchThemeMode",
+            "setThemeMode",
+            "currentLiveInterval",
+            "setLiveInterval"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 19
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": [
+            "ThemeMode"
+          ]
+        },
+        {
+          "source": "../settings/live_update_mode.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "currentLiveUpdateMode",
+        "watchLiveUpdateMode",
+        "setLiveUpdateMode",
+        "currentThemeMode",
+        "watchThemeMode",
+        "setThemeMode",
+        "currentLiveInterval",
+        "setLiveInterval",
+        "SettingsRepository"
+      ],
+      "totalLines": 24,
+      "hasStructuralAnalysis": true
+    },
+    "lib/domain/settings/live_update_mode.dart": {
+      "filePath": "lib/domain/settings/live_update_mode.dart",
+      "contentHash": "5516989e9b38f0a0395cd9f8d62e43e63186476c28b82a09c3245e20504147c3",
+      "functions": [],
+      "classes": [
+        {
+          "name": "LiveUpdateMode",
+          "methods": [],
+          "properties": [
+            "standard",
+            "realtime"
+          ],
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "LiveUpdateMode"
+      ],
+      "totalLines": 2,
+      "hasStructuralAnalysis": true
+    },
+    "lib/main.dart": {
+      "filePath": "lib/main.dart",
+      "contentHash": "1739e04520f4801460904b21228ff8411ad81cb5484c77bd42151c06f8f497d0",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_notifyBackendOfPersistedInterval",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "restartApp",
+          "params": [
+            "context"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "createState",
+          "params": [],
+          "returnType": "State<RestartWidget>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_restart",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "RestartWidget",
+          "methods": [
+            "restartApp",
+            "createState"
+          ],
+          "properties": [
+            "child"
+          ],
+          "exported": true,
+          "lineCount": 17
+        },
+        {
+          "name": "_RestartWidgetState",
+          "methods": [
+            "_restart",
+            "build"
+          ],
+          "properties": [
+            "_key"
+          ],
+          "exported": false,
+          "lineCount": 9
+        },
+        {
+          "name": "FlightOpsApp",
+          "methods": [
+            "build"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 23
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_bloc/flutter_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "core/di/injection.dart",
+          "specifiers": []
+        },
+        {
+          "source": "core/router/app_router.dart",
+          "specifiers": []
+        },
+        {
+          "source": "core/theme/app_theme.dart",
+          "specifiers": []
+        },
+        {
+          "source": "domain/repositories/aircraft_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "domain/repositories/settings_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "presentation/settings/bloc/settings_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "presentation/splash/splash_page.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main",
+        "restartApp",
+        "createState",
+        "RestartWidget",
+        "build",
+        "build",
+        "FlightOpsApp"
+      ],
+      "totalLines": 79,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/active_region/bloc/active_region_bloc.dart": {
+      "filePath": "lib/presentation/active_region/bloc/active_region_bloc.dart",
+      "contentHash": "96af028023b0a1cf516d4b4115179cfd1b826db06de806d7fd5482a27724e41d",
+      "functions": [
+        {
+          "name": "_onUpdateRegionRequested",
+          "params": [
+            "event",
+            "emit"
+          ],
+          "returnType": "Future<void>",
+          "exported": false,
+          "lineCount": 4
+        },
+        {
+          "name": "disposeActiveRegionBloc",
+          "params": [
+            "instance"
+          ],
+          "returnType": "FutureOr<void>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "ActiveRegionBloc",
+          "methods": [
+            "_onUpdateRegionRequested"
+          ],
+          "properties": [
+            "_repository"
+          ],
+          "exported": true,
+          "lineCount": 59
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:bloc_concurrency/bloc_concurrency.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_bloc/flutter_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/failures/repository_exception.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/repositories/aircraft_repository.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "ActiveRegionBloc",
+        "disposeActiveRegionBloc"
+      ],
+      "totalLines": 81,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/active_region/bloc/active_region_event.dart": {
+      "filePath": "lib/presentation/active_region/bloc/active_region_event.dart",
+      "contentHash": "d07b4e115a1d4c16cefa9a5e780f0be1dc002ec198a0e2a6a17148f2548279dd",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 18,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/active_region/bloc/active_region_state.dart": {
+      "filePath": "lib/presentation/active_region/bloc/active_region_state.dart",
+      "contentHash": "e21fe9208117124ad50690d42fa2c3117a1c46357bf491efbc5ac7c89c1afe10",
+      "functions": [
+        {
+          "name": "ActiveRegionState",
+          "params": [],
+          "returnType": "ActiveRegionStateextends Equatable {\n  const",
+          "exported": true,
+          "lineCount": 2
+        }
+      ],
+      "classes": [],
+      "imports": [],
+      "exports": [
+        "ActiveRegionState"
+      ],
+      "totalLines": 66,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/detail/aircraft_detail_page.dart": {
+      "filePath": "lib/presentation/detail/aircraft_detail_page.dart",
+      "contentHash": "7ef8850844c40be668ab77c1a9f289a41803931e109435fddbc445c7eacc76c4",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftDetailPage",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "icao24"
+          ],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "_AircraftDetailView",
+          "methods": [
+            "build"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 8
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_bloc/flutter_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/di/injection.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_theme.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../shared/connectivity_state_card.dart",
+          "specifiers": []
+        },
+        {
+          "source": "bloc/aircraft_detail_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/data_card.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/freshness_indicator.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/record_row.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "AircraftDetailPage",
+        "build"
+      ],
+      "totalLines": 183,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/detail/bloc/aircraft_detail_bloc.dart": {
+      "filePath": "lib/presentation/detail/bloc/aircraft_detail_bloc.dart",
+      "contentHash": "35917dcc13430afb411a44a10f0d3afb04b5d8bfc90220d509e6ef7e26ae9deb",
+      "functions": [
+        {
+          "name": "_onRequested",
+          "params": [
+            "event",
+            "emit"
+          ],
+          "returnType": "Future<void>",
+          "exported": false,
+          "lineCount": 4
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftDetailBloc",
+          "methods": [
+            "_onRequested"
+          ],
+          "properties": [
+            "_repository",
+            "icao24"
+          ],
+          "exported": true,
+          "lineCount": 30
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_bloc/flutter_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/failures/repository_exception.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/repositories/aircraft_repository.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "AircraftDetailBloc"
+      ],
+      "totalLines": 44,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/detail/bloc/aircraft_detail_event.dart": {
+      "filePath": "lib/presentation/detail/bloc/aircraft_detail_event.dart",
+      "contentHash": "eafd1fb236c398b6f99d60e6d53c75310e845732cd58b83eff86cfbf585f1ea3",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 13,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/detail/bloc/aircraft_detail_state.dart": {
+      "filePath": "lib/presentation/detail/bloc/aircraft_detail_state.dart",
+      "contentHash": "5bfe3b36a7ac5c56545b78150b76b17e5ab611cb2e988ce0c903a27da80c4007",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 35,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/detail/widgets/data_card.dart": {
+      "filePath": "lib/presentation/detail/widgets/data_card.dart",
+      "contentHash": "664ea7ebeeb38e4b16d2f5da9c681c342a21a9f78be4350b7a4f65bd281e9b0a",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "DataCard",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "label",
+            "value",
+            "subtext"
+          ],
+          "exported": true,
+          "lineCount": 53
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_theme.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "DataCard"
+      ],
+      "totalLines": 60,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/detail/widgets/freshness_indicator.dart": {
+      "filePath": "lib/presentation/detail/widgets/freshness_indicator.dart",
+      "contentHash": "2d99ef75311025cec3d3c124ff976ab17aa33c1a8a444854b372f959a32617fe",
+      "functions": [
+        {
+          "name": "createState",
+          "params": [],
+          "returnType": "State<FreshnessIndicator>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "initState",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_label",
+          "params": [],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "FreshnessIndicator",
+          "methods": [
+            "createState"
+          ],
+          "properties": [
+            "lastUpdate"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "_FreshnessIndicatorState",
+          "methods": [
+            "initState",
+            "dispose",
+            "_label",
+            "build"
+          ],
+          "properties": [
+            "_timer"
+          ],
+          "exported": false,
+          "lineCount": 44
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "createState",
+        "FreshnessIndicator",
+        "initState",
+        "dispose",
+        "build"
+      ],
+      "totalLines": 62,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/detail/widgets/record_row.dart": {
+      "filePath": "lib/presentation/detail/widgets/record_row.dart",
+      "contentHash": "9251b0e57e07212e5e18673b4398f5bb7ca596cf4386bd86e12fc4527769189d",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "RecordRow",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "label",
+            "value"
+          ],
+          "exported": true,
+          "lineCount": 24
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_theme.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "RecordRow"
+      ],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/list/aircraft_list_page.dart": {
+      "filePath": "lib/presentation/list/aircraft_list_page.dart",
+      "contentHash": "94f5aad00b4f5a1202acd3d612df1f9b17e7fb2722db7e05d214c3ffbbee476e",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftListPage",
+          "methods": [
+            "build"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 11
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_bloc/flutter_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:go_router/go_router.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/di/injection.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_theme.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../map/widgets/aircraft_marker.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../shared/connectivity_state_card.dart",
+          "specifiers": []
+        },
+        {
+          "source": "bloc/aircraft_list_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/aircraft_list_skeleton.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/stale_data_banner.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "AircraftListPage"
+      ],
+      "totalLines": 177,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/list/bloc/aircraft_list_bloc.dart": {
+      "filePath": "lib/presentation/list/bloc/aircraft_list_bloc.dart",
+      "contentHash": "6d06f6b455c64cc6068a75cf82c90191cd8f7b95aeb4686cb07bc57001777344",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_bloc/flutter_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../active_region/bloc/active_region_bloc.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 83,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/list/bloc/aircraft_list_event.dart": {
+      "filePath": "lib/presentation/list/bloc/aircraft_list_event.dart",
+      "contentHash": "276d3103fa64d891e14018fd5837a8d9afdbda4117d1fae0bd90446d82c22e05",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/list/bloc/aircraft_list_state.dart": {
+      "filePath": "lib/presentation/list/bloc/aircraft_list_state.dart",
+      "contentHash": "af99e879dff9c9f67d42bb6b98a32414441a7f87757f16e67022d44e71f226c9",
+      "functions": [
+        {
+          "name": "AircraftListState",
+          "params": [
+            "query"
+          ],
+          "returnType": "AircraftListStateextends Equatable {\n  const",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "props",
+          "params": [],
+          "returnType": "List<Object?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "props",
+          "params": [],
+          "returnType": "List<Object?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "visibleAircraft",
+          "params": [],
+          "returnType": "List<Aircraft>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "props",
+          "params": [],
+          "returnType": "List<Object?>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "props",
+          "params": [],
+          "returnType": "List<Object?>",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftListInitial",
+          "methods": [
+            "props"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "AircraftListLoading",
+          "methods": [
+            "props"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "AircraftListLoaded",
+          "methods": [
+            "visibleAircraft",
+            "props"
+          ],
+          "properties": [
+            "allAircraft",
+            "stale",
+            "isRefreshing"
+          ],
+          "exported": true,
+          "lineCount": 29
+        },
+        {
+          "name": "AircraftListError",
+          "methods": [
+            "props"
+          ],
+          "properties": [
+            "failure",
+            "staleAircraft"
+          ],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "imports": [],
+      "exports": [
+        "AircraftListState",
+        "props",
+        "AircraftListInitial",
+        "props",
+        "AircraftListLoading",
+        "visibleAircraft",
+        "props",
+        "AircraftListLoaded",
+        "props",
+        "AircraftListError"
+      ],
+      "totalLines": 67,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/list/widgets/aircraft_list_skeleton.dart": {
+      "filePath": "lib/presentation/list/widgets/aircraft_list_skeleton.dart",
+      "contentHash": "79ea814b17112c2072c6e67c68b7d1df45fda3848913323d8169f9fcc636e494",
+      "functions": [
+        {
+          "name": "createState",
+          "params": [],
+          "returnType": "State<AircraftListSkeleton>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftListSkeleton",
+          "methods": [
+            "createState"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "_AircraftListSkeletonState",
+          "methods": [
+            "build"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 60
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../shared/shimmer_box.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "createState",
+        "AircraftListSkeleton",
+        "build"
+      ],
+      "totalLines": 73,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/list/widgets/stale_data_banner.dart": {
+      "filePath": "lib/presentation/list/widgets/stale_data_banner.dart",
+      "contentHash": "daa996070a322564fbc85b985e7622d550885120456c8b90ac4740b55c54329e",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "StaleDataBanner",
+          "methods": [
+            "build"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 29
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "StaleDataBanner"
+      ],
+      "totalLines": 36,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/map/bloc/map_bloc.dart": {
+      "filePath": "lib/presentation/map/bloc/map_bloc.dart",
+      "contentHash": "267fb95003ada0722363bea6d355490bad9a73f825ca1ffe11df3092c2137471",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_bloc/flutter_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../active_region/bloc/active_region_bloc.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 88,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/map/bloc/map_event.dart": {
+      "filePath": "lib/presentation/map/bloc/map_event.dart",
+      "contentHash": "fe20a094f3b7bf5fc45f5f5344b338dbefd2651a82ef9cfd81aec1530b05c28f",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/map/bloc/map_state.dart": {
+      "filePath": "lib/presentation/map/bloc/map_state.dart",
+      "contentHash": "0c46637395e080b2fb0f6b0768d826a7010d1dcdee37f1e4fb817c26b1e07dc2",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 52,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/map/map_page.dart": {
+      "filePath": "lib/presentation/map/map_page.dart",
+      "contentHash": "975a09574cbdaabab52fd34d4e22ebfc660e97bb84dfae73fceaf0b92d3c499b",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "createState",
+          "params": [],
+          "returnType": "State<_MapView>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_correctionDurationFor",
+          "params": [
+            "from",
+            "to",
+            "velocityMps"
+          ],
+          "returnType": "Duration",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "initState",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_onMapEvent",
+          "params": [
+            "event"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_telemetryVelocity",
+          "params": [
+            "ac",
+            "at"
+          ],
+          "returnType": "\n  ({double latPerSecond, double lonPerSecond})?",
+          "exported": false,
+          "lineCount": 5
+        },
+        {
+          "name": "_syncMarkerPositions",
+          "params": [
+            "aircraft"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_positionFor",
+          "params": [
+            "icao24",
+            "fallback"
+          ],
+          "returnType": "LatLng",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_forwardOnly",
+          "params": [
+            "icao24",
+            "candidate",
+            "motion"
+          ],
+          "returnType": "LatLng",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_sortedByAltitude",
+          "params": [
+            "aircraft"
+          ],
+          "returnType": "List<Aircraft>",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_aircraftOf",
+          "params": [
+            "state"
+          ],
+          "returnType": "List<Aircraft>",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_zoomBy",
+          "params": [
+            "delta"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_recenter",
+          "params": [],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_showAircraftDetailSheet",
+          "params": [
+            "context",
+            "icao24"
+          ],
+          "returnType": "void",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "MapPage",
+          "methods": [
+            "build"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "_MapView",
+          "methods": [
+            "createState"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 6
+        },
+        {
+          "name": "_MapViewState",
+          "methods": [
+            "_correctionDurationFor",
+            "initState",
+            "_onMapEvent",
+            "_telemetryVelocity",
+            "_syncMarkerPositions",
+            "_positionFor",
+            "_forwardOnly",
+            "_sortedByAltitude",
+            "_aircraftOf",
+            "dispose",
+            "_zoomBy",
+            "_recenter",
+            "_showAircraftDetailSheet",
+            "build"
+          ],
+          "properties": [
+            "_mapController",
+            "_debounce",
+            "_motion",
+            "_ticker",
+            "_liveUpdateMode",
+            "_lastRendered"
+          ],
+          "exported": false,
+          "lineCount": 470
+        },
+        {
+          "name": "_AircraftMotion",
+          "methods": [],
+          "properties": [
+            "previousPosition",
+            "previousUpdatedAt",
+            "currentPosition",
+            "currentUpdatedAt",
+            "latPerSecond",
+            "lonPerSecond",
+            "correctionFrom",
+            "correctionDuration"
+          ],
+          "exported": false,
+          "lineCount": 26
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "dart:math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/scheduler.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_bloc/flutter_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_map/flutter_map.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:latlong2/latlong.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/di/injection.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/settings/live_update_mode.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../detail/bloc/aircraft_detail_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../detail/aircraft_detail_page.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../settings/bloc/settings_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../shared/live_status_chip.dart",
+          "specifiers": []
+        },
+        {
+          "source": "bloc/map_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/aircraft_marker.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/map_state_overlay.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "MapPage",
+        "createState",
+        "initState",
+        "dispose",
+        "build"
+      ],
+      "totalLines": 540,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/map/widgets/aircraft_marker.dart": {
+      "filePath": "lib/presentation/map/widgets/aircraft_marker.dart",
+      "contentHash": "73ec6ada99f8da344946c0a09b91e15408a7f9dedbc6b879680eb48a3f984637",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AircraftMarker",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "headingDegrees",
+            "onGround",
+            "selected",
+            "size"
+          ],
+          "exported": true,
+          "lineCount": 46
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:math",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_svg/flutter_svg.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "AircraftMarker"
+      ],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/map/widgets/map_state_overlay.dart": {
+      "filePath": "lib/presentation/map/widgets/map_state_overlay.dart",
+      "contentHash": "1f12cfec760c841c5f8769ea721efe683e4ad4f29e58ba9365215fffcdfaa6a2",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "MapStateOverlay",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "icon",
+            "title",
+            "subtitle",
+            "buttonLabel",
+            "onRetry"
+          ],
+          "exported": true,
+          "lineCount": 33
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../shared/connectivity_state_card.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "MapStateOverlay"
+      ],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/settings/bloc/settings_bloc.dart": {
+      "filePath": "lib/presentation/settings/bloc/settings_bloc.dart",
+      "contentHash": "306f4c24a9eedfce63872cdaba3a3fa75e680607aec371d9e7c4a7930cda71cb",
+      "functions": [],
+      "classes": [],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:equatable/equatable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_bloc/flutter_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:injectable/injectable.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/repositories/settings_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/settings/live_update_mode.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../active_region/bloc/active_region_bloc.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [],
+      "totalLines": 68,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/settings/bloc/settings_event.dart": {
+      "filePath": "lib/presentation/settings/bloc/settings_event.dart",
+      "contentHash": "47ade208cb8a7ac3b44e6d13a97f21978a6d2fd716458d3ed8420d21f032e69d",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 27,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/settings/bloc/settings_state.dart": {
+      "filePath": "lib/presentation/settings/bloc/settings_state.dart",
+      "contentHash": "04f523505047a673355322d0f07a0b63d2eee86c7b59fd40c0f255180ae9884b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 64,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/settings/settings_page.dart": {
+      "filePath": "lib/presentation/settings/settings_page.dart",
+      "contentHash": "13e80c41120a68f1e5a2e541d7cdb3d5ab421569b1cea35a178d801cbb726c99",
+      "functions": [
+        {
+          "name": "_liveIntervalDuration",
+          "params": [
+            "seconds"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "SettingsPage",
+          "methods": [
+            "build"
+          ],
+          "properties": [],
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "_SettingsView",
+          "methods": [
+            "build"
+          ],
+          "properties": [],
+          "exported": false,
+          "lineCount": 112
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_bloc/flutter_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/di/injection.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../domain/settings/live_update_mode.dart",
+          "specifiers": []
+        },
+        {
+          "source": "bloc/settings_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/connection_indicator.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/live_updates_block.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "SettingsPage",
+        "build"
+      ],
+      "totalLines": 140,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/settings/widgets/connection_indicator.dart": {
+      "filePath": "lib/presentation/settings/widgets/connection_indicator.dart",
+      "contentHash": "f5c0cc242cdacb6aeec459746c77ede17380cea76725504f78a885238cbf5aad",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "ConnectionIndicator",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "state"
+          ],
+          "exported": true,
+          "lineCount": 37
+        },
+        {
+          "name": "_Dot",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "color"
+          ],
+          "exported": false,
+          "lineCount": 14
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_theme.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../bloc/settings_bloc.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "ConnectionIndicator",
+        "build"
+      ],
+      "totalLines": 61,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/settings/widgets/live_updates_block.dart": {
+      "filePath": "lib/presentation/settings/widgets/live_updates_block.dart",
+      "contentHash": "508eaf8ea49b359241f0d9416e1f9623a4e0063e58825ce132c681bff4b7ca2b",
+      "functions": [
+        {
+          "name": "_liveIntervalDuration",
+          "params": [
+            "seconds"
+          ],
+          "returnType": "String",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "createState",
+          "params": [],
+          "returnType": "State<LiveUpdatesBlock>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_dirty",
+          "params": [],
+          "returnType": "bool",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_save",
+          "params": [
+            "context"
+          ],
+          "returnType": "Future<void>",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "LiveUpdatesBlock",
+          "methods": [
+            "createState"
+          ],
+          "properties": [
+            "appliedMode",
+            "appliedInterval"
+          ],
+          "exported": true,
+          "lineCount": 13
+        },
+        {
+          "name": "_LiveUpdatesBlockState",
+          "methods": [
+            "_dirty",
+            "_save",
+            "build"
+          ],
+          "properties": [
+            "_pendingMode",
+            "_pendingInterval"
+          ],
+          "exported": false,
+          "lineCount": 121
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/di/injection.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/repositories/settings_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../domain/settings/live_update_mode.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../main.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "createState",
+        "LiveUpdatesBlock",
+        "build"
+      ],
+      "totalLines": 153,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/shared/connectivity_state_card.dart": {
+      "filePath": "lib/presentation/shared/connectivity_state_card.dart",
+      "contentHash": "a9063cf0b3cf4d839510fd9ac3f673939a3581897b2266c45187a0d14e725c8b",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "ConnectivityStateCard",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "icon",
+            "title",
+            "subtitle",
+            "buttonLabel",
+            "onRetry",
+            "bordered"
+          ],
+          "exported": true,
+          "lineCount": 97
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "ConnectivityStateCard"
+      ],
+      "totalLines": 104,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/shared/live_status_chip.dart": {
+      "filePath": "lib/presentation/shared/live_status_chip.dart",
+      "contentHash": "5e57f6e343b7e82fe52c598bb75bc015e8a009b4e0437d125a71ca471c7b653d",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "LiveStatusChipVariant",
+          "methods": [],
+          "properties": [
+            "loading",
+            "live",
+            "error"
+          ],
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "LiveStatusChip",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "aircraftCount",
+            "isRefreshing",
+            "variant"
+          ],
+          "exported": true,
+          "lineCount": 90
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:animated_flip_counter/animated_flip_counter.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_theme.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "LiveStatusChipVariant",
+        "build",
+        "LiveStatusChip"
+      ],
+      "totalLines": 103,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/shared/shimmer_box.dart": {
+      "filePath": "lib/presentation/shared/shimmer_box.dart",
+      "contentHash": "8e217c51836edc9ae4d1c577a73ad0001e2f507ff9d584e3946799b6513e0501",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "ShimmerBox",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "animation",
+            "width",
+            "height",
+            "borderRadius"
+          ],
+          "exported": true,
+          "lineCount": 37
+        },
+        {
+          "name": "ShimmerTickerMixin",
+          "methods": [
+            "dispose"
+          ],
+          "properties": [
+            "shimmerController"
+          ],
+          "exported": true,
+          "lineCount": 13
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_colors.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "ShimmerBox",
+        "dispose",
+        "ShimmerTickerMixin"
+      ],
+      "totalLines": 59,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/shell/app_shell.dart": {
+      "filePath": "lib/presentation/shell/app_shell.dart",
+      "contentHash": "e1845c9a399feacf99c00663547c2a360fc76fcbb673195f8321a85d260e9bb2",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "AppShell",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "navigationShell"
+          ],
+          "exported": true,
+          "lineCount": 55
+        },
+        {
+          "name": "_NavTab",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "icon",
+            "label",
+            "selected",
+            "onTap"
+          ],
+          "exported": false,
+          "lineCount": 61
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:go_router/go_router.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "AppShell",
+        "build"
+      ],
+      "totalLines": 125,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/splash/splash_page.dart": {
+      "filePath": "lib/presentation/splash/splash_page.dart",
+      "contentHash": "728173566cbd18946f8c12c3712c91bfb6debfe04d238c64209731c696113c4e",
+      "functions": [
+        {
+          "name": "createState",
+          "params": [],
+          "returnType": "State<SplashPage>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "initState",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "dispose",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "SplashPage",
+          "methods": [
+            "createState"
+          ],
+          "properties": [
+            "child"
+          ],
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "_SplashPageState",
+          "methods": [
+            "initState",
+            "dispose",
+            "build"
+          ],
+          "properties": [
+            "_radar",
+            "_entrance",
+            "_done"
+          ],
+          "exported": false,
+          "lineCount": 67
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/fill_bar.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/footer_status.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/radar.dart",
+          "specifiers": []
+        },
+        {
+          "source": "widgets/wordmark.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "createState",
+        "SplashPage",
+        "initState",
+        "dispose",
+        "build"
+      ],
+      "totalLines": 86,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/splash/widgets/fill_bar.dart": {
+      "filePath": "lib/presentation/splash/widgets/fill_bar.dart",
+      "contentHash": "cd22cb373611a9531154c37873552306e7dfa29e0689dbf88fd1b9de2d05b4cb",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "FillBar",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "entrance",
+            "colors"
+          ],
+          "exported": true,
+          "lineCount": 36
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "FillBar"
+      ],
+      "totalLines": 41,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/splash/widgets/footer_status.dart": {
+      "filePath": "lib/presentation/splash/widgets/footer_status.dart",
+      "contentHash": "c611bc717191ad874e7a0b89e565ea05b8d1e26216372e0fff5657de17912e15",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "FooterStatus",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "radar",
+            "colors"
+          ],
+          "exported": true,
+          "lineCount": 41
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_theme.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "FooterStatus"
+      ],
+      "totalLines": 50,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/splash/widgets/radar.dart": {
+      "filePath": "lib/presentation/splash/widgets/radar.dart",
+      "contentHash": "b59c838f5ec5708b35a95988499ed4b61b253a4ee1376c76ee2d8610548de28e",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_ring",
+          "params": [
+            "phaseOffset"
+          ],
+          "returnType": "Widget",
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "Radar",
+          "methods": [
+            "build",
+            "_ring"
+          ],
+          "properties": [
+            "radar",
+            "entrance",
+            "colors"
+          ],
+          "exported": true,
+          "lineCount": 104
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:math",
+          "specifiers": [
+            "math"
+          ]
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "Radar"
+      ],
+      "totalLines": 111,
+      "hasStructuralAnalysis": true
+    },
+    "lib/presentation/splash/widgets/wordmark.dart": {
+      "filePath": "lib/presentation/splash/widgets/wordmark.dart",
+      "contentHash": "dc2eaf866b1bb3dd673993616fe06f9f837bd8943116cb51ed9b6103d285f3fa",
+      "functions": [
+        {
+          "name": "build",
+          "params": [
+            "context"
+          ],
+          "returnType": "Widget",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "Wordmark",
+          "methods": [
+            "build"
+          ],
+          "properties": [
+            "entrance",
+            "colors"
+          ],
+          "exported": true,
+          "lineCount": 35
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_strings.dart",
+          "specifiers": []
+        },
+        {
+          "source": "../../../core/theme/app_text_styles.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "build",
+        "Wordmark"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "pubspec.yaml": {
+      "filePath": "pubspec.yaml",
+      "contentHash": "3f39a4c0ff4bec17ccaef8e35ce52fffe24315e9bd359ad06073ce3b3cebfb91",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "README.md": {
+      "filePath": "README.md",
+      "contentHash": "c05ee2a2acd9bf94df6163c4b6d028544e3997a101491b6e9f373701d6e1561b",
+      "functions": [],
+      "classes": [],
+      "imports": [],
+      "exports": [],
+      "totalLines": 17,
+      "hasStructuralAnalysis": true
+    },
+    "test/app_bootstrap_test.dart": {
+      "filePath": "test/app_bootstrap_test.dart",
+      "contentHash": "17f2ac73ceb490c59aa1b129a23b127c8c2043ef3385d94e52aba4b87f1736e6",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "_FakeAircraftRepository",
+          "methods": [],
+          "properties": [],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/core/di/injection.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/repositories/aircraft_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/main.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/presentation/active_region/bloc/active_region_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:mocktail/mocktail.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:shared_preferences/shared_preferences.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 42,
+      "hasStructuralAnalysis": true
+    },
+    "test/core/di/injection_test.dart": {
+      "filePath": "test/core/di/injection_test.dart",
+      "contentHash": "111176f3454773654bb70597290f0430e5e602bfc2db2d07a7db33fcbafce304",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/core/di/injection.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/repositories/aircraft_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/repositories/settings_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:shared_preferences/shared_preferences.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 26,
+      "hasStructuralAnalysis": true
+    },
+    "test/core/theme/app_theme_test.dart": {
+      "filePath": "test/core/theme/app_theme_test.dart",
+      "contentHash": "b6a86f2ebe8fb22b777f4425a437d53f62d7aee1ab0f6acbd54b0d264ea9227f",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/core/theme/app_colors.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/core/theme/app_theme.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 30,
+      "hasStructuralAnalysis": true
+    },
+    "test/data/remote/aircraft_remote_data_source_test.dart": {
+      "filePath": "test/data/remote/aircraft_remote_data_source_test.dart",
+      "contentHash": "2bf3315c638e063bf15bf9a89deea215084bf413c474348666fb4a0c73863e05",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:dio/dio.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/data/remote/aircraft_remote_data_source.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/failures/repository_exception.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "dio_adapter.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 195,
+      "hasStructuralAnalysis": true
+    },
+    "test/data/remote/dio_adapter.dart": {
+      "filePath": "test/data/remote/dio_adapter.dart",
+      "contentHash": "b28e5d0abe39031ce4f4c128c480c40ff8d81f3bc6868dfd75449179e57ac60e",
+      "functions": [
+        {
+          "name": "respond",
+          "params": [
+            "path",
+            "statusCode",
+            "data",
+            "queryParameters"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 6
+        },
+        {
+          "name": "throwConnectionError",
+          "params": [
+            "path"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "fetch",
+          "params": [
+            "options",
+            "requestStream",
+            "cancelFuture"
+          ],
+          "returnType": "Future<ResponseBody>",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "close",
+          "params": [
+            "force"
+          ],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "_Canned",
+          "params": [
+            "statusCode",
+            "data",
+            "error"
+          ],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "DioAdapter",
+          "methods": [
+            "respond",
+            "throwConnectionError",
+            "fetch",
+            "close"
+          ],
+          "properties": [
+            "_responses",
+            "lastRequestHeaders"
+          ],
+          "exported": true,
+          "lineCount": 56
+        },
+        {
+          "name": "_Canned",
+          "methods": [
+            "_Canned"
+          ],
+          "properties": [
+            "statusCode",
+            "data",
+            "error"
+          ],
+          "exported": false,
+          "lineCount": 7
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:convert",
+          "specifiers": []
+        },
+        {
+          "source": "package:dio/dio.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "respond",
+        "throwConnectionError",
+        "fetch",
+        "close",
+        "DioAdapter"
+      ],
+      "totalLines": 72,
+      "hasStructuralAnalysis": true
+    },
+    "test/data/remote/dto/aircraft_dto_test.dart": {
+      "filePath": "test/data/remote/dto/aircraft_dto_test.dart",
+      "contentHash": "09b970e741af7bfee15ebf9c189ad0697d4a4f4d650ebc4e769454af31353de8",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/data/remote/dto/aircraft_dto.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 56,
+      "hasStructuralAnalysis": true
+    },
+    "test/data/remote/dto/aircraft_snapshot_dto_test.dart": {
+      "filePath": "test/data/remote/dto/aircraft_snapshot_dto_test.dart",
+      "contentHash": "6786a9764c89d0709da4112043bde333fb5fe35187a1e151565bd7977ab22edf",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/data/remote/dto/aircraft_snapshot_dto.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 45,
+      "hasStructuralAnalysis": true
+    },
+    "test/data/repositories/aircraft_repository_impl_test.dart": {
+      "filePath": "test/data/repositories/aircraft_repository_impl_test.dart",
+      "contentHash": "80d467c6226f746b32d40edd18634d18fe9735e3cef12f8e89037188bfc4f29d",
+      "functions": [
+        {
+          "name": "currentLiveUpdateMode",
+          "params": [],
+          "returnType": "LiveUpdateMode",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "watchLiveUpdateMode",
+          "params": [],
+          "returnType": "Stream<LiveUpdateMode>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setLiveUpdateMode",
+          "params": [
+            "mode"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentThemeMode",
+          "params": [],
+          "returnType": "ThemeMode",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "watchThemeMode",
+          "params": [],
+          "returnType": "Stream<ThemeMode>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setThemeMode",
+          "params": [
+            "mode"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "currentLiveInterval",
+          "params": [],
+          "returnType": "int",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "setLiveInterval",
+          "params": [
+            "seconds"
+          ],
+          "returnType": "Future<void>",
+          "exported": true,
+          "lineCount": 1
+        },
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "_MockRemoteDataSource",
+          "methods": [],
+          "properties": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_MockSignalRDataSource",
+          "methods": [],
+          "properties": [],
+          "exported": false,
+          "lineCount": 2
+        },
+        {
+          "name": "_FakeSettingsRepository",
+          "methods": [
+            "currentLiveUpdateMode",
+            "watchLiveUpdateMode",
+            "setLiveUpdateMode",
+            "currentThemeMode",
+            "watchThemeMode",
+            "setThemeMode",
+            "currentLiveInterval",
+            "setLiveInterval"
+          ],
+          "properties": [
+            "_mode",
+            "_controller",
+            "liveInterval"
+          ],
+          "exported": false,
+          "lineCount": 37
+        }
+      ],
+      "imports": [
+        {
+          "source": "dart:async",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/data/remote/aircraft_remote_data_source.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/data/repositories/aircraft_repository_impl.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/data/signalr/aircraft_signalr_data_source.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/repositories/settings_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/settings/live_update_mode.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:mocktail/mocktail.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "currentLiveUpdateMode",
+        "watchLiveUpdateMode",
+        "setLiveUpdateMode",
+        "currentThemeMode",
+        "watchThemeMode",
+        "setThemeMode",
+        "currentLiveInterval",
+        "setLiveInterval",
+        "main"
+      ],
+      "totalLines": 189,
+      "hasStructuralAnalysis": true
+    },
+    "test/data/settings/settings_repository_impl_test.dart": {
+      "filePath": "test/data/settings/settings_repository_impl_test.dart",
+      "contentHash": "ebe56a24256ebdefc35cdb9efec04c1400f61870281b161a21156ef22e48578d",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/data/settings/settings_repository_impl.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/settings/live_update_mode.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:shared_preferences/shared_preferences.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 85,
+      "hasStructuralAnalysis": true
+    },
+    "test/data/signalr/aircraft_signalr_data_source_test.dart": {
+      "filePath": "test/data/signalr/aircraft_signalr_data_source_test.dart",
+      "contentHash": "3b4e85cfe387f49b8a9b9707cc62cd9424c0c73977256302c99392272ddc9ea1",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/data/signalr/aircraft_signalr_data_source.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 43,
+      "hasStructuralAnalysis": true
+    },
+    "test/domain/entities/aircraft_snapshot_test.dart": {
+      "filePath": "test/domain/entities/aircraft_snapshot_test.dart",
+      "contentHash": "65a1dd271b121928d20d79712d73d7da92d07e138983ef2a976f942970764410",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 40,
+      "hasStructuralAnalysis": true
+    },
+    "test/domain/entities/aircraft_test.dart": {
+      "filePath": "test/domain/entities/aircraft_test.dart",
+      "contentHash": "7ac440d96425984fd9a20bea303ccb6b8627060b92ec3149e808ed743052a801",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 57,
+      "hasStructuralAnalysis": true
+    },
+    "test/domain/entities/bounding_box_test.dart": {
+      "filePath": "test/domain/entities/bounding_box_test.dart",
+      "contentHash": "92c7e819384f40e8aa183918432883ccb093f9a2c535a075734b528f12214958",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 21,
+      "hasStructuralAnalysis": true
+    },
+    "test/domain/failures/failure_test.dart": {
+      "filePath": "test/domain/failures/failure_test.dart",
+      "contentHash": "f8a0981878e306be325aff2117e1fe2cc6fdd76516d13cd20f2e18c0ae604ada",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [],
+      "imports": [
+        {
+          "source": "package:flight_ops_app/domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 31,
+      "hasStructuralAnalysis": true
+    },
+    "test/presentation/active_region/active_region_bloc_test.dart": {
+      "filePath": "test/presentation/active_region/active_region_bloc_test.dart",
+      "contentHash": "39bdbf6cbb82757be5aa9f5c0f28373c2241bcfacf114811e3bdc771ced5f3ed",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "_MockAircraftRepository",
+          "methods": [],
+          "properties": [],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:bloc_test/bloc_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/failures/repository_exception.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/repositories/aircraft_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/presentation/active_region/bloc/active_region_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:mocktail/mocktail.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 159,
+      "hasStructuralAnalysis": true
+    },
+    "test/presentation/detail/aircraft_detail_bloc_test.dart": {
+      "filePath": "test/presentation/detail/aircraft_detail_bloc_test.dart",
+      "contentHash": "5037fa2f823eff5139e84b63e109f263a64fc22afa498d90a41d6f82d0ab7f5f",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "_MockAircraftRepository",
+          "methods": [],
+          "properties": [],
+          "exported": false,
+          "lineCount": 1
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:bloc_test/bloc_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/failures/repository_exception.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/repositories/aircraft_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/presentation/detail/bloc/aircraft_detail_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:mocktail/mocktail.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 68,
+      "hasStructuralAnalysis": true
+    },
+    "test/presentation/list/aircraft_list_bloc_test.dart": {
+      "filePath": "test/presentation/list/aircraft_list_bloc_test.dart",
+      "contentHash": "e998fb0120669059e49e2fa855e2482bf73c55f9f46dd9089ef60aa28d21035a",
+      "functions": [
+        {
+          "name": "_aircraft",
+          "params": [
+            "icao24",
+            "callsign",
+            "country"
+          ],
+          "returnType": "Aircraft",
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "_MockActiveRegionBloc",
+          "methods": [],
+          "properties": [],
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:bloc_test/bloc_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/presentation/active_region/bloc/active_region_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/presentation/list/bloc/aircraft_list_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:mocktail/mocktail.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 140,
+      "hasStructuralAnalysis": true
+    },
+    "test/presentation/map/map_bloc_test.dart": {
+      "filePath": "test/presentation/map/map_bloc_test.dart",
+      "contentHash": "9497a308a23bee671b6b8cec3e4cadb4c7b18aa3956d7fd0b20fd4760c67e4f3",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "_MockActiveRegionBloc",
+          "methods": [],
+          "properties": [],
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:bloc_test/bloc_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/presentation/active_region/bloc/active_region_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/presentation/map/bloc/map_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:mocktail/mocktail.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 112,
+      "hasStructuralAnalysis": true
+    },
+    "test/presentation/settings/settings_bloc_test.dart": {
+      "filePath": "test/presentation/settings/settings_bloc_test.dart",
+      "contentHash": "5853f1394f8ebdca9a0fa9c958a3c7ff8e7a20c99c0a53b8502cc97ecbb56aca",
+      "functions": [
+        {
+          "name": "main",
+          "params": [],
+          "returnType": "void",
+          "exported": true,
+          "lineCount": 1
+        }
+      ],
+      "classes": [
+        {
+          "name": "_MockSettingsRepository",
+          "methods": [],
+          "properties": [],
+          "exported": false,
+          "lineCount": 1
+        },
+        {
+          "name": "_MockActiveRegionBloc",
+          "methods": [],
+          "properties": [],
+          "exported": false,
+          "lineCount": 3
+        }
+      ],
+      "imports": [
+        {
+          "source": "package:bloc_test/bloc_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/aircraft_snapshot.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/entities/bounding_box.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/failures/failure.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/repositories/settings_repository.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/domain/settings/live_update_mode.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/presentation/active_region/bloc/active_region_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flight_ops_app/presentation/settings/bloc/settings_bloc.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter/material.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:flutter_test/flutter_test.dart",
+          "specifiers": []
+        },
+        {
+          "source": "package:mocktail/mocktail.dart",
+          "specifiers": []
+        }
+      ],
+      "exports": [
+        "main"
+      ],
+      "totalLines": 143,
+      "hasStructuralAnalysis": true
+    }
+  }
+}

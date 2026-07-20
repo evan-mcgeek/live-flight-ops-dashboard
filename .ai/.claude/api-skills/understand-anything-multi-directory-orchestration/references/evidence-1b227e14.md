@@ -1,0 +1,1 @@
+Subagent dispatch showing parallel project-scanner for app/ and api/: "Now dispatching the `project-scanner` subagents for `app/` and `api/` in parallel (Phase 1)" and user direction "yup, but common understand should be in .ai folder as I foxed in the doc"

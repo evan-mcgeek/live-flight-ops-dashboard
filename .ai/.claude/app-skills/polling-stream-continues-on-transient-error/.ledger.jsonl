@@ -1,0 +1,1 @@
+{"action": "create", "reason": "Polling stream resilience pattern discovered and verified in aircraft repository test suite. The lesson: error states should not break the polling loop; they are transient and the next poll may recover. This prevents a common mistake in polling-based data layers.", "evidence": "references/evidence-8b384669.md"}

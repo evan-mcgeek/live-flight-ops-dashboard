@@ -1,0 +1,1 @@
+{"action": "create", "reason": "Multi-directory monorepo analysis pattern: when a project contains independent subdirectories (e.g., app/, api/), analyze each via parallel subagents and configure output to merge at root into .ai/. Avoids bottleneck of sequential analysis and enables each subsystem's full knowledge graph.", "evidence": "references/evidence-1b227e14.md"}

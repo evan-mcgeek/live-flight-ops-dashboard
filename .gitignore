@@ -1,0 +1,11 @@
+# OS / IDE cruft
+.DS_Store
+.idea/
+
+# Claude Code local state (not shareable — machine/session-specific)
+.claude/
+# reviewed, curated skills live in .ai/.claude/{app,api}-skills/ instead
+
+# Local convenience symlink for the understand-anything dashboard —
+# recreate with: ln -s .ai/.understand-anything .understand-anything
+.understand-anything
