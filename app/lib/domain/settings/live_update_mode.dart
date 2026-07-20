@@ -1,0 +1,1 @@
+enum LiveUpdateMode { standard, realtime }
