@@ -16,7 +16,7 @@ import '../detail/aircraft_detail_page.dart';
 import '../settings/bloc/settings_bloc.dart';
 import '../shared/live_status_chip.dart';
 import 'bloc/map_bloc.dart' hide MapEvent;
-import 'map_motion_service.dart';
+import '../services/motion/map_motion_service.dart';
 import 'widgets/aircraft_marker.dart';
 import 'widgets/map_state_overlay.dart';
 

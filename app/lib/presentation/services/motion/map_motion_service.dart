@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:latlong2/latlong.dart';
 
-import '../../domain/entities/aircraft.dart';
-import '../../domain/settings/live_update_mode.dart';
+import '../../../domain/entities/aircraft.dart';
+import '../../../domain/settings/live_update_mode.dart';
 import 'motion_math.dart';
 
 // Recomputes every tracked aircraft's on-screen position each tick and only

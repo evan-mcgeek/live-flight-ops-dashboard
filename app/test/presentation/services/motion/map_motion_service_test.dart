@@ -1,5 +1,5 @@
 import 'package:flight_ops_app/domain/entities/aircraft.dart';
-import 'package:flight_ops_app/presentation/map/map_motion_service.dart';
+import 'package:flight_ops_app/presentation/services/motion/map_motion_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:latlong2/latlong.dart';
 
