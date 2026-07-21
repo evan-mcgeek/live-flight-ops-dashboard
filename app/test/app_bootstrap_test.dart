@@ -36,6 +36,7 @@ void main() {
 
     expect(find.byType(MaterialApp), findsOneWidget);
 
-    await getIt.reset();
+    // dispose: false — bloc teardown hangs once the widget tree has been pumped; safe to skip, this is the last thing the test does.
+    await getIt.reset(dispose: false);
   });
 }
