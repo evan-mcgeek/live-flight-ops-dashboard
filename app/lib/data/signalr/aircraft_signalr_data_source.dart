@@ -18,6 +18,20 @@ AircraftSnapshot parseAircraftUpdateArguments(List<Object?>? arguments) {
   ).toDomain();
 }
 
+// Top-level (not private) so it's directly testable without a live HubConnection.
+Future<void> handleReconnectSubscribe(
+  Future<dynamic> Function() invoke,
+  StreamController<AircraftSnapshot> updates,
+) {
+  return invoke()
+      .then((result) {
+        if (result is Map<String, dynamic>) {
+          updates.add(AircraftSnapshotDto.fromJson(result).toDomain());
+        }
+      })
+      .catchError((error) => updates.addError(error));
+}
+
 @lazySingleton
 class AircraftSignalRDataSource {
   AircraftSignalRDataSource(@Named(hubUrlToken) this._hubUrl);
@@ -48,17 +62,13 @@ class AircraftSignalRDataSource {
     connection.onreconnected(({connectionId}) {
       final bbox = _lastBbox;
       if (bbox == null) return;
-      connection
-          .invoke(
-            _subscribeMethod,
-            args: <Object>[bbox.laMin, bbox.loMin, bbox.laMax, bbox.loMax],
-          )
-          .then((result) {
-            if (result is Map<String, dynamic>) {
-              _updates.add(AircraftSnapshotDto.fromJson(result).toDomain());
-            }
-          })
-          .catchError((_) => null);
+      handleReconnectSubscribe(
+        () => connection.invoke(
+          _subscribeMethod,
+          args: <Object>[bbox.laMin, bbox.loMin, bbox.laMax, bbox.loMax],
+        ),
+        _updates,
+      );
     });
     try {
       await connection.start();
