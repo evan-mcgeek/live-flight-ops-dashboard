@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,15 +7,29 @@ import 'core/di/injection.dart';
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'domain/repositories/aircraft_repository.dart';
+import 'domain/settings/app_theme_mode.dart';
 import 'domain/repositories/settings_repository.dart';
 import 'presentation/settings/bloc/settings_bloc.dart';
 import 'presentation/splash/splash_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  FlutterError.onError = reportFlutterError;
+  PlatformDispatcher.instance.onError = reportPlatformError;
   await configureDependencies();
   _notifyBackendOfPersistedInterval();
   runApp(const RestartWidget(child: FlightOpsApp()));
+}
+
+void reportFlutterError(FlutterErrorDetails details) {
+  debugPrint(
+    'Uncaught Flutter error: ${details.exceptionAsString()}\n${details.stack}',
+  );
+}
+
+bool reportPlatformError(Object error, StackTrace stack) {
+  debugPrint('Uncaught platform error: $error\n$stack');
+  return true;
 }
 
 // One-shot at startup, not on every slider drag — the live-interval setting only takes effect on restart.
@@ -67,7 +83,10 @@ class FlightOpsApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
-            themeMode: settingsState.themeMode,
+            themeMode: switch (settingsState.themeMode) {
+              AppThemeMode.dark => ThemeMode.dark,
+              AppThemeMode.light => ThemeMode.light,
+            },
             routerConfig: appRouter,
             builder: (context, child) => SplashPage(child: child!),
           );

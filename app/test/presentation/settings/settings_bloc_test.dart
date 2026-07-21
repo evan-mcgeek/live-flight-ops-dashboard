@@ -3,10 +3,10 @@ import 'package:flight_ops_app/domain/entities/aircraft_snapshot.dart';
 import 'package:flight_ops_app/domain/entities/bounding_box.dart';
 import 'package:flight_ops_app/domain/failures/failure.dart';
 import 'package:flight_ops_app/domain/repositories/settings_repository.dart';
+import 'package:flight_ops_app/domain/settings/app_theme_mode.dart';
 import 'package:flight_ops_app/domain/settings/live_update_mode.dart';
 import 'package:flight_ops_app/presentation/active_region/bloc/active_region_bloc.dart';
 import 'package:flight_ops_app/presentation/settings/bloc/settings_bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -27,7 +27,7 @@ void main() {
   // skips repeats from the second emit onward, not the first).
   const seedState = SettingsState(
     liveUpdateMode: LiveUpdateMode.standard,
-    themeMode: ThemeMode.dark,
+    themeMode: AppThemeMode.dark,
     liveInterval: 5,
   );
 
@@ -36,7 +36,7 @@ void main() {
     when(
       () => repository.currentLiveUpdateMode,
     ).thenReturn(LiveUpdateMode.standard);
-    when(() => repository.currentThemeMode).thenReturn(ThemeMode.dark);
+    when(() => repository.currentThemeMode).thenReturn(AppThemeMode.dark);
     when(() => repository.currentLiveInterval).thenReturn(5);
     when(
       () => repository.watchLiveUpdateMode(),
@@ -58,7 +58,7 @@ void main() {
         bloc.state,
         const SettingsState(
           liveUpdateMode: LiveUpdateMode.standard,
-          themeMode: ThemeMode.dark,
+          themeMode: AppThemeMode.dark,
           liveInterval: 5,
         ),
       );
@@ -68,20 +68,47 @@ void main() {
   blocTest<SettingsBloc, SettingsState>(
     'ThemeModeChanged calls the repository and emits the new theme',
     setUp: () => when(
-      () => repository.setThemeMode(ThemeMode.light),
+      () => repository.setThemeMode(AppThemeMode.light),
     ).thenAnswer((_) async {}),
     build: () => SettingsBloc(repository, activeRegionBloc),
-    act: (bloc) => bloc.add(const ThemeModeChanged(ThemeMode.light)),
+    act: (bloc) => bloc.add(const ThemeModeChanged(AppThemeMode.light)),
     expect: () => [
       seedState,
       const SettingsState(
         liveUpdateMode: LiveUpdateMode.standard,
-        themeMode: ThemeMode.light,
+        themeMode: AppThemeMode.light,
         liveInterval: 5,
       ),
     ],
     verify: (_) =>
-        verify(() => repository.setThemeMode(ThemeMode.light)).called(1),
+        verify(() => repository.setThemeMode(AppThemeMode.light)).called(1),
+  );
+
+  blocTest<SettingsBloc, SettingsState>(
+    'LiveUpdateSettingsChanged persists both values and emits the new state',
+    setUp: () {
+      when(
+        () => repository.setLiveUpdateMode(LiveUpdateMode.realtime),
+      ).thenAnswer((_) async {});
+      when(() => repository.setLiveInterval(30)).thenAnswer((_) async {});
+    },
+    build: () => SettingsBloc(repository, activeRegionBloc),
+    act: (bloc) =>
+        bloc.add(const LiveUpdateSettingsChanged(LiveUpdateMode.realtime, 30)),
+    expect: () => [
+      seedState,
+      const SettingsState(
+        liveUpdateMode: LiveUpdateMode.realtime,
+        themeMode: AppThemeMode.dark,
+        liveInterval: 30,
+      ),
+    ],
+    verify: (_) {
+      verify(
+        () => repository.setLiveUpdateMode(LiveUpdateMode.realtime),
+      ).called(1);
+      verify(() => repository.setLiveInterval(30)).called(1);
+    },
   );
 
   group('SettingsRegionUpdated', () {
@@ -100,7 +127,7 @@ void main() {
         seedState,
         const SettingsState(
           liveUpdateMode: LiveUpdateMode.standard,
-          themeMode: ThemeMode.dark,
+          themeMode: AppThemeMode.dark,
           liveInterval: 5,
           connectionStatus: ConnectionError(NetworkFailure()),
         ),
@@ -124,13 +151,13 @@ void main() {
         seedState,
         const SettingsState(
           liveUpdateMode: LiveUpdateMode.standard,
-          themeMode: ThemeMode.dark,
+          themeMode: AppThemeMode.dark,
           liveInterval: 5,
           connectionStatus: ConnectionError(NetworkFailure()),
         ),
         const SettingsState(
           liveUpdateMode: LiveUpdateMode.standard,
-          themeMode: ThemeMode.dark,
+          themeMode: AppThemeMode.dark,
           liveInterval: 5,
           connectionStatus: ConnectionConnected(),
         ),

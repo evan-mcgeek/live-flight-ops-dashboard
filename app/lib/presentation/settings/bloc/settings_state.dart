@@ -35,13 +35,13 @@ class SettingsState extends Equatable {
   });
 
   final LiveUpdateMode liveUpdateMode;
-  final ThemeMode themeMode;
+  final AppThemeMode themeMode;
   final int liveInterval;
   final ConnectionStatus connectionStatus;
 
   SettingsState copyWith({
     LiveUpdateMode? liveUpdateMode,
-    ThemeMode? themeMode,
+    AppThemeMode? themeMode,
     int? liveInterval,
     ConnectionStatus? connectionStatus,
   }) {

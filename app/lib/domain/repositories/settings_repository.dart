@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart' show ThemeMode;
-
+import '../settings/app_theme_mode.dart';
 import '../settings/live_update_mode.dart';
 
 abstract interface class SettingsRepository {
@@ -10,12 +9,12 @@ abstract interface class SettingsRepository {
 
   Future<void> setLiveUpdateMode(LiveUpdateMode mode);
 
-  ThemeMode get currentThemeMode;
+  AppThemeMode get currentThemeMode;
 
   /// Emits the current theme immediately, then every subsequent change.
-  Stream<ThemeMode> watchThemeMode();
+  Stream<AppThemeMode> watchThemeMode();
 
-  Future<void> setThemeMode(ThemeMode mode);
+  Future<void> setThemeMode(AppThemeMode mode);
 
   int get currentLiveInterval;
 

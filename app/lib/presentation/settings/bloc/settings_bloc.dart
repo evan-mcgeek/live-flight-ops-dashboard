@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:equatable/equatable.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/failures/failure.dart';
 import '../../../domain/repositories/settings_repository.dart';
+import '../../../domain/settings/app_theme_mode.dart';
 import '../../../domain/settings/live_update_mode.dart';
 import '../../active_region/bloc/active_region_bloc.dart';
 
@@ -25,6 +25,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         ),
       ) {
     on<ThemeModeChanged>(_onThemeModeChanged);
+    on<LiveUpdateSettingsChanged>(_onLiveUpdateSettingsChanged);
     on<SettingsRegionUpdated>(
       (event, emit) => emit(
         state.copyWith(
@@ -55,6 +56,17 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   ) async {
     await _repository.setThemeMode(event.mode);
     emit(state.copyWith(themeMode: event.mode));
+  }
+
+  Future<void> _onLiveUpdateSettingsChanged(
+    LiveUpdateSettingsChanged event,
+    Emitter<SettingsState> emit,
+  ) async {
+    await _repository.setLiveUpdateMode(event.mode);
+    await _repository.setLiveInterval(event.interval);
+    emit(
+      state.copyWith(liveUpdateMode: event.mode, liveInterval: event.interval),
+    );
   }
 
   @override

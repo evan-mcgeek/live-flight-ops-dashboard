@@ -5,6 +5,7 @@ import '../../core/di/injection.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_strings.dart';
 import '../../core/theme/app_text_styles.dart';
+import '../../domain/settings/app_theme_mode.dart';
 import '../../domain/settings/live_update_mode.dart';
 import 'bloc/settings_bloc.dart';
 import 'widgets/connection_indicator.dart';
@@ -67,14 +68,14 @@ class _SettingsView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(AppStrings.theme),
-                      SegmentedButton<ThemeMode>(
+                      SegmentedButton<AppThemeMode>(
                         segments: const [
                           ButtonSegment(
-                            value: ThemeMode.dark,
+                            value: AppThemeMode.dark,
                             label: Text(AppStrings.themeDark),
                           ),
                           ButtonSegment(
-                            value: ThemeMode.light,
+                            value: AppThemeMode.light,
                             label: Text(AppStrings.themeLight),
                           ),
                         ],

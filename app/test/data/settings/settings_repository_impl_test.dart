@@ -1,6 +1,6 @@
 import 'package:flight_ops_app/data/settings/settings_repository_impl.dart';
+import 'package:flight_ops_app/domain/settings/app_theme_mode.dart';
 import 'package:flight_ops_app/domain/settings/live_update_mode.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -16,7 +16,7 @@ void main() {
         final repository = SettingsRepositoryImpl(prefs);
 
         expect(repository.currentLiveUpdateMode, LiveUpdateMode.standard);
-        expect(repository.currentThemeMode, ThemeMode.dark);
+        expect(repository.currentThemeMode, AppThemeMode.dark);
         expect(repository.currentLiveInterval, 5);
       },
     );
@@ -62,9 +62,9 @@ void main() {
         final prefs = await SharedPreferences.getInstance();
         final repository = SettingsRepositoryImpl(prefs);
 
-        await repository.setThemeMode(ThemeMode.light);
+        await repository.setThemeMode(AppThemeMode.light);
 
-        expect(repository.currentThemeMode, ThemeMode.light);
+        expect(repository.currentThemeMode, AppThemeMode.light);
       },
     );
 

@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../domain/repositories/settings_repository.dart';
+import '../../domain/settings/app_theme_mode.dart';
 import '../../domain/settings/live_update_mode.dart';
 
 @LazySingleton(as: SettingsRepository)
@@ -22,13 +22,13 @@ class SettingsRepositoryImpl implements SettingsRepository {
 
   final SharedPreferences _prefs;
   LiveUpdateMode _liveUpdateMode;
-  ThemeMode _themeMode;
+  AppThemeMode _themeMode;
   int _liveInterval;
 
   final StreamController<LiveUpdateMode> _liveUpdateModeChanges =
       StreamController<LiveUpdateMode>.broadcast();
-  final StreamController<ThemeMode> _themeModeChanges =
-      StreamController<ThemeMode>.broadcast();
+  final StreamController<AppThemeMode> _themeModeChanges =
+      StreamController<AppThemeMode>.broadcast();
 
   static LiveUpdateMode _readLiveUpdateMode(SharedPreferences prefs) {
     final stored = prefs.getString(_liveUpdateModeKey);
@@ -38,11 +38,11 @@ class SettingsRepositoryImpl implements SettingsRepository {
     );
   }
 
-  static ThemeMode _readThemeMode(SharedPreferences prefs) {
+  static AppThemeMode _readThemeMode(SharedPreferences prefs) {
     final stored = prefs.getString(_themeModeKey);
-    return ThemeMode.values.firstWhere(
+    return AppThemeMode.values.firstWhere(
       (mode) => mode.name == stored,
-      orElse: () => ThemeMode.dark,
+      orElse: () => AppThemeMode.dark,
     );
   }
 
@@ -63,16 +63,16 @@ class SettingsRepositoryImpl implements SettingsRepository {
   }
 
   @override
-  ThemeMode get currentThemeMode => _themeMode;
+  AppThemeMode get currentThemeMode => _themeMode;
 
   @override
-  Stream<ThemeMode> watchThemeMode() async* {
+  Stream<AppThemeMode> watchThemeMode() async* {
     yield _themeMode;
     yield* _themeModeChanges.stream;
   }
 
   @override
-  Future<void> setThemeMode(ThemeMode mode) async {
+  Future<void> setThemeMode(AppThemeMode mode) async {
     _themeMode = mode;
     await _prefs.setString(_themeModeKey, mode.name);
     _themeModeChanges.add(mode);
