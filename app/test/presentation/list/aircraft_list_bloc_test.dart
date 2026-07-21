@@ -119,15 +119,32 @@ void main() {
 
   blocTest<AircraftListBloc, AircraftListState>(
     'AircraftListSearchChanged filters visibleAircraft by callsign or country',
-    build: () => AircraftListBloc(activeRegionBloc),
-    seed: () => AircraftListLoaded(
-      allAircraft: [
-        _aircraft('a1', 'DLH1', 'Germany'),
-        _aircraft('a2', 'BAW1', 'United Kingdom'),
-      ],
-    ),
-    act: (bloc) => bloc.add(const AircraftListSearchChanged('dlh')),
+    build: () {
+      final snapshot = AircraftSnapshot(
+        aircraft: [
+          _aircraft('a1', 'DLH1', 'Germany'),
+          _aircraft('a2', 'BAW1', 'United Kingdom'),
+        ],
+        stale: false,
+      );
+      // whenListen (not seed:) — this bloc's constructor eagerly adds an event
+      // from activeRegionBloc.state, which would clobber a seed: state.
+      whenListen(
+        activeRegionBloc,
+        Stream.value(ActiveRegionLoaded(bbox: bbox, snapshot: snapshot)),
+      );
+      return AircraftListBloc(activeRegionBloc);
+    },
+    act: (bloc) async {
+      // Lets the whenListen stream's relayed event land before the search
+      // event, matching the real timing of a stream subscription vs a direct add().
+      await Future<void>.delayed(Duration.zero);
+      bloc.add(const AircraftListSearchChanged('dlh'));
+    },
     expect: () => [
+      const AircraftListInitial(),
+      isA<AircraftListLoaded>()
+          .having((s) => s.allAircraft, 'allAircraft', hasLength(2)),
       isA<AircraftListLoaded>().having((s) => s.query, 'query', 'dlh'),
     ],
     verify: (bloc) {
