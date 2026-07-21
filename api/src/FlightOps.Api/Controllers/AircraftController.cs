@@ -37,11 +37,6 @@ public sealed class AircraftController(
             return ValidationProblem(ModelState);
         }
 
-        if (TryReadValidLiveInterval(out var seconds))
-        {
-            liveIntervalSettings.Set(TimeSpan.FromSeconds(seconds));
-        }
-
         var bbox = new BoundingBox(request.LaMin, request.LoMin, request.LaMax, request.LoMax);
         var snapshot = await snapshotProvider.GetSnapshotAsync(bbox, cancellationToken);
         return Ok(snapshot);

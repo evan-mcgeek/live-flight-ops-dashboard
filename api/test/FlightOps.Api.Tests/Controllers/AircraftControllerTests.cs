@@ -176,7 +176,7 @@ public class AircraftControllerTests
     }
 
     [Test]
-    public async Task GetAircraft_with_valid_live_interval_header_still_returns_snapshot_and_sets_interval()
+    public async Task GetAircraft_ignores_the_live_interval_header_entirely()
     {
         var aircraft = new List<Aircraft>
         {
@@ -191,32 +191,6 @@ public class AircraftControllerTests
         )
         {
             Headers = { { "X-Live-Interval-Seconds", "30" } },
-        };
-
-        var response = await _client.SendAsync(request);
-        var snapshot = await response.Content.ReadFromJsonAsync<AircraftSnapshot>(JsonOptions);
-
-        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-        Assert.That(snapshot!.Aircraft, Has.Count.EqualTo(1));
-        _liveIntervalSettings.Received(1).Set(TimeSpan.FromSeconds(30));
-    }
-
-    [Test]
-    public async Task GetAircraft_with_invalid_live_interval_header_still_returns_snapshot_and_does_not_set_interval()
-    {
-        var aircraft = new List<Aircraft>
-        {
-            new("abc123", "TEST1", "Testland", 1, 2, 3, 4, 5, false, DateTimeOffset.UtcNow),
-        };
-        _snapshotProvider
-            .GetSnapshotAsync(Arg.Any<BoundingBox>(), Arg.Any<CancellationToken>())
-            .Returns(new AircraftSnapshot(aircraft, Stale: false));
-        var request = new HttpRequestMessage(
-            HttpMethod.Get,
-            "/aircraft?lamin=10&lomin=10&lamax=20&lomax=20"
-        )
-        {
-            Headers = { { "X-Live-Interval-Seconds", "not-a-number" } },
         };
 
         var response = await _client.SendAsync(request);

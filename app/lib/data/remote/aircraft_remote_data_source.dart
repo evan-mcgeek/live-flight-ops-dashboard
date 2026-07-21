@@ -20,10 +20,7 @@ class AircraftRemoteDataSource {
 
   final Dio _dio;
 
-  Future<AircraftSnapshot> fetchSnapshot(
-    BoundingBox bbox, {
-    required int liveIntervalSeconds,
-  }) async {
+  Future<AircraftSnapshot> fetchSnapshot(BoundingBox bbox) async {
     try {
       final response = await _dio.get<Map<String, dynamic>>(
         ApiConfig.aircraftPath,
@@ -33,9 +30,6 @@ class AircraftRemoteDataSource {
           ApiConfig.laMaxParam: bbox.laMax.toString(),
           ApiConfig.loMaxParam: bbox.loMax.toString(),
         },
-        options: Options(
-          headers: {_liveIntervalHeaderName: liveIntervalSeconds.toString()},
-        ),
       );
       return AircraftSnapshotDto.fromJson(response.data!).toDomain();
     } on DioException catch (e) {

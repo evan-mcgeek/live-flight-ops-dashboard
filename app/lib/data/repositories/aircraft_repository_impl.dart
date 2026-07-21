@@ -68,10 +68,7 @@ class AircraftRepositoryImpl implements AircraftRepository {
   ) async* {
     while (!isCancelled()) {
       try {
-        final snapshot = await _remote.fetchSnapshot(
-          bbox,
-          liveIntervalSeconds: _settings.currentLiveInterval,
-        );
+        final snapshot = await _remote.fetchSnapshot(bbox);
         if (isCancelled()) return;
         yield snapshot;
       } catch (e) {

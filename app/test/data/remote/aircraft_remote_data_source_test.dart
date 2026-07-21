@@ -53,28 +53,10 @@ void main() {
           },
         );
 
-        final snapshot = await dataSource.fetchSnapshot(
-          bbox,
-          liveIntervalSeconds: 5,
-        );
+        final snapshot = await dataSource.fetchSnapshot(bbox);
 
         expect(snapshot.aircraft, hasLength(1));
         expect(snapshot.stale, false);
-      },
-    );
-
-    test(
-      'fetchSnapshot attaches the live-interval header with the requested value',
-      () async {
-        adapter.respond(
-          path: '/aircraft',
-          statusCode: 200,
-          data: {'aircraft': <Map<String, dynamic>>[], 'stale': false},
-        );
-
-        await dataSource.fetchSnapshot(bbox, liveIntervalSeconds: 30);
-
-        expect(adapter.lastRequestHeaders?['X-Live-Interval-Seconds'], '30');
       },
     );
 
@@ -84,7 +66,7 @@ void main() {
         adapter.throwConnectionError(path: '/aircraft');
 
         expect(
-          () => dataSource.fetchSnapshot(bbox, liveIntervalSeconds: 5),
+          () => dataSource.fetchSnapshot(bbox),
           throwsA(
             isA<RepositoryException>().having(
               (e) => e.failure,
@@ -106,7 +88,7 @@ void main() {
         );
 
         expect(
-          () => dataSource.fetchSnapshot(bbox, liveIntervalSeconds: 5),
+          () => dataSource.fetchSnapshot(bbox),
           throwsA(
             isA<RepositoryException>().having(
               (e) => e.failure,

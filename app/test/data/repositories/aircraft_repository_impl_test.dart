@@ -6,8 +6,8 @@ import 'package:flight_ops_app/data/signalr/aircraft_signalr_data_source.dart';
 import 'package:flight_ops_app/domain/entities/aircraft_snapshot.dart';
 import 'package:flight_ops_app/domain/entities/bounding_box.dart';
 import 'package:flight_ops_app/domain/repositories/settings_repository.dart';
+import 'package:flight_ops_app/domain/settings/app_theme_mode.dart';
 import 'package:flight_ops_app/domain/settings/live_update_mode.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -37,13 +37,13 @@ class _FakeSettingsRepository implements SettingsRepository {
   }
 
   @override
-  ThemeMode get currentThemeMode => throw UnimplementedError();
+  AppThemeMode get currentThemeMode => throw UnimplementedError();
 
   @override
-  Stream<ThemeMode> watchThemeMode() => throw UnimplementedError();
+  Stream<AppThemeMode> watchThemeMode() => throw UnimplementedError();
 
   @override
-  Future<void> setThemeMode(ThemeMode mode) => throw UnimplementedError();
+  Future<void> setThemeMode(AppThemeMode mode) => throw UnimplementedError();
 
   int liveInterval = 5;
 
@@ -77,20 +77,14 @@ void main() {
 
   test('watchSnapshot polls the remote data source in standard mode', () async {
     when(
-      () => remote.fetchSnapshot(
-        bbox,
-        liveIntervalSeconds: any(named: 'liveIntervalSeconds'),
-      ),
+      () => remote.fetchSnapshot(bbox),
     ).thenAnswer((_) async => snapshotA);
 
     final first = await repository.watchSnapshot(bbox).first;
 
     expect(first, snapshotA);
     verify(
-      () => remote.fetchSnapshot(
-        bbox,
-        liveIntervalSeconds: any(named: 'liveIntervalSeconds'),
-      ),
+      () => remote.fetchSnapshot(bbox),
     ).called(1);
     verifyNever(() => signalR.watchSnapshot(bbox, any()));
   });
@@ -106,10 +100,7 @@ void main() {
     expect(first, snapshotB);
     verify(() => signalR.watchSnapshot(bbox, any())).called(1);
     verifyNever(
-      () => remote.fetchSnapshot(
-        bbox,
-        liveIntervalSeconds: any(named: 'liveIntervalSeconds'),
-      ),
+      () => remote.fetchSnapshot(bbox),
     );
   });
 
@@ -117,10 +108,7 @@ void main() {
     'watchSnapshot switches transport when the mode changes mid-subscription',
     () async {
       when(
-        () => remote.fetchSnapshot(
-          bbox,
-          liveIntervalSeconds: any(named: 'liveIntervalSeconds'),
-        ),
+        () => remote.fetchSnapshot(bbox),
       ).thenAnswer((_) async => snapshotA);
       when(
         () => signalR.watchSnapshot(bbox, any()),
@@ -145,10 +133,7 @@ void main() {
       settings.liveInterval = 0;
       var callCount = 0;
       when(
-        () => remote.fetchSnapshot(
-          bbox,
-          liveIntervalSeconds: any(named: 'liveIntervalSeconds'),
-        ),
+        () => remote.fetchSnapshot(bbox),
       ).thenAnswer((_) async {
         callCount++;
         if (callCount == 1) throw Exception('boom');
