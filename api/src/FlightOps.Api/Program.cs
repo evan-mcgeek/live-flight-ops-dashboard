@@ -47,9 +47,12 @@ static void AddOpenSkyServices(IServiceCollection services, IConfiguration confi
             {
                 var settings = sp.GetRequiredService<IOptions<OpenSkySettings>>().Value;
                 client.BaseAddress = new Uri(settings.ApiBaseUrl);
+                client.Timeout = TimeSpan.FromSeconds(10);
             }
         )
-        .AddHttpMessageHandler<OpenSkyTokenProvider>();
+        .AddHttpMessageHandler<OpenSkyTokenProvider>()
+        // Added last so a retry re-runs the whole pipeline, including auth.
+        .AddPolicyHandler(OpenSkyResiliencePolicy.RetryPolicy());
 
     services.AddSingleton<IAircraftSnapshotProvider, DirectSnapshotProvider>();
 }
