@@ -5,8 +5,18 @@ namespace FlightOps.Infrastructure.OpenSky;
 
 public static class OpenSkyStateMapper
 {
+    private const int RequiredFieldCount = 11;
+
     public static Aircraft Map(JsonElement stateVector)
     {
+        if (
+            stateVector.ValueKind != JsonValueKind.Array
+            || stateVector.GetArrayLength() < RequiredFieldCount
+        )
+        {
+            throw new OpenSkyMalformedResponseException();
+        }
+
         return new Aircraft(
             Icao24: stateVector[0].GetString()!,
             Callsign: stateVector[1].GetString()?.Trim(),

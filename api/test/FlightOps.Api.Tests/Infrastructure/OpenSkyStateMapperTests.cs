@@ -52,4 +52,28 @@ public class OpenSkyStateMapperTests
             Assert.That(aircraft.OnGround, Is.True);
         });
     }
+
+    [Test]
+    public void Throws_OpenSkyMalformedResponseException_when_state_vector_has_too_few_elements()
+    {
+        const string json = """
+            ["3c6444","DLH9LF  ","Germany",1700000000,1700000000,10.3768,60.0392,9639.3,false,232.88]
+            """;
+        using var document = JsonDocument.Parse(json);
+
+        Assert.Throws<OpenSkyMalformedResponseException>(
+            () => OpenSkyStateMapper.Map(document.RootElement)
+        );
+    }
+
+    [Test]
+    public void Throws_OpenSkyMalformedResponseException_when_state_vector_is_not_an_array()
+    {
+        const string json = "\"not-an-array\"";
+        using var document = JsonDocument.Parse(json);
+
+        Assert.Throws<OpenSkyMalformedResponseException>(
+            () => OpenSkyStateMapper.Map(document.RootElement)
+        );
+    }
 }

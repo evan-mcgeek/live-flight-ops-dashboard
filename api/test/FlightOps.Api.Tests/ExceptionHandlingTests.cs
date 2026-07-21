@@ -36,4 +36,27 @@ public class ExceptionHandlingTests
 
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.ServiceUnavailable));
     }
+
+    [Test]
+    public async Task Returns_502_when_snapshot_provider_throws_malformed_response()
+    {
+        var snapshotProvider = Substitute.For<IAircraftSnapshotProvider>();
+        snapshotProvider
+            .GetSnapshotAsync(Arg.Any<BoundingBox>(), Arg.Any<CancellationToken>())
+            .Returns<AircraftSnapshot>(_ => throw new OpenSkyMalformedResponseException());
+
+        await using var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
+        {
+            builder.ConfigureServices(services =>
+            {
+                services.RemoveAll<IAircraftSnapshotProvider>();
+                services.AddSingleton(snapshotProvider);
+            });
+        });
+        using var client = factory.CreateClient();
+
+        var response = await client.GetAsync("/aircraft?lamin=10&lomin=10&lamax=20&lomax=20");
+
+        Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.BadGateway));
+    }
 }
